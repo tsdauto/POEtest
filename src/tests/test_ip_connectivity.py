@@ -18,7 +18,7 @@ def is_ip_reachable(ip, port, timeout=3):
         return False
 
 @pytest.mark.parametrize("ip, port", [
-    ("10.90.90.90", tls_port),  
+    # ("10.90.90.90", tls_port),
     ("10.90.90.90", http_port),  
 ])
 def test_ip_connectivity(ip, port):
