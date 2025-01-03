@@ -15,6 +15,7 @@ class LoginPage(BasePage):
     USERNAME_INPUT = (By.ID, "Username")
     PASSWORD_INPUT = (By.ID, "Password")
     LOGIN_BUTTON = (By.ID, "Login")
+    USERINFO_SPAN = (By.CLASS_NAME, "userInfo")
 
     def __init__(self, driver, base_url):
         super().__init__(driver, base_url)
@@ -80,7 +81,27 @@ class LoginPage(BasePage):
 
     def is_login_successful(self):
         """Check if login was successful"""
+
+        # try:
+        #     time.sleep(.5)
+        #     user_info_el = self.wait.until(EC.visibility_of_element_located(self.USERINFO_SPAN))
+        #     print("\n\n userinfo element located", user_info_el.text)
+        #     user_info = user_info_el.text.lower()
+        #     print("\n\n", user_info)
+        #     if "logged in" in user_info:
+        #         return True
+        #     else:
+        #         return False
         try:
-            return True
-        except:
+            # wait until string "Logged in" show up on page
+            retries = 5
+            for _ in range(retries):
+                user_info_el = self.wait.until(EC.visibility_of_element_located(self.USERINFO_SPAN))
+                user_info_text = user_info_el.text.lower()
+                if "logged in" in user_info_text:
+                    return True
+                time.sleep(0.1)
             return False
+
+        except Exception as error:
+            raise Exception(error)

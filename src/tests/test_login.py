@@ -27,3 +27,8 @@ class TestLogin:
         result = login_page.login("admin", "password")
 
         assert result == True, "failed to login"
+
+    def test_login_check(self, login_page):
+        result = login_page.is_login_successful()
+
+        assert result == True, "failed to check login information"

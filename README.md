@@ -2,3 +2,7 @@
 
 # Model
 Page Object Model
+
+> pytest .\src
+> 
+> allure serve .\allure-result

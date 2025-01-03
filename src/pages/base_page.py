@@ -6,7 +6,7 @@ class BasePage:
     def __init__(self, driver, base_url):
         self.driver = driver
         self.base_url = base_url
-        self.wait = WebDriverWait(self.driver, 120)
+        self.wait = WebDriverWait(self.driver, 60)
 
     def take_screenshot(self, name):
         """Take screenshot for debugging"""

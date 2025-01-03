@@ -19,6 +19,7 @@ def config():
         "screenshot_dir": "screenshots"
     }
 
+
 @pytest.fixture(scope="class")
 def driver(config):
     """WebDriver fixture for browser automation"""
@@ -44,6 +45,7 @@ def driver(config):
     print("\n\n tearing down webdriver")
 
     driver.quit()
+
 
 @pytest.fixture(scope="function")
 def login_page(driver, config):
