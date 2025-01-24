@@ -164,3 +164,7 @@ cython_debug/
 # allure test resullt
 
 .allure-results/
+
+# selenium screenshots
+
+screenshots/
