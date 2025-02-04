@@ -1,4 +1,5 @@
 # pages/DeviceInformationPage.py
+
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -89,7 +90,69 @@ class DeviceInformationPage(BasePage):
         By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[1]/fieldset/table/tr[8]/td[1]/span")
     LOGIN_TIMEOUT_LOCATE = (
         By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[1]/fieldset/table/tr[8]/td[2]/span")
-
+    # stp
+    STP_TITLE_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[1]/td[1]/span"
+    )
+    STP_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[1]/td[2]/span"
+    )
+    # snmp status
+    SNMP_STATUS_TITLE_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[1]/td[3]/span"
+    )
+    SNMP_STATUS_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[1]/td[4]/span"
+    )
+    # port mirroring
+    PORT_MIRRORING_TITLE_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[2]/td[1]/span"
+    )
+    PORT_MIRRORING_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[2]/td[2]/span"
+    )
+    # 802.1x status
+    DOT1X_STATUS_TITLE_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[2]/td[3]/span"
+    )
+    DOT1X_STATUS_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[2]/td[4]/span"
+    )
+    # igmp snooping
+    IGMP_SNOOPING_TITLE_LOCATE  = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[3]/td[1]/span"
+    )
+    IGMP_SNOOPING_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[3]/td[2]/span"
+    )
+    # safeguard engine
+    SAFEGUARD_ENGINE_TITLE_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[3]/td[3]/span"
+    )
+    SAFEGUARD_ENGINE_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[3]/td[4]/span"
+    )
+    # dhcp client
+    DHCP_CLIENT_TITLE_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[4]/td[1]/span"
+    )
+    DHCP_CLIENT_LOCATE = (
+        By.XPATH,"/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[4]/td[2]/span"
+    )
+    # jumbo frame
+    JUMBO_FRAME_TITLE_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[4]/td[3]/span"
+    )
+    JUMBO_FRAME_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[4]/td[4]/span"
+    )
+    # power saving
+    POWER_SAVING_TITLE_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[5]/td[1]/span"
+    )
+    POWER_SAVING_LOCATE = (
+        By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/div[2]/fieldset/table/tr[5]/td[2]/span"
+    )
     def __init__(self, driver, base_url):
         super().__init__(driver, base_url)
         self.url = f"{base_url}"
@@ -161,3 +224,30 @@ class DeviceInformationPage(BasePage):
 
     def get_login_timeout(self):
         return self.get_title_and_value_from_locators(self.LOGIN_TIMEOUT_TITLE_LOCATE, self.LOGIN_TIMEOUT_LOCATE)
+
+    def get_stp(self):
+        return self.get_title_and_value_from_locators(self.STP_TITLE_LOCATE, self.STP_LOCATE)
+
+    def get_snmp_status(self):
+        return self.get_title_and_value_from_locators(self.SNMP_STATUS_TITLE_LOCATE, self.SNMP_STATUS_LOCATE)
+
+    def get_port_mirroring(self):
+        return self.get_title_and_value_from_locators(self.PORT_MIRRORING_TITLE_LOCATE, self.PORT_MIRRORING_LOCATE)
+
+    def get_dot1x_status(self):
+        return self.get_title_and_value_from_locators(self.DOT1X_STATUS_TITLE_LOCATE, self.DOT1X_STATUS_LOCATE)
+
+    def get_igmp_snooping(self):
+        return self.get_title_and_value_from_locators(self.IGMP_SNOOPING_TITLE_LOCATE, self.IGMP_SNOOPING_LOCATE)
+
+    def get_safeguard_engine(self):
+        return self.get_title_and_value_from_locators(self.SAFEGUARD_ENGINE_TITLE_LOCATE, self.SAFEGUARD_ENGINE_LOCATE)
+
+    def get_dhcp_client(self):
+        return self.get_title_and_value_from_locators(self.DHCP_CLIENT_TITLE_LOCATE, self.DHCP_CLIENT_LOCATE)
+
+    def get_jumbo_frame(self):
+        return self.get_title_and_value_from_locators(self.JUMBO_FRAME_TITLE_LOCATE, self.JUMBO_FRAME_LOCATE)
+
+    def get_power_saving(self):
+        return self.get_title_and_value_from_locators(self.POWER_SAVING_TITLE_LOCATE, self.POWER_SAVING_LOCATE)

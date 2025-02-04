@@ -126,4 +126,83 @@ class TestDeviceInformation(ValueCheckMixins):
         assert title_result, "login timeout title test failed"
         assert value_result, "login timeout value test failed"
 
+    # TODO: 123
+class TestDeviceStatusAndQuickConfigurations(ValueCheckMixins):
+
+    def test_check_stp(self, device_information_page, config):
+        title, value = device_information_page.get_stp()
+        title_result = self.check_title(config["device_information"]["stp"], title)
+        value_result = self.check_value(config["device_information"]["stp"], value)
+        assert title_result, "stp title test failed"
+        assert value_result, "stp value test failed"
+
+    def test_check_snmp_status(self, device_information_page, config):
+        title, value = device_information_page.get_snmp_status()
+        title_result = self.check_title(config["device_information"]["snmp_status"], title)
+        value_result = self.check_value(config["device_information"]["snmp_status"], value)
+        assert title_result, "snmp status title test failed"
+        assert value_result, "snmp status value test failed"
+
+    def test_check_port_mirroring(self, device_information_page, config):
+        title, value = device_information_page.get_port_mirroring()
+        title_result = self.check_title(config["device_information"]["port_mirroring"], title)
+        value_result = self.check_value(config["device_information"]["port_mirroring"], value)
+        assert title_result, "port mirroring title test failed"
+        assert value_result, "port mirroring value test failed"
+
+    def test_check_dot1x_status(self, device_information_page, config):
+        title, value = device_information_page.get_dot1x_status()
+        title_result = self.check_title(config["device_information"]["dot1x_status"], title)
+        value_result = self.check_value(config["device_information"]["dot1x_status"], value)
+        assert title_result, "dot1x status title test failed"
+        assert value_result, "dot1x status value test failed"
+
+    def test_check_igmp_snooping(self, device_information_page, config):
+        title, value = device_information_page.get_igmp_snooping()
+        title_result = self.check_title(config["device_information"]["igmp_snooping"], title)
+        value_result = self.check_value(config["device_information"]["igmp_snooping"], value)
+        assert title_result, "igmp snooping title test failed"
+        assert value_result, "igmp snooping value test failed"
+
+    def test_check_safeguard_engine(self, device_information_page, config):
+        title, value = device_information_page.get_safeguard_engine()
+        title_result = self.check_title(config["device_information"]["safeguard_engine"], title)
+        value_result = self.check_value(config["device_information"]["safeguard_engine"], value)
+        assert title_result, "safeguard engine title test failed"
+        assert value_result, "safeguard engine value test failed"
+
+    def test_check_safeguard_engine(self, device_information_page, config):
+        title, value = device_information_page.get_safeguard_engine()
+        title_result = self.check_title(config["device_information"]["safeguard_engine"], title)
+        value_result = self.check_value(config["device_information"]["safeguard_engine"], value)
+        assert title_result, "safeguard mode title test failed"
+        assert value_result, "safeguard mode value test failed"
+
+    def test_check_dhcp_client(self, device_information_page, config):
+        title, value = device_information_page.get_dhcp_client()
+        title_result = self.check_title(config["device_information"]["dhcp_client"], title)
+        value_result = self.check_value(config["device_information"]["dhcp_client"], value)
+        assert title_result, "dhcp client title test failed"
+        assert value_result, "dhcp client value test failed"
+
+    def test_check_jumbo_frame(self, device_information_page, config):
+        title, value = device_information_page.get_jumbo_frame()
+        title_result = self.check_title(config["device_information"]["jumbo_frame"], title)
+        value_result = self.check_value(config["device_information"]["jumbo_frame"], value)
+        assert title_result, "jumbo frame title test failed"
+        assert value_result, "jumbo frame value test failed"
+
+    def test_check_power_saving(self, device_information_page, config):
+        title, value = device_information_page.get_power_saving()
+        title_result = self.check_title(config["device_information"]["power_saving"], title)
+        value_result = self.check_value(config["device_information"]["power_saving"], value)
+        assert title_result, "power saving title test failed"
+        assert value_result, "power saving value test failed"
+
+
+
+
+
+
+
 

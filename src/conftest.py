@@ -96,6 +96,52 @@ def config():
                 "title": " Login Timeout  (minutes)",
                 "expected_value": os.getenv("LOGIN_TIMEOUT", "3")
             },
+            "stp": {
+                "type": "string",
+                "title": "STP",
+                "expected_value": "Disabled"
+            },
+            "snmp_status": {
+                "type": "string",
+                "title": "SNMP Status",
+                "expected_value": "Disabled"
+            },
+            "port_mirroring": {
+                "type": "string",
+                "title": "Port Mirroring",
+                "expected_value": "Disabled"
+            },
+            "dot1x_status": {
+                "type": "string",
+                "title": "802.1X Status",
+                "expected_value": "Disabled"
+            },
+            "igmp_snooping": {
+                "type": "string",
+                "title": "IGMP Snooping",
+                "expected_value": "Disabled"
+            },
+            "safeguard_engine": {
+                "type": "string",
+                "title": "Safeguard Engine",
+                "expected_value": " Enabled"
+            },
+            "dhcp_client": {
+                "type": "string",
+                "title": "DHCP Client",
+                "expected_value": "Disabled"
+            },
+            "jumbo_frame": {
+                "type": "string",
+                "title": "Jumbo Frame",
+                "expected_value": "Disabled"
+            },
+            "power_saving": {
+                "type": "string",
+                "title": "Power Saving",
+                "expected_value": "Disabled"
+            }
+
         },
         "username": "admin",
         "password": "admin",
