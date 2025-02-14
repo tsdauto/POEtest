@@ -126,7 +126,7 @@ class TestDeviceInformation(ValueCheckMixins):
         assert title_result, "login timeout title test failed"
         assert value_result, "login timeout value test failed"
 
-    # TODO: 123
+
 class TestDeviceStatusAndQuickConfigurations(ValueCheckMixins):
 
     def test_check_stp(self, device_information_page, config):
@@ -198,11 +198,3 @@ class TestDeviceStatusAndQuickConfigurations(ValueCheckMixins):
         value_result = self.check_value(config["device_information"]["power_saving"], value)
         assert title_result, "power saving title test failed"
         assert value_result, "power saving value test failed"
-
-
-
-
-
-
-
-

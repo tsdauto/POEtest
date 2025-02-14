@@ -221,3 +221,17 @@ def device_information_page(logged_driver, config):
     from pages.DeviceInformationPage import DeviceInformationPage
     yield DeviceInformationPage(logged_driver, config["base_url"])
     print("\n\n tearing down device info page")
+
+
+@pytest.fixture(scope="class")
+def system_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing system settings page")
+    from pages.SystemSettingsPage import SystemSettingsPage
+    yield SystemSettingsPage(logged_driver, config["base_url"])
+    print("\n\n tearing down system settings page")
