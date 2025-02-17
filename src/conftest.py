@@ -233,5 +233,7 @@ def system_settings_page(logged_driver, config):
     """
     print("\n\n initializing system settings page")
     from pages.SystemSettingsPage import SystemSettingsPage
-    yield SystemSettingsPage(logged_driver, config["base_url"])
+    __system_setting_page = SystemSettingsPage(logged_driver, config["base_url"])
+    __system_setting_page.collapse_system_menu_then_click_system_settings()
+    yield __system_setting_page
     print("\n\n tearing down system settings page")

@@ -8,20 +8,10 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 
 from utils.all_exist_in_order import all_exist_in_order
+from mixins.TestUtils import ValueCheckMixins
 
-
-@allure.title("DeviceInformation")
-class TestSystemSettings():
-    def test_collapse_system_settings(self, system_settings_page):
-        system_settings_page.collapse_system_menu()
-
-        assert True
-
-    def test_click_system_settings_menu(self, system_settings_page):
-        system_settings_page.click_system_settings_menu()
-
-        assert True
-
+@allure.title("System Settings.DeviceInformation")
+class TestIPInformation():
     def test_check_ip_config_mode_options(self, system_settings_page):
         option_one = system_settings_page.get_ip_config_option_one_text()
         option_two = system_settings_page.get_ip_config_option_two_text()
@@ -87,3 +77,30 @@ class TestSystemSettings():
     def test_check_if_dhcp_option_77_table_is_empty(self, system_settings_page):
 
         assert system_settings_page.check_if_dhcp_option_77_table_is_empty() == True
+
+@allure.title("System Settings.DeviceInformation")
+class TestSystemInformation():
+    def test_check_system_name(self, system_settings_page):
+        title, value = system_settings_page.get_system_name_title_and_value()
+
+        assert title == "System Name"
+        assert value == "DGS-1210-10XS/ME"
+
+    def test_check_system_location(self, system_settings_page):
+        title, value = system_settings_page.get_system_location_title_and_value()
+
+        assert title == "System Location"
+        assert value == ""
+
+    def test_check_system_contact(self, system_settings_page):
+        title, value = system_settings_page.get_system_contact_title_and_value()
+
+        assert title == "System Contact"
+        assert value == ""
+
+    def test_check_login_timeout(self, system_settings_page):
+        title, value = system_settings_page.get_login_timeout_title_and_value()
+
+        assert title == "Login Timeout (3-30 minutes)"
+        assert value == "3"
+

@@ -75,23 +75,23 @@ class SystemSettingsPage(BasePage):
     SUBNET_MASK_OCTET_FOUR_INPUT_LOCATOR = (
         By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/fieldset/table[1]/tr[6]/td[2]/div/span/input[4]"
     )
-    
+
     GATEWAY_TITLE_LOCATOR = (
         By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/fieldset/table[1]/tr[7]/td[1]/span"
     )
-    
+
     GATEWAY_OCTET_ONE_INPUT_LOCATOR = (
         By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/fieldset/table[1]/tr[7]/td[2]/div/span/input[1]"
     )
-    
+
     GATEWAY_OCTET_TWO_INPUT_LOCATOR = (
         By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/fieldset/table[1]/tr[7]/td[2]/div/span/input[2]"
     )
-    
+
     GATEWAY_OCTET_THREE_INPUT_LOCATOR = (
         By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/fieldset/table[1]/tr[7]/td[2]/div/span/input[3]"
     )
-    
+
     GATEWAY_OCTET_FOUR_INPUT_LOCATOR = (
         By.XPATH, "/html/body/div/div/div/section/div/div/div[2]/fieldset/table[1]/tr[7]/td[2]/div/span/input[4]"
     )
@@ -128,6 +128,25 @@ class SystemSettingsPage(BasePage):
         By.CLASS_NAME, "table"
     )
 
+    SYSTEM_NAME_TITLE_LOCATOR = (
+    By.XPATH, "/html/body/div/div/div/section/div/div/div[3]/fieldset/table/tr[1]/td[1]/span")
+
+    SYSTEM_NAME_INPUT_LOCATOR = (By.ID, "SystemName")
+
+    SYSTEM_LOCATION_TITLE_LOCATOR = (
+    By.XPATH, "/html/body/div/div/div/section/div/div/div[3]/fieldset/table/tr[2]/td[1]/span")
+
+    SYSTEM_LOCATION_INPUT_LOCATOR = (By.ID, "SystemLocation")
+
+    SYSTEM_CONTACT_TITLE_LOCATOR = (
+
+    By.XPATH, "/html/body/div/div/div/section/div/div/div[3]/fieldset/table/tr[3]/td[1]/span")
+    SYSTEM_CONTACT_INPUT_LOCATOR = (By.ID, "SystemContact")
+
+    LOGIN_TIMEOUT_TITLE_LOCATOR = (
+    By.XPATH, "/html/body/div/div/div/section/div/div/div[3]/fieldset/table/tr[4]/td[1]/span")
+
+    LOGIN_TIMEOUT_INPUT_LOCATOR = (By.ID, "LoginTimeout")
 
     def __init__(self, driver, base_url):
         """
@@ -139,10 +158,8 @@ class SystemSettingsPage(BasePage):
         self.url = base_url.rstrip("/")  # 確保 base_url 沒有多餘的斜杠
         self.next = False
 
-    def collapse_system_menu(self):
+    def collapse_system_menu_then_click_system_settings(self):
         self.click_element_by_js(self.SYSTEM_MENU_LOCATOR)
-
-    def click_system_settings_menu(self):
         self.click_element_by_js(self.SYSTEM_SETTINGS_MENU_LOCATOR)
 
     def get_ip_config_option_one_text(self):
@@ -229,14 +246,14 @@ class SystemSettingsPage(BasePage):
 
         return title, value
 
-    # D77
+    # Dhcp Option 77 table
     def get_dhcp_option_77_title_and_value(self):
         title = self.find_element_then_get_text(self.DHCP_OPTION_77_TITLE_LOCATOR)
         value = self.find_input_value(self.DHCP_OPTION_77_INPUT_LOCATOR)
 
         return title, value
 
-    # Dhcp option 77 table
+    # Dhcp Option 77 table
     def get_dhcp_option_77_table_title_columns(self):
         cells_class_name = "cell"
         return self.find_cells_value_within(self.DHCP_OPTION_77_TABLE_TITLE_LOCATOR, cells_class_name)
@@ -245,7 +262,26 @@ class SystemSettingsPage(BasePage):
         empty_message = "< < Table is empty > >"
         return self.text_is_existed_within(self.DHCP_OPTION_77_TABLE_LOCATOR, empty_message)
 
+    # System Name
+    def get_system_name_title_and_value(self):
+        title = self.find_element_then_get_text(self.SYSTEM_NAME_TITLE_LOCATOR)
+        value = self.find_input_value(self.SYSTEM_NAME_INPUT_LOCATOR)
+        return title, value
 
-# TODO
-class Test_System_Information():
-    pass
+    # System Location
+    def get_system_location_title_and_value(self):
+        title = self.find_element_then_get_text(self.SYSTEM_LOCATION_TITLE_LOCATOR)
+        value = self.find_input_value(self.SYSTEM_LOCATION_INPUT_LOCATOR)
+        return title, value
+
+    # System Contact
+    def get_system_contact_title_and_value(self):
+        title = self.find_element_then_get_text(self.SYSTEM_CONTACT_TITLE_LOCATOR)
+        value = self.find_input_value(self.SYSTEM_CONTACT_INPUT_LOCATOR)
+        return title, value
+
+    # Login Timeout
+    def get_login_timeout_title_and_value(self):
+        title = self.find_element_then_get_text(self.LOGIN_TIMEOUT_TITLE_LOCATOR)
+        value = self.find_input_value(self.LOGIN_TIMEOUT_INPUT_LOCATOR)
+        return title, value
