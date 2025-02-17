@@ -11,7 +11,7 @@ from pages.DeviceInformationPage import DeviceInformationPage
 from mixins.TestUtils import ValueCheckMixins
 
 
-@allure.title("DeviceInformation")
+@allure.title("Device Information.DeviceInformation")
 class TestDeviceInformation(ValueCheckMixins):
     def test_check_device_type_title(self, device_information_page, config):
         device_type_title, _ = device_information_page.get_device_type()
@@ -126,7 +126,8 @@ class TestDeviceInformation(ValueCheckMixins):
         assert title_result, "login timeout title test failed"
         assert value_result, "login timeout value test failed"
 
-    # TODO: 123
+
+@allure.title("Device Information.Device Status and Quick Configurations")
 class TestDeviceStatusAndQuickConfigurations(ValueCheckMixins):
 
     def test_check_stp(self, device_information_page, config):
@@ -198,11 +199,3 @@ class TestDeviceStatusAndQuickConfigurations(ValueCheckMixins):
         value_result = self.check_value(config["device_information"]["power_saving"], value)
         assert title_result, "power saving title test failed"
         assert value_result, "power saving value test failed"
-
-
-
-
-
-
-
-
