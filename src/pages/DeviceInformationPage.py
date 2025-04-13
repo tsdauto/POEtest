@@ -5,7 +5,6 @@ from selenium.webdriver.common.by import By
 from .BasePage import BasePage
 
 
-from .LoginPage import LoginPage
 from utils.generate_screenshot_name import generate_screenshot_name
 
 

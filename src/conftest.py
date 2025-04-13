@@ -237,3 +237,17 @@ def system_settings_page(logged_driver, config):
     __system_setting_page.collapse_system_menu_then_click_system_settings()
     yield __system_setting_page
     print("\n\n tearing down system settings page")
+    
+@pytest.fixture(scope="class")
+def firmware_information_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing firmware information page")
+    from pages.FirmwareInformationPage import FirmwareInformationPage
+    __firmware_information_page = FirmwareInformationPage(logged_driver, config["base_url"])
+    yield __firmware_information_page
+    print("\n\n tearing down firmware information page")
