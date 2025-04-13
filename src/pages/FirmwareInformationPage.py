@@ -26,6 +26,8 @@ class FirmwareInformationPage(BasePage):
 
         self.find_element_if_present(SYSTEM_MENU_LOCATOR).click()
         self.find_element_if_present(FIRMWARE_INFORMATION_MENU_LOCATOR).click()
+        
+        return True
 
     def get_firmware_information_table_title(self):
         FIRMWARE_INFORMATION_TABLE_LOCATOR = (By.CLASS_NAME, "has-gutter")

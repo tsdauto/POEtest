@@ -11,7 +11,7 @@ from mixins.TestUtils import ValueCheckMixins
 
 
 @allure.title("Firmware Information")
-class TestIPInformation():
+class TestFirmwareInformation():
     def test_collapse_system_menu_then_click_system_settings(self, firmware_information_page):
         res = firmware_information_page.init()
         assert res, "error while init firmware information"

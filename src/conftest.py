@@ -146,7 +146,8 @@ def config():
         "username": "admin",
         "password": "admin",
 
-    }
+}
+    
 
 
 @pytest.fixture(scope="session")

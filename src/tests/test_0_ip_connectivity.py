@@ -3,10 +3,11 @@ import pytest
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+load_dotenv('Settings.env')
 
 http_port = os.getenv("HTTP_PORT")
 tls_port = os.getenv("TLS_PORT")
+switch_ip_address = os.getenv("SWITCH_IP_ADDRESS")
 
 
 def is_ip_reachable(ip, port, timeout=3):
@@ -18,8 +19,8 @@ def is_ip_reachable(ip, port, timeout=3):
         return False
 
 @pytest.mark.parametrize("ip, port", [
-    # ("10.90.90.90", tls_port),
-    ("10.90.90.90", http_port),  
+    # (switch_ip_address, tls_port),
+    (switch_ip_address, http_port),  
 ])
 def test_ip_connectivity(ip, port):
     assert is_ip_reachable(ip, port), f"無法連接到 {ip}:{port}"
