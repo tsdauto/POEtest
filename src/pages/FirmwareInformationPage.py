@@ -33,3 +33,7 @@ class FirmwareInformationPage(BasePage):
         FIRMWARE_INFORMATION_TABLE_LOCATOR = (By.CLASS_NAME, "has-gutter")
         cells_class_name = "cell"
         return self.find_cells_value_within(FIRMWARE_INFORMATION_TABLE_LOCATOR, cells_class_name)
+    
+    def get_selected_input_label_text(self):
+        GET_SELECTED_INPUT_LABEL_TEXT_LOCATOR = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div.sx-section > fieldset > table:nth-child(3) > tr:nth-child(1) > td > span")
+        return self.find_element_then_get_text(GET_SELECTED_INPUT_LABEL_TEXT_LOCATOR)
