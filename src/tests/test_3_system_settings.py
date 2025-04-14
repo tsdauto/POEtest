@@ -5,10 +5,8 @@ import allure
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-
-from utils.all_exist_in_order import all_exist_in_order
-from mixins.TestUtils import ValueCheckMixins
+from ..utils.all_exist_in_order import all_exist_in_order
+from ..mixins.TestUtils import ValueCheckMixins
 
 @allure.title("System Settings.DeviceInformation")
 class TestIPInformation():

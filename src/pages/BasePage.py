@@ -168,6 +168,11 @@ class BasePage:
         return inputs[0] if inputs else None
 
     def find_selected_value_within(self, locator):
+        """
+        get selected value within specified select box
+        :param locator:
+        :return:
+        """
         element = self.find_element_if_present(locator)
         select_box = Select(element)
         selected_option = select_box.first_selected_option

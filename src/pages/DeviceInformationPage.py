@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from .BasePage import BasePage
 
 
-from utils.generate_screenshot_name import generate_screenshot_name
+from ..utils.generate_screenshot_name import generate_screenshot_name
 
 
 # Page Object Model

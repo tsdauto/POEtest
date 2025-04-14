@@ -1,8 +1,9 @@
 # conftest.py
 import sys
+from dotenv import load_dotenv
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+load_dotenv('Settings.env')
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -143,9 +144,8 @@ def config():
             }
 
         },
-        "username": "admin",
-        "password": "admin",
-
+        "username": "admin", # login username
+        "password": "admin", # login password
 }
     
 
@@ -184,7 +184,7 @@ def login_page(driver, config):
     """Login page fixture"""
     print("\n\n initializing login page")
 
-    from pages.LoginPage import LoginPage
+    from .pages.LoginPage import LoginPage
 
     yield LoginPage(driver, config["base_url"])
 
@@ -201,7 +201,7 @@ def logged_driver(driver, config):
     :return:driver
     """
     print("\n\n initializing logged driver")
-    from pages.LoginPage import LoginPage
+    from .pages.LoginPage import LoginPage
     login_driver = LoginPage(driver, config["base_url"])
     login_driver.do_login(config["username"], config["password"])
     yield driver
@@ -219,7 +219,7 @@ def device_information_page(logged_driver, config):
     :return:
     """
     print("\n\n initializing device info page")
-    from pages.DeviceInformationPage import DeviceInformationPage
+    from .pages.DeviceInformationPage import DeviceInformationPage
     yield DeviceInformationPage(logged_driver, config["base_url"])
     print("\n\n tearing down device info page")
 
@@ -233,7 +233,7 @@ def system_settings_page(logged_driver, config):
     :return:
     """
     print("\n\n initializing system settings page")
-    from pages.SystemSettingsPage import SystemSettingsPage
+    from .pages.SystemSettingsPage import SystemSettingsPage
     __system_setting_page = SystemSettingsPage(logged_driver, config["base_url"])
     __system_setting_page.collapse_system_menu_then_click_system_settings()
     yield __system_setting_page
@@ -248,7 +248,7 @@ def firmware_information_page(logged_driver, config):
     :return:
     """
     print("\n\n initializing firmware information page")
-    from pages.FirmwareInformationPage import FirmwareInformationPage
+    from .pages.FirmwareInformationPage import FirmwareInformationPage
     __firmware_information_page = FirmwareInformationPage(logged_driver, config["base_url"])
     yield __firmware_information_page
     print("\n\n tearing down firmware information page")

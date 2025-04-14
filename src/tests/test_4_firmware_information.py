@@ -4,10 +4,8 @@ import allure
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-
-from utils.all_exist_in_order import all_exist_in_order
-from mixins.TestUtils import ValueCheckMixins
+from ..utils.all_exist_in_order import all_exist_in_order
+from ..mixins.TestUtils import ValueCheckMixins
 
 
 @allure.title("Firmware Information")
@@ -27,3 +25,9 @@ class TestFirmwareInformation():
         expected_text = 'Please select the boot up image and config of device.'
         
         assert expected_text == select_prompt_text
+
+    def test_check_config_default_option(self, firmware_information_page):
+        option = firmware_information_page.get_config_default_option()
+
+        expected_text = 'config_id' + ' ' + os.getenv("BOOT_UP_CONFIG_ID")
+        assert expected_text == option

@@ -4,7 +4,7 @@ import time
 from selenium.webdriver.common.by import By
 from .BasePage import BasePage
 
-from utils.generate_screenshot_name import generate_screenshot_name
+from ..utils.generate_screenshot_name import generate_screenshot_name
 
 
 class FirmwareInformationPage(BasePage):
@@ -35,5 +35,9 @@ class FirmwareInformationPage(BasePage):
         return self.find_cells_value_within(FIRMWARE_INFORMATION_TABLE_LOCATOR, cells_class_name)
     
     def get_selected_input_label_text(self):
-        GET_SELECTED_INPUT_LABEL_TEXT_LOCATOR = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div.sx-section > fieldset > table:nth-child(3) > tr:nth-child(1) > td > span")
-        return self.find_element_then_get_text(GET_SELECTED_INPUT_LABEL_TEXT_LOCATOR)
+        SELECTED_INPUT_LABEL_TEXT_LOCATOR = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div.sx-section > fieldset > table:nth-child(3) > tr:nth-child(1) > td > span")
+        return self.find_element_then_get_text(SELECTED_INPUT_LABEL_TEXT_LOCATOR)
+
+    def get_config_default_option(self):
+        CONFIG_DEFAULT_OPTION_LOCATOR = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div.sx-section > fieldset > table:nth-child(3) > tr:nth-child(2) > td > select")
+        return self.find_selected_value_within(CONFIG_DEFAULT_OPTION_LOCATOR)
