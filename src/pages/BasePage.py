@@ -166,6 +166,7 @@ class BasePage:
         inputs = parent_element.find_elements(By.CSS_SELECTOR, "input:checked")
         return inputs[0] if inputs else None
 
+    # select box
     def find_selected_value_within(self, locator):
         """
         Get selected value within specified select box
@@ -178,6 +179,32 @@ class BasePage:
         text = selected_option.text
         return text
 
+    def find_selected_input_label_text(self, selected_input):
+        """
+        Get the label text associated with the selected input
+        :param selected_input: The selected input element
+        :return: Label text or None
+        """
+        try:
+            label = self.driver.find_element(By.CSS_SELECTOR, f'label[for="{selected_input.get_attribute("id")}"]')
+            return label.text.strip() if label else None
+        except Exception as e:
+            print(f"Error getting label text: {e}")
+            return None
+        
+    def find_selected_value(self, locator: tuple[str, str]) -> str:
+        """
+        根據傳入的 locator 取得 select 元素中被選取的 value。
+        
+        :param driver: Selenium 的 WebDriver 實例
+        :param locator: 例如 ("id", "mySelect") 或 ("xpath", "//select[@name='abc']")
+        :return: 被選取的 option 的 value
+        """
+        select_element = self.driver.find_element(*locator)
+        select = Select(select_element)
+        return select.first_selected_option.get_attribute("value")
+
+    # table
     def find_cells_value_within(self, locator, cells_cls_name, timeout=10):
         """
         Find all child elements matching `cells_cls_name` within the specified parent element and return their text content
@@ -200,18 +227,7 @@ class BasePage:
             print(f"Error for element {locator} to find cells: {e}")
             return []
 
-    def find_selected_input_label_text(self, selected_input):
-        """
-        Get the label text associated with the selected input
-        :param selected_input: The selected input element
-        :return: Label text or None
-        """
-        try:
-            label = self.driver.find_element(By.CSS_SELECTOR, f'label[for="{selected_input.get_attribute("id")}"]')
-            return label.text.strip() if label else None
-        except Exception as e:
-            print(f"Error getting label text: {e}")
-            return None
+    
 
     def wait_for_element_to_disappear(self, locator):
         """

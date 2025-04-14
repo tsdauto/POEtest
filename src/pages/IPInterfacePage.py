@@ -91,13 +91,17 @@ class IPInterfacePage(BasePage):
         title_locator = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div:nth-child(2) > fieldset > table > tr:nth-child(5) > td > span")
         value_locator = (By.CSS_SELECTOR, "#Netmask")
         title = self.find_element_then_get_text(title_locator)
-        value = self.find_selected_input_label_text(value_locator)
+        value = self.find_selected_value_within(value_locator)
 
         return title, value
 
     def get_interface_admin_state(self):
         title_locator = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div:nth-child(2) > fieldset > table > tr:nth-child(6) > td > span")
         value_locator = (By.CSS_SELECTOR, "#InterfaceAdminState")
-        title = self.find_selected_input_label_text(title_locator)
-        value = self.find_element_then_get_text(value_locator)
+        title = self.find_element_then_get_text(title_locator)
+        value = self.find_selected_value_within(value_locator)
         return title, value
+    
+    def get_maximum_entries(self):
+        txt_locator = (By.CSS_SELECTOR, "#table2HeaderInfo")
+        return self.find_element_then_get_text(txt_locator)

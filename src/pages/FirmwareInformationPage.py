@@ -72,6 +72,7 @@ class FirmwareInformationPage(BasePage):
         desc = super().find_element_then_get_text(DESC_LOCATOR)
 
         return title, desc
+    
     def get_row_2_title_and_desc(self):
         TITLE_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(3) > td:nth-child(1)")
         DESC_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(3) > td:nth-child(2)")
@@ -79,6 +80,7 @@ class FirmwareInformationPage(BasePage):
         desc = super().find_element_then_get_text(DESC_LOCATOR)
 
         return title, desc
+    
     def get_row_3_title_and_desc(self):
         TITLE_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(4) > td:nth-child(1)")
         DESC_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(4) > td:nth-child(2)")
@@ -86,6 +88,7 @@ class FirmwareInformationPage(BasePage):
         desc = super().find_element_then_get_text(DESC_LOCATOR)
 
         return title, desc
+    
     def get_row_4_title_and_desc(self):
         TITLE_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(5) > td:nth-child(1)")
         DESC_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(5) > td:nth-child(2)")
@@ -93,6 +96,7 @@ class FirmwareInformationPage(BasePage):
         desc = super().find_element_then_get_text(DESC_LOCATOR)
 
         return title, desc
+    
     def get_row_5_title_and_desc(self):
         TITLE_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(6) > td:nth-child(1)")
         DESC_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(6) > td:nth-child(2)")
@@ -100,6 +104,7 @@ class FirmwareInformationPage(BasePage):
         desc = super().find_element_then_get_text(DESC_LOCATOR)
 
         return title, desc
+    
     def get_row_6_title_and_desc(self):
         TITLE_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(7) > td:nth-child(1)")
         DESC_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(7) > td:nth-child(2)")
@@ -107,6 +112,7 @@ class FirmwareInformationPage(BasePage):
         desc = super().find_element_then_get_text(DESC_LOCATOR)
 
         return title, desc
+    
     def get_row_7_title_and_desc(self):
         TITLE_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(8) > td:nth-child(1)")
         DESC_LOCATOR = (By.CSS_SELECTOR, "table.sx-form:nth-child(4) > tr:nth-child(8) > td:nth-child(2)")

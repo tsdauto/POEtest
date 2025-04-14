@@ -8,7 +8,7 @@ from ..utils.generate_screenshot_name import generate_screenshot_name
 class SerialPortSettingsPage(BasePage):
     def __init__(self, driver, base_url):
         """
-        初始化 IPInterfacePage
+        初始化 SerialPortSettingsPage
         :param driver: WebDriver 實例
         :param base_url: 基本網址
         """

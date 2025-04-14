@@ -253,7 +253,6 @@ class SystemSettingsPage(BasePage):
 
         return title, value
 
-    # Dhcp Option 77 table
     def get_dhcp_option_77_table_title_columns(self):
         cells_class_name = "cell"
         return self.find_cells_value_within(self.DHCP_OPTION_77_TABLE_TITLE_LOCATOR, cells_class_name)

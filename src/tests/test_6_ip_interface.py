@@ -66,7 +66,7 @@ class TestIPInterfaceUI:
     def test_check_netmask(self, ip_interface_page):
         title, value = ip_interface_page.get_netmask()
         expected_title = "Netmask"
-        expected_value = "24(255.255.255.0)"
+        expected_value = "24 (255.255.255.0)"
         assert title == expected_title
         assert value == expected_value
 
@@ -76,6 +76,11 @@ class TestIPInterfaceUI:
         expected_value = "Enabled"
         assert title == expected_title
         assert value == expected_value
+        
+    def test_check_maximum_entries_text(self, ip_interface_page):
+        result = ip_interface_page.get_maximum_entries()
+        expected_value = "Maximum 4 entries."
+        assert result == expected_value
 
 
 
