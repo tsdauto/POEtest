@@ -9,9 +9,9 @@ import os
 class BasePage:
     def __init__(self, driver, base_url):
         """
-        初始化 BasePage
-        :param driver: WebDriver 實例
-        :param base_url: 基本網址
+        Initialize BasePage
+        :param driver: WebDriver instance
+        :param base_url: Base URL
         """
         self.driver = driver
         self.base_url = base_url
@@ -19,8 +19,8 @@ class BasePage:
 
     def take_screenshot(self, name):
         """
-        截圖，存放於 screenshots 資料夾
-        :param name: 截圖檔案名稱
+        Take a screenshot and save it to the screenshots folder
+        :param name: Screenshot file name
         """
         os.makedirs("screenshots", exist_ok=True)
         screenshot_path = os.path.join("screenshots", f"{name}.png")
@@ -29,9 +29,9 @@ class BasePage:
 
     def find_element_if_present(self, locator):
         """
-        找到元素並確保其存在
-        :param locator: 元素定位器 (By, value)
-        :return: 定位到的元素或 None
+        Find an element and ensure it exists
+        :param locator: Element locator (By, value)
+        :return: Located element or None
         """
         try:
             return self.wait.until(EC.presence_of_element_located(locator))
@@ -41,23 +41,22 @@ class BasePage:
 
     def click_element_by_js(self, locator):
         """
-        找到元素並獲取其文本
-        :param locator: 元素定位器 (By, value)
-        :return: 元素的文本或 None
+        Click an element using JavaScript
+        :param locator: Element locator (By, value)
+        :return: None
         """
         try:
             element = self.find_element_if_present(locator)
             self.driver.execute_script("arguments[0].click();", element)
-
         except Exception as e:
             print(f"Error clicking element with js {locator}: {e}")
             return None
 
     def find_element_if_visible(self, locator):
         """
-        找到元素並確保其可見
-        :param locator: 元素定位器 (By, value)
-        :return: 定位到的元素或 None
+        Find an element and ensure it is visible
+        :param locator: Element locator (By, value)
+        :return: Located element or None
         """
         try:
             return self.wait.until(EC.visibility_of_element_located(locator))
@@ -67,9 +66,9 @@ class BasePage:
 
     def find_element_then_get_text(self, locator):
         """
-        找到元素並獲取其文本
-        :param locator: 元素定位器 (By, value)
-        :return: 元素的文本或 None
+        Find an element and get its text
+        :param locator: Element locator (By, value)
+        :return: Element text or None
         """
         try:
             element = self.find_element_if_visible(locator)
@@ -78,13 +77,12 @@ class BasePage:
             print(f"Error getting text from element {locator}: {e}")
             return None
 
-
     def find_element_by_text(self, parent, text):
         """
-        Helper method to find an element containing the specified text within the parent element.
-        :param parent: The parent element to search within.
-        :param text: The text to search for.
-        :return: The found element or None.
+        Helper method to find an element containing the specified text within the parent element
+        :param parent: The parent element to search within
+        :param text: The text to search for
+        :return: The found element or None
         """
         try:
             return parent.find_element(By.XPATH, f".//*[contains(text(), '{text}')]")
@@ -93,10 +91,10 @@ class BasePage:
 
     def find_element_by_text_within(self, parent_locator, text):
         """
-        Find element in specified section.
-        :param parent_locator: Locator for the parent element.
-        :param text: The text to search for within the parent element.
-        :return: The found element or None.
+        Find element in specified section
+        :param parent_locator: Locator for the parent element
+        :param text: The text to search for within the parent element
+        :return: The found element or None
         """
         try:
             parent = self.driver.find_element(*parent_locator)
@@ -106,10 +104,10 @@ class BasePage:
 
     def text_is_existed_within(self, parent_locator, text):
         """
-        Check if text exists in specified section.
-        :param parent_locator: Locator for the parent element.
-        :param text: The text to search for within the parent element.
-        :return: True if the text is found, False otherwise.
+        Check if text exists in specified section
+        :param parent_locator: Locator for the parent element
+        :param text: The text to search for within the parent element
+        :return: True if the text is found, False otherwise
         """
         try:
             parent = self.driver.find_element(*parent_locator)
@@ -120,8 +118,8 @@ class BasePage:
 
     def click_element(self, locator):
         """
-        點擊元素
-        :param locator: 元素定位器 (By, value)
+        Click an element
+        :param locator: Element locator (By, value)
         """
         try:
             self.wait.until(EC.presence_of_element_located(locator))
@@ -133,9 +131,9 @@ class BasePage:
 
     def input_text(self, locator, text):
         """
-        在元素中輸入文本
-        :param locator: 元素定位器 (By, value)
-        :param text: 要輸入的文本
+        Input text into an element
+        :param locator: Element locator (By, value)
+        :param text: Text to input
         """
         try:
             element = self.find_element_if_visible(locator)
@@ -148,9 +146,9 @@ class BasePage:
 
     def find_input_value(self, locator):
         """
-        查找元素并获取 value 值
-        :param locator: 元素定位器
-        :return: 输入框的值 (str) 或 None
+        Get input element's value
+        :param locator: Element locator
+        :return: String or None
         """
         try:
             element = self.find_element_if_visible(locator)
@@ -159,19 +157,20 @@ class BasePage:
             # logging.warning(f"Element {locator} not found or not visible.")
         except Exception as e:
             # logging.error(f"Error getting value from element {locator}: {e}", exc_info=True)
-
             return None
 
     def find_checked_radio_within(self, parent_element):
-        # Retrieve the one and only selected input inside the target div
+        """
+        Retrieve the one and only selected input inside the target div
+        """
         inputs = parent_element.find_elements(By.CSS_SELECTOR, "input:checked")
         return inputs[0] if inputs else None
 
     def find_selected_value_within(self, locator):
         """
-        get selected value within specified select box
-        :param locator:
-        :return:
+        Get selected value within specified select box
+        :param locator: Element locator
+        :return: Selected option text
         """
         element = self.find_element_if_present(locator)
         select_box = Select(element)
@@ -181,39 +180,44 @@ class BasePage:
 
     def find_cells_value_within(self, locator, cells_cls_name, timeout=10):
         """
-        在指定的父元素內查找所有符合 `cells_cls_name` 的子元素，並返回其文本內容。
-
-        :param locator: 父元素的定位器 (By, 值)
-        :param cells_cls_name: 目標單元格的 class 名稱
-        :param timeout: 等待元素出現的時間（秒）
-        :return: list，包含所有符合條件的 cell 文字內容
+        Find all child elements matching `cells_cls_name` within the specified parent element and return their text content
+        :param locator: Parent element locator (By, value)
+        :param cells_cls_name: Class name of target cells
+        :param timeout: Time to wait for elements to appear (seconds)
+        :return: List of text content from matching cells
         """
         try:
-            # 等待父元素出現
+            # Wait for the parent element to appear
             parent_element = WebDriverWait(self.driver, timeout).until(
                 EC.presence_of_element_located(locator)
             )
 
-            # 查找所有子元素
+            # Find all child elements
             cells = parent_element.find_elements(By.CLASS_NAME, cells_cls_name)
-            # 過濾出可見的 cell，並提取 text
+            # Filter visible cells and extract their text
             return [cell.text for cell in cells if cell.is_displayed()]
-
         except Exception as e:
             print(f"Error for element {locator} to find cells: {e}")
-            return []  # 返回空列表以保持一致性
-
+            return []
 
     def get_selected_input_label_text(self, selected_input):
-
-        label = self.driver.find_element(By.CSS_SELECTOR, f'label[for="{selected_input.get_attribute("id")}"]')
-        return label.text.strip() if label else None
+        """
+        Get the label text associated with the selected input
+        :param selected_input: The selected input element
+        :return: Label text or None
+        """
+        try:
+            label = self.driver.find_element(By.CSS_SELECTOR, f'label[for="{selected_input.get_attribute("id")}"]')
+            return label.text.strip() if label else None
+        except Exception as e:
+            print(f"Error getting label text: {e}")
+            return None
 
     def wait_for_element_to_disappear(self, locator):
         """
-        等待元素消失【
-        :param locator: 元素定位器 (By, value)
-        :return: 成功返回 True，否則返回 False
+        Wait for an element to disappear
+        :param locator: Element locator (By, value)
+        :return: True if successful, False otherwise
         """
         try:
             return self.wait.until(EC.invisibility_of_element_located(locator))
@@ -223,8 +227,8 @@ class BasePage:
 
     def navigate_to(self, path=""):
         """
-        導航至指定的 URL
-        :param path: URL 的相對路徑
+        Navigate to the specified URL
+        :param path: Relative path of the URL
         """
         try:
             full_url = f"{self.base_url.rstrip('/')}/{path.lstrip('/')}"
