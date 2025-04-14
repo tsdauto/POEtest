@@ -1,6 +1,6 @@
 # pages/FirmwareInformationPage.py
 import time
-
+import os
 from selenium.webdriver.common.by import By
 from .BasePage import BasePage
 
@@ -32,11 +32,21 @@ class FirmwareInformationPage(BasePage):
     def get_firmware_information_table_title(self):
         FIRMWARE_INFORMATION_TABLE_LOCATOR = (By.CLASS_NAME, "has-gutter")
         cells_class_name = "cell"
+
         return self.find_cells_value_within(FIRMWARE_INFORMATION_TABLE_LOCATOR, cells_class_name)
     
-    def get_selected_input_label_text(self):
-        SELECTED_INPUT_LABEL_TEXT_LOCATOR = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div.sx-section > fieldset > table:nth-child(3) > tr:nth-child(1) > td > span")
-        return self.find_element_then_get_text(SELECTED_INPUT_LABEL_TEXT_LOCATOR)
+    def find_selected_input_text(self):
+        selected_input_label_text_locator = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div.sx-section > fieldset > table:nth-child(3) > tr:nth-child(1) > td > span")
+
+        return self.find_element_then_get_text(selected_input_label_text_locator)
+
+    def get_firmware_version_exists(self)->bool:
+        from dotenv import load_dotenv
+        load_dotenv("Settings.env")
+        firmware_version = os.getenv('FIRMWARE_VERSION')
+        table_locator = (By.CSS_SELECTOR, ".el-table")
+
+        return self.text_is_existed_within(table_locator, firmware_version)
 
     def get_config_default_option(self):
         CONFIG_DEFAULT_OPTION_LOCATOR = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div.sx-section > fieldset > table:nth-child(3) > tr:nth-child(2) > td > select")

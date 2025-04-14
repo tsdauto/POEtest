@@ -200,7 +200,7 @@ class BasePage:
             print(f"Error for element {locator} to find cells: {e}")
             return []
 
-    def get_selected_input_label_text(self, selected_input):
+    def find_selected_input_label_text(self, selected_input):
         """
         Get the label text associated with the selected input
         :param selected_input: The selected input element

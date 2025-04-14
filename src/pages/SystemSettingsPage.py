@@ -171,7 +171,7 @@ class SystemSettingsPage(BasePage):
     def get_selected_ip_config_mode(self):
         target_div = self.find_element_if_present(self.IP_CONFIG_PARENT_DIV_LOCATOR)
         selected_input = self.find_checked_radio_within(target_div)
-        text = self.get_selected_input_label_text(selected_input)
+        text = self.find_selected_input_label_text(selected_input)
         return text
 
     def get_interface_name_title_and_value(self):
