@@ -4,11 +4,8 @@ import os
 import allure
 import pytest
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-
-from pages.DeviceInformationPage import DeviceInformationPage
-
-from mixins.TestUtils import ValueCheckMixins
+from ..pages.DeviceInformationPage import DeviceInformationPage
+from ..mixins.TestUtils import ValueCheckMixins
 
 
 @allure.title("Device Information.DeviceInformation")

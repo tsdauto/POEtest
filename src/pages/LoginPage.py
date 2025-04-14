@@ -82,9 +82,11 @@ class LoginPage(BasePage):
 
                 print("Login successful")
                 return True
+            LoginPage.set_login_status(False)
             print("Login unsuccessful")
             return False
         except Exception:
+            LoginPage.set_login_status(False)
             print("Error during login status check")
             return False
 

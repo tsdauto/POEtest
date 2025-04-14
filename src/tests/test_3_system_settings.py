@@ -5,10 +5,8 @@ import allure
 import sys
 import os
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
-
-from utils.all_exist_in_order import all_exist_in_order
-from mixins.TestUtils import ValueCheckMixins
+from ..utils.all_exist_in_order import all_exist_in_order
+from ..mixins.TestUtils import ValueCheckMixins
 
 @allure.title("System Settings.DeviceInformation")
 class TestIPInformation():
@@ -70,9 +68,9 @@ class TestIPInformation():
     def test_check_dhcp_option_77_table_title(self, system_settings_page):
         title_cells = system_settings_page.get_dhcp_option_77_table_title_columns()
 
-        should_exist_titls = ['Index', 'User Class Info', 'Action']
+        expected_titls = ['Index', 'User Class Info', 'Action']
 
-        assert all_exist_in_order(title_cells, should_exist_titls)
+        assert title_cells == expected_titls
 
     def test_check_if_dhcp_option_77_table_is_empty(self, system_settings_page):
 
@@ -103,4 +101,3 @@ class TestSystemInformation():
 
         assert title == "Login Timeout (3-30 minutes)"
         assert value == "3"
-

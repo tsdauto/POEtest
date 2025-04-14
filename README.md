@@ -3,7 +3,7 @@
 # Model
 Page Object Model
 
-> pytest .\src
+> poetry run pytest .\src
 > 
 > allure serve .\allure-result
 > 

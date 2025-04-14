@@ -285,3 +285,5 @@ class SystemSettingsPage(BasePage):
         title = self.find_element_then_get_text(self.LOGIN_TIMEOUT_TITLE_LOCATOR)
         value = self.find_input_value(self.LOGIN_TIMEOUT_INPUT_LOCATOR)
         return title, value
+
+
