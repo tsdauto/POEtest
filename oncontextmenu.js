@@ -15,7 +15,8 @@ for (let i = 0; i < top.frames.length; i++) {
           const selector = getUniqueSelector(element);
           showToast(window,"✅   "+ selector)
           console.log(selector);
-          copyToClipboard(selector);
+          _selector = '"'+selector+'"' // wrap into double quote, ctrl + v ready
+          copyToClipboard(_selector);
         });
 
         function getUniqueSelector(el) {

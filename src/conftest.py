@@ -283,3 +283,18 @@ def ip_interface_page(logged_driver, config):
     __page = IPInterfacePage(logged_driver, config["base_url"])
     yield __page
     print("\n\n tearing down ip_interface_page")
+
+# 7
+@pytest.fixture(scope="class")
+def ipv6_system_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing ipv6_system_settings_page")
+    from .pages.IPv6SystemSettingsPage import IPv6SystemSettingsPage
+    __page = IPv6SystemSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down ipv6_system_settings_page")

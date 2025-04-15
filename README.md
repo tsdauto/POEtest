@@ -13,3 +13,18 @@ Page Object Model
 
 make file
 >
+> 
+# Name Style
+## tests
+### function
+- check : check if value is valid or not
+### variable
+
+
+
+## pages
+### function
+- init : basic init
+- get :
+- collapse :
+### variable

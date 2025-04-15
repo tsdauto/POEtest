@@ -10,9 +10,6 @@ from ..mixins.TestUtils import ValueCheckMixins
 
 @allure.title("Serial Port Settings")
 class TestSerialPortSettings:
-    def test_collapse_system_menu_then_click_serial_port_settings(self, serial_port_settings_page):
-        res = serial_port_settings_page.init()
-        assert res, "error while init serial_port_settings_page"
 
     def test_check_header_is_correct(self, serial_port_settings_page):
         res = serial_port_settings_page.get_page_header_text()

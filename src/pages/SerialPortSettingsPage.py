@@ -16,6 +16,9 @@ class SerialPortSettingsPage(BasePage):
         self.url = base_url.rstrip("/")  # 確保 base_url 沒有多餘的斜杠
         self.next = False
 
+        self.init()
+
+
     def init(self):
         SYSTEM_MENU_LOCATOR = (
             By.CSS_SELECTOR,

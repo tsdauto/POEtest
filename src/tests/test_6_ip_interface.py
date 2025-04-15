@@ -8,7 +8,7 @@ from ..utils.all_exist_in_order import all_exist_in_order
 from ..mixins.TestUtils import ValueCheckMixins
 
 
-@allure.title("IP Interface")
+@allure.title("IPInterface")
 class TestIPInterfaceUI:
     def test_collapse_system_menu_then_click_serial_port_settings(self, ip_interface_page):
         res = ip_interface_page.init()

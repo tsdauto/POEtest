@@ -1,7 +1,5 @@
 # pages/IPInterfacePage.py
-from Tools.demo.spreadsheet import cellname
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.expected_conditions import title_is
 
 from .BasePage import BasePage
 from ..conftest import config
@@ -12,13 +10,14 @@ from ..utils.generate_screenshot_name import generate_screenshot_name
 class IPInterfacePage(BasePage):
     def __init__(self, driver, base_url):
         """
-        初始化 IPInterfacePage
+        初始化 IPv6SystemSettings
         :param driver: WebDriver 實例
         :param base_url: 基本網址
         """
         super().__init__(driver, base_url)
         self.url = base_url.rstrip("/")  # 確保 base_url 沒有多餘的斜杠
         self.next = False
+
 
     def init(self):
         system_menu_locator = (
@@ -101,7 +100,7 @@ class IPInterfacePage(BasePage):
         title = self.find_element_then_get_text(title_locator)
         value = self.find_selected_value_within(value_locator)
         return title, value
-    
+
     def get_maximum_entries(self):
         txt_locator = (By.CSS_SELECTOR, "#table2HeaderInfo")
         return self.find_element_then_get_text(txt_locator)
