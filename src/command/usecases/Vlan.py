@@ -1,0 +1,18 @@
+from ..Invokers.TestInvoker import TestInvoker
+from ..commands.VlanCommand import VlanCommand
+from ..config import CONFIG
+
+def run(crt_env):
+  
+  vlan_command = VlanCommand(crt_env)
+  
+  vlans = [{'vlanName': 'vlan' + str(i + 1), 'vlanID' : str(i + 1)} for i in range(1, 4094)]
+  
+  vlan_command.create_vlan(vlans)
+  
+  test_invoker = TestInvoker()
+  
+  test_invoker.addCommand(vlan_command)
+  
+  test_invoker.run()
+
