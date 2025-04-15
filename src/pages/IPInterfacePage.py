@@ -1,5 +1,5 @@
 # pages/IPInterfacePage.py
-
+from Tools.demo.spreadsheet import cellname
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.expected_conditions import title_is
 
@@ -105,3 +105,9 @@ class IPInterfacePage(BasePage):
     def get_maximum_entries(self):
         txt_locator = (By.CSS_SELECTOR, "#table2HeaderInfo")
         return self.find_element_then_get_text(txt_locator)
+
+    def get_table_title(self):
+        table_title_locator = (By.CSS_SELECTOR, ".has-gutter")
+        cells_class_name = "cell"
+        return self.find_cells_value_within(table_title_locator, cells_class_name)
+

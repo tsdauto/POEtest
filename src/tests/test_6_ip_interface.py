@@ -20,7 +20,6 @@ class TestIPInterfaceUI:
 
         assert res == expected_val, "header is not correct"
 
-
     def test_check_tier2_header_is_correct(self, ip_interface_page):
         res = ip_interface_page.get_tier2_header_text()
         expected_val = "IP Interface Settings"
@@ -76,11 +75,19 @@ class TestIPInterfaceUI:
         expected_value = "Enabled"
         assert title == expected_title
         assert value == expected_value
-        
+
     def test_check_maximum_entries_text(self, ip_interface_page):
         result = ip_interface_page.get_maximum_entries()
         expected_value = "Maximum 4 entries."
         assert result == expected_value
 
+    def test_check_table_title(self, ip_interface_page):
+        result = ip_interface_page.get_table_title()
+        expected_title = ["Interface Name", "VLAN Name", "IP State", "IPv4 Address", "Netmask", "Admin State",
+                          "Link State", "IPv6", "Edit", "Delete"]
 
+        assert result == expected_title
 
+# TODO: IPv6 Interface Settings
+
+# TODO: IP Interface Settings

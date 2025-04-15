@@ -1,1 +1,0 @@
-{"name": "test_collapse_system_menu_then_click_serial_port_settings", "status": "passed", "start": 1744607604095, "stop": 1744607616679, "uuid": "2fe3d102-1db3-406d-8519-f7ae6458216b", "testCaseId": "4c570fdf3d38e1e745a829b31891d0ab", "fullName": "src.tests.test_5_serial_port_settings.TestSerialPortSettings#test_collapse_system_menu_then_click_serial_port_settings"}
