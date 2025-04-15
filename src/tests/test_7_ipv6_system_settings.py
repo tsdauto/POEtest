@@ -3,6 +3,8 @@ import time
 import allure
 import sys
 import os
+import pytest
+import asyncio
 
 from ..utils.all_exist_in_order import all_exist_in_order
 
@@ -111,5 +113,25 @@ class TestViewAllIPv6Address:
     def test_check_table_default_is_empty(self, ipv6_system_settings_page):
         result = ipv6_system_settings_page.get_table_default_is_empty()
 
+        assert result
+    
+    @pytest.mark.asyncio
+    async def test_test(self, serial_port_env):
+        from ..command.usecases.Dot1v import run as run_dot1v
+        
+        async def api_call_task(serial_env):
+            """ 模擬持續的 API 調用 """
+            if not serial_env.running:  # 如果串口已關閉，退出
+                return
+            run_dot1v(serial_env)  # 透過 API 發送命令
+        
+
+            print("📡 API sent: api_call_end")
+            
+        # input_task = asyncio.create_task(serial_port_env.user_input_loop())
+        api_task = asyncio.create_task(api_call_task(serial_port_env))
+        
+        # await input_task
+        
         assert True
 

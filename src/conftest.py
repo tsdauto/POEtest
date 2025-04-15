@@ -149,6 +149,23 @@ def config():
 }
     
 
+# serial port env
+@pytest.fixture(scope="session")
+def serial_port_env():
+    from .command.serial_env import SerialEnv
+    com_port = os.getenv("COM_PORT", "COM3")
+    baud_rate = int(os.getenv("BAUD_RATE", "115200"))
+    
+    print("\n\n initializing serial env")
+    
+    serial_env = serial_env = SerialEnv.SerialEnv(baudrate=baud_rate, port=com_port, use_mock=False)
+    
+    yield serial_env
+    
+    if serial_env.running:
+        serial_env.close()
+    
+    print("\n\n tearing down serial env")
 
 @pytest.fixture(scope="session")
 def driver(config):

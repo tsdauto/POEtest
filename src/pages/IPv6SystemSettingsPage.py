@@ -150,6 +150,6 @@ class IPv6SystemSettingsPage(BasePage):
         # span
         table_locator = (By.CSS_SELECTOR,
                          ".#app > div > div > section > div > div > div:nth-child(5) > fieldset > div > div.el-table.tableBox.el-table--fit.el-table--striped.el-table--border.el-table--enable-row-hover > div.el-table__header-wrapper > table")
-        expected_string = 'Table is empty'
+        expected_string = 'empty_message = "< < Table is empty > >"'
 
         return self.text_is_existed_within(table_locator, expected_string)

@@ -1,11 +1,8 @@
-# src/main.py
+# src/command/src/main.py
 
 import asyncio
 
-from .serial_env.serial_env import SerialEnv
-
-
-
+from .serial_env import SerialEnv
 
 #
 from .usecases.Login import run as run_login
@@ -39,34 +36,8 @@ async def main():
     # 在背景運行 API 調用任務
     api_task = asyncio.create_task(api_call_task(serial_env))
 
-    # refactor with factory patterns maybe
-    queue = [
-        # lambda: run_login(crtEnv),
-        # lambda: run_reset(crtEnv),
-        # lambda: run_login(crtEnv),
-        # lambda: run_snmp(crtEnv),
-        # lambda: run_user_accounts(crtEnv),
-        # lambda: run_login(crtEnv),
-        # lambda: run_private_vlan(crtEnv),
-        # lambda: run_vlan(crtEnv),
-        # lambda: run_voice_vlan(crtEnv),
-        # lambda: run_qinq(crtEnv),
-        # lambda: run(crtEnv),
-        # lambda: run_mac_base_access_control(crtEnv),
-    ]
-
-    # for task in queue:
-    #     task()
-
     # 等待輸入任務完成（輸入 "exit" 時結束）
     await input_task
-
-    # 取消 API 任務
-    api_task.cancel()
-    try:
-        await api_task
-    except asyncio.CancelledError:
-        pass
 
 if __name__ == "__main__":
     asyncio.run(main())
