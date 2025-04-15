@@ -8,7 +8,7 @@ import os
 from ..utils.all_exist_in_order import all_exist_in_order
 from ..mixins.TestUtils import ValueCheckMixins
 
-@allure.title("System Settings.DeviceInformation")
+@allure.title("System Settings.IPInformation")
 class TestIPInformation():
     def test_check_ip_config_mode_options(self, system_settings_page):
         option_one = system_settings_page.get_ip_config_option_one_text()
@@ -64,7 +64,6 @@ class TestIPInformation():
         assert title == "Dhcp Option77"
         assert value == ""
 
-    # TODO
     def test_check_dhcp_option_77_table_title(self, system_settings_page):
         title_cells = system_settings_page.get_dhcp_option_77_table_title_columns()
 

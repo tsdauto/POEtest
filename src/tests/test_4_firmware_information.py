@@ -9,7 +9,7 @@ from ..mixins.TestUtils import ValueCheckMixins
 
 
 @allure.title("Firmware Information")
-class TestFirmwareInformation():
+class TestFirmwareInformation:
     def test_collapse_system_menu_then_click_system_settings(self, firmware_information_page):
         res = firmware_information_page.init()
         assert res, "error while init firmware information"
@@ -20,8 +20,12 @@ class TestFirmwareInformation():
 
         assert expected_titles == title_cells
 
+    def test_check_firmware_version_exists(self, firmware_information_page):
+        result = firmware_information_page.get_firmware_version_exists()
+        assert result == True, "global setting firmware version not exists"
+
     def test_check_select_prompt_text(self, firmware_information_page):
-        select_prompt_text = firmware_information_page.get_selected_input_label_text()
+        select_prompt_text = firmware_information_page.find_selected_input_text()
         expected_text = 'Please select the boot up image and config of device.'
 
         assert expected_text == select_prompt_text

@@ -238,7 +238,8 @@ def system_settings_page(logged_driver, config):
     __system_setting_page.collapse_system_menu_then_click_system_settings()
     yield __system_setting_page
     print("\n\n tearing down system settings page")
-    
+
+# 4
 @pytest.fixture(scope="class")
 def firmware_information_page(logged_driver, config):
     """
@@ -252,3 +253,33 @@ def firmware_information_page(logged_driver, config):
     __firmware_information_page = FirmwareInformationPage(logged_driver, config["base_url"])
     yield __firmware_information_page
     print("\n\n tearing down firmware information page")
+
+# 5
+@pytest.fixture(scope="class")
+def serial_port_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing serial port settings page")
+    from .pages.SerialPortSettingsPage import SerialPortSettingsPage
+    __page = SerialPortSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down serial port settings page")
+
+# 6
+@pytest.fixture(scope="class")
+def ip_interface_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing ip_interface_page")
+    from .pages.IPInterfacePage import IPInterfacePage
+    __page = IPInterfacePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down ip_interface_page")

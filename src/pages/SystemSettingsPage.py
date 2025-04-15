@@ -171,7 +171,7 @@ class SystemSettingsPage(BasePage):
     def get_selected_ip_config_mode(self):
         target_div = self.find_element_if_present(self.IP_CONFIG_PARENT_DIV_LOCATOR)
         selected_input = self.find_checked_radio_within(target_div)
-        text = self.get_selected_input_label_text(selected_input)
+        text = self.find_selected_input_label_text(selected_input)
         return text
 
     def get_interface_name_title_and_value(self):
@@ -253,7 +253,6 @@ class SystemSettingsPage(BasePage):
 
         return title, value
 
-    # Dhcp Option 77 table
     def get_dhcp_option_77_table_title_columns(self):
         cells_class_name = "cell"
         return self.find_cells_value_within(self.DHCP_OPTION_77_TABLE_TITLE_LOCATOR, cells_class_name)
