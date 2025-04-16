@@ -4,19 +4,21 @@ from collections import namedtuple
 
 
 def run(crt_env):
+    try:
+        dot1v_command = Dot1vCommand(crt_env)
 
-  dot1v_command = Dot1vCommand(crt_env)
+        Dot1vGroup = namedtuple("Dot1vGroup", ["id", "name"])
 
-  Dot1vGroup = namedtuple("Dot1vGroup", ["id", "name"])
-  
-  group_list = [Dot1vGroup(id = str(i % 11), name = "name" + str(i)) for i in range(10)]
+        group_list = [Dot1vGroup(id=str(i % 11), name="name" + str(i)) for i in range(10)]
 
-  dot1v_command.addMultipleVlanGroup(group_list)
+        dot1v_command.addMultipleVlanGroup(group_list)
 
-  test_invoker = TestInvoker()
+        test_invoker = TestInvoker()
 
-  test_invoker.addCommand(dot1v_command)
+        test_invoker.addCommand(dot1v_command)
 
-  test_invoker.run()
+        test_invoker.run()
 
+    except Exception as e:
 
+        return False

@@ -2,31 +2,40 @@ from ..commands.SnmpCommand import SnmpCommand
 from ..Invokers.TestInvoker import TestInvoker
 from ..utils.randomIP import randomIP
 
+
 def run(crtEnv):
-  snmpCommand = SnmpCommand(crtEnv)
+    try:
+        snmpCommand = SnmpCommand(crtEnv)
 
-  snmpUsers = [ { "name": "user" + str(i), "group": "group" + str(i), "version": "v" + str((i % 3) + 1), "auth": 'noauth_nopriv' if ((i % 3) + 1) == 3 else None } for i in range(1, 51)]
+        snmpUsers = [{"name": "user" + str(i), "group": "group" + str(i), "version": "v" + str((i % 3) + 1),
+                      "auth": 'noauth_nopriv' if ((i % 3) + 1) == 3 else None} for i in range(1, 51)]
 
-  # snmpCommand.createMultipleUsers(snmpUsers)
+        # snmpCommand.createMultipleUsers(snmpUsers)
 
-  snmpGroups = [ { "name": "group" + str(i), "version": "v" + str((i % 3) + 1), "auth": 'noauth_nopriv' if ((i % 3) + 1) == 3 else None } for i in range(1, 51)]
+        snmpGroups = [{"name": "group" + str(i), "version": "v" + str((i % 3) + 1),
+                       "auth": 'noauth_nopriv' if ((i % 3) + 1) == 3 else None} for i in range(1, 51)]
 
-  # snmpCommand.createMultipleGroups(snmpGroups)
+        # snmpCommand.createMultipleGroups(snmpGroups)
 
-  snmpViews = [ { "name": "view" + str(i), "subTree": 1, "oidMask": 1, "viewType": 'include' } for i in range(1, 11)]
+        snmpViews = [{"name": "view" + str(i), "subTree": 1, "oidMask": 1, "viewType": 'include'} for i in range(1, 11)]
 
-  # snmpCommand.createMultipleViews(snmpViews)
+        # snmpCommand.createMultipleViews(snmpViews)
 
-  snmpCommunities = [ {"name": "community" + str(i), "viewName": "viewName" + str(i), "accessRight": "read_write" } for i in range(1, 100)]
+        snmpCommunities = [{"name": "community" + str(i), "viewName": "viewName" + str(i), "accessRight": "read_write"}
+                           for i in range(1, 100)]
 
-  # snmpCommand.createMultipleCommunities(snmpCommunities)
+        # snmpCommand.createMultipleCommunities(snmpCommunities)
 
-  snmpHosts = [ { "ipAddr": randomIP(), "communityName": "public", "version": 'v1'  } for i in range(1, 10)]
+        snmpHosts = [{"ipAddr": randomIP(), "communityName": "public", "version": 'v1'} for i in range(1, 10)]
 
-  snmpCommand.createMultipleHosts(snmpHosts)
+        snmpCommand.createMultipleHosts(snmpHosts)
 
-  testInvoker = TestInvoker()
+        testInvoker = TestInvoker()
 
-  testInvoker.addCommand(snmpCommand)
+        testInvoker.addCommand(snmpCommand)
 
-  testInvoker.run()
+        testInvoker.run()
+
+    except Exception as e:
+
+        return False

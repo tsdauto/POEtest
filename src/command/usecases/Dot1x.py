@@ -3,24 +3,24 @@ from ..Invokers.TestInvoker import TestInvoker
 from collections import namedtuple
 
 
-
-
-
 def run(crt_env):
+    try:
+        dot1x_command = Dot1xCommand(crt_env)
 
-    dot1x_command = Dot1xCommand(crt_env)
+        User = namedtuple("User", ["username", "password"])
 
-    User = namedtuple("User", ["username", "password"])
+        user_list = [User(username="user" + str(i), password="pass" + str(i)) for i in range(500)]
 
-    user_list = [User(username="user" + str(i), password= "pass" + str(i)) for i in range(500)]
+        dot1x_command.enable()
 
-    dot1x_command.enable()
+        dot1x_command.addUser(user_list)
 
-    dot1x_command.addUser(user_list)
+        test_invoker = TestInvoker.TestInvoker()
 
-    test_invoker = TestInvoker.TestInvoker()
+        test_invoker.addCommand(dot1x_command)
 
-    test_invoker.addCommand(dot1x_command)
+        test_invoker.run()
 
-    test_invoker.run()
+    except Exception as e:
 
+        return False

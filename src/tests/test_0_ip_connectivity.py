@@ -1,7 +1,7 @@
 import socket
 import pytest
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
 load_dotenv('Settings.env')
 
@@ -18,9 +18,10 @@ def is_ip_reachable(ip, port, timeout=3):
     except (socket.timeout, socket.error):
         return False
 
+
 @pytest.mark.parametrize("ip, port", [
     # (switch_ip_address, tls_port),
-    (switch_ip_address, http_port),  
+    (switch_ip_address, http_port),
 ])
 def test_ip_connectivity(ip, port):
     assert is_ip_reachable(ip, port), f"無法連接到 {ip}:{port}"
