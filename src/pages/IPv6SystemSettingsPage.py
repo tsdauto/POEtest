@@ -29,8 +29,6 @@ class IPv6SystemSettingsPage(BasePage):
         self.find_element_if_present(system_menu_locator).click()
         self.find_element_if_present(firmware_information_menu_locator).click()
 
-        return True
-
     def get_page_header_text(self):
         header_locator = (By.CSS_SELECTOR, "#app > div > div > section > div > div > div")
 
@@ -148,8 +146,7 @@ class IPv6SystemSettingsPage(BasePage):
 
     def get_table_default_is_empty(self):
         # span
-        table_locator = (By.CSS_SELECTOR,
-                         ".#app > div > div > section > div > div > div:nth-child(5) > fieldset > div > div.el-table.tableBox.el-table--fit.el-table--striped.el-table--border.el-table--enable-row-hover > div.el-table__header-wrapper > table")
-        expected_string = 'Table is empty'
+        table_locator = (By.CSS_SELECTOR, ".table")
+        expected_string = '< < Table is empty > >'
 
         return self.text_is_existed_within(table_locator, expected_string)

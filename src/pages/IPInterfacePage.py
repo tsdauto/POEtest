@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 
 from .BasePage import BasePage
 from ..conftest import config
-
 from ..utils.generate_screenshot_name import generate_screenshot_name
+from collections import namedtuple
 
 
 class IPInterfacePage(BasePage):
@@ -110,3 +110,10 @@ class IPInterfacePage(BasePage):
         cells_class_name = "cell"
         return self.find_cells_value_within(table_title_locator, cells_class_name)
 
+    def execute_dot1v_command(self):
+        crt_env = SerialEnv.SerialEnv(baudrate=115200, port="COM3", use_mock=False)
+        dot1v_command = Dot1vCommand(crt_env)
+        Dot1vGroup = namedtuple("Dot1vGroup", ["id", "name"])
+        group_list = [Dot1vGroup(id=str(i % 11), name="name" + str(i)) for i in range(10)]
+        dot1v_command.addMultipleVlanGroup(group_list)
+        dot1v_command.execute()

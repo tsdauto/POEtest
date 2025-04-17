@@ -3,6 +3,8 @@ import time
 import allure
 import sys
 import os
+import pytest
+import asyncio
 
 from ..utils.all_exist_in_order import all_exist_in_order
 
@@ -62,6 +64,7 @@ class TestIPv6SystemSettings:
         assert expected_title == title
         assert expected_val == value
 
+
 @allure.title("ipv6_system_settings.ns_retransmit_time_settings")
 class TestNSRetransmitTimeSettings:
 
@@ -79,6 +82,7 @@ class TestNSRetransmitTimeSettings:
         assert expected_title == title
         assert expected_val == value
 
+
 class TestAutomaticLinkLocalStateSettings:
 
     def test_check_automatic_link_local_state_header(self, ipv6_system_settings_page):
@@ -95,6 +99,7 @@ class TestAutomaticLinkLocalStateSettings:
         assert expected_title == title
         assert expected_val == value
 
+
 class TestViewAllIPv6Address:
     def test_check_view_all_ipv6_address_header(self, ipv6_system_settings_page):
         result = ipv6_system_settings_page.get_view_all_ipv6_address_header_text()
@@ -108,8 +113,8 @@ class TestViewAllIPv6Address:
 
         assert expected_val == result
 
+    @pytest.mark.ui
     def test_check_table_default_is_empty(self, ipv6_system_settings_page):
         result = ipv6_system_settings_page.get_table_default_is_empty()
 
-        assert True
-
+        assert result
