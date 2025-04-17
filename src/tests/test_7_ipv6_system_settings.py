@@ -1,8 +1,6 @@
 # test_7_ipv6_system_settings.py
-import time
+
 import allure
-import sys
-import os
 import pytest
 import asyncio
 
@@ -82,9 +80,21 @@ class TestNSRetransmitTimeSettings:
         assert expected_title == title
         assert expected_val == value
 
-
+    
 class TestAutomaticLinkLocalStateSettings:
+    
+    @pytest.mark.cur
+    @pytest.mark.asyncio
+    @pytest.mark.reboot_required
+    async def test_reboot_test(self, serial_env):
+        from ..command.usecases.ResetThenLogin import run
+        # result = run(serial_env)
+        
+        # assert result
+        assert True
 
+    @pytest.mark.re_login_required
+    @pytest.mark.cur
     def test_check_automatic_link_local_state_header(self, ipv6_system_settings_page):
         result = ipv6_system_settings_page.get_automatic_link_local_state_header_text()
         expected_val = "Automatic Link Local State Settings"

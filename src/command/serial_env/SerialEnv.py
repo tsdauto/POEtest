@@ -25,12 +25,10 @@ class SerialEnv:
         self.buffer = deque(maxlen=5)  # ✅ keep only the last 5 responses
         self.defer_time = 0.05
 
-        self.init_serial()
-        
         # Async prompt input & key binding
         self.session = PromptSession()
         self.bindings = KeyBindings()
-
+        
         @self.bindings.add("tab")
         def _(event):
             """Send current input with \\t on Tab press."""
@@ -38,6 +36,13 @@ class SerialEnv:
             current_text = event.app.current_buffer.text
             self.send(current_text + "\t", echo)
 
+        self.init_serial()
+        
+        # 如果連線失敗，不繼續執行
+        if self.serial is None:
+            self.running = False
+            return  # ⛔️ 停止 init，避免進入 read_thread
+        
         # Start background thread to read serial data
         self.read_thread = threading.Thread(target=self._read_serial, daemon=True)
         self.read_thread.start()
@@ -51,6 +56,8 @@ class SerialEnv:
             print(f"✅ Serial connected on {self.port}, baud rate {self.baudrate} established")
         except Exception as e:
             print(f"❌ Serial connection failed: {e}")
+            self.serial = None  # ⛔️ None
+    
 
     def send(self, data: str, echo: bool = True):
         """Send data over serial and immediately print it."""

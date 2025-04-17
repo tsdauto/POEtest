@@ -147,7 +147,15 @@ def config():
         "username": "admin", # login username
         "password": "admin", # login password
 }
-    
+
+# pytest hooks
+def pytest_runtest_setup(item):
+    if 'reboot_required' in item.keywords:
+        from .pages.LoginPage import LoginPage
+        LoginPage.set_login_status(False)
+        item.config.cache.set("needs_relogin", True)
+    else :
+        item.config.cache.set("needs_relogin", False)
 
 # serial port env
 @pytest.fixture(scope="session")
@@ -199,9 +207,11 @@ def driver(config):
 
 
 @pytest.fixture(scope="class")
-def login_page(driver, config):
+def login_page(driver, config, ):
     """Login page fixture"""
     print("\n\n initializing login page")
+    
+
 
     from .pages.LoginPage import LoginPage
 
@@ -211,23 +221,23 @@ def login_page(driver, config):
 
 
 @pytest.fixture(scope="class")
-def logged_driver(driver, config):
-    """
-    accept global driver object to log them in,
-    then return driver which is logged in.
-    :param driver:
-    :param config:
-    :return:driver
-    """
-    print("\n\n initializing logged driver")
+def logged_driver(driver, config, request):
     from .pages.LoginPage import LoginPage
-    # init a new login page
-    login_driver = LoginPage(driver, config["base_url"])
-    login_driver.do_login(config["username"], config["password"])
+    print("\n\n initializing logged_driver")
+    
+    needs_relogin = request.config.cache.get("needs_relogin", False)
+    print(f"🔑 logged_driver: needs_relogin = {needs_relogin}")
+    
+    
+        
+    login_page = LoginPage(driver, config["base_url"])
+    # if needs_relogin:
+    # if request.node.get_closest_marker("re_login_required"):
+    #     print('rebootreq')
+    login_page.do_login(config["username"], config["password"])
+
     yield driver
-    print("\n\n tearing down logged driver")
-
-
+    print("\n\n tearing down logged_driver")
 
 
 @pytest.fixture(scope="class")

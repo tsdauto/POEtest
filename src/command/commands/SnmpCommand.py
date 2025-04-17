@@ -6,7 +6,7 @@ class SnmpCommand(Command):
 
     def createUser(self, userObj):
         command = ''
-        if userObj['auth']:
+        if not userObj['auth']:
 
             command = 'create snmp user {name} {group} {version}'.format(name=userObj['name'], group=userObj['group'],
                                                                          version=userObj['version'])

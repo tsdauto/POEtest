@@ -18,11 +18,13 @@ from .usecases.Dot1v import run as run_dot1v
 from .usecases.MacBaseAccessControl import run as run_mac_base_access_control
 from .usecases.UserAccounts import run as run_user_accounts
 from .usecases.ResetThenLogin import run as run_then_login
+
+
 async def api_call_task(serial_env):
     """ 模擬持續的 API 調用 """
     if not serial_env.running:  # 如果串口已關閉，退出
         return
-    run_then_login(serial_env)  # 透過 API 發送命令
+    run_reset(serial_env)  # 透過 API 發送命令
     
 
     print("📡 API sent: api_call_end")

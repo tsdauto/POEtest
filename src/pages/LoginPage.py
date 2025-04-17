@@ -1,8 +1,9 @@
 # pages/LoginPage.py
-
+import time
 from selenium.webdriver.common.by import By
 from .BasePage import BasePage
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 class LoginPage(BasePage):
     # Page element locators
@@ -16,6 +17,7 @@ class LoginPage(BasePage):
     @classmethod
     def set_login_status(cls, status):
         """設置類屬性 LOGIN_STATUS"""
+        print("set login status: ", status)
         cls.LOGIN_STATUS = status
 
     @classmethod
@@ -33,6 +35,7 @@ class LoginPage(BasePage):
         self.url = base_url.rstrip("/")  # 確保 base_url 沒有多餘的斜杠
         self.next = False
         self.open()
+        self.switch_to_main_frame()
 
     def open(self):
         """
@@ -76,42 +79,56 @@ class LoginPage(BasePage):
         檢查登錄是否成功
         :return: 成功返回 True，否則返回 False
         """
+        print("\n Checking Current Login Status: ", self.get_login_status())
         try:
+            # 顯式等待元素顯示出來
+            WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(self.USERINFO_SPAN))
             user_info_text = self.find_element_then_get_text(self.USERINFO_SPAN)
             if user_info_text and "logged in" in user_info_text.lower():
-                LoginPage.set_login_status(True)
-                print("\n\n set login status as true", LoginPage.get_login_status())
-
                 print("Login successful")
+                LoginPage.set_login_status(True)
                 return True
-            LoginPage.set_login_status(False)
+            
             print("Login unsuccessful")
+            LoginPage.set_login_status(False)
             return False
         except Exception:
             LoginPage.set_login_status(False)
             print("Error during login status check")
             return False
 
-    def do_login(self, username, password):
+
+    def do_login(self, username, password, timeout=10):
         """
-        執行登錄，若未登錄則嘗試登錄，最多重試一次
-        :param username: 用戶名
-        :param password: 密碼
+        登入函數，重試一次並加上 timeout 等待載入完成
         """
+
         count = 0
-        max = 1
+        max_retry = 1
+        print('doing login')
+        time.sleep(5)
+        self.open()
+        self.switch_to_main_frame()
+        WebDriverWait(self.driver, timeout).until(lambda d: d.execute_script("return document.readyState") == "complete")
+        # force to wait iframe loading
+        time.sleep(5)
+        
 
-        while count <= max:
-            print("\n\nLOGIN STAT:", self.get_login_status())
-            if not self.get_login_status():
-                self.driver.refresh()
+        while count <= max_retry:
+            if self.get_login_status():
                 self.open()
                 self.switch_to_main_frame()
-                self.login(username, password)
-                self.is_login_successful()
+                return  # 已登入，結束
 
-            else:
-                self.open()
-                self.switch_to_main_frame()
+            self.open()
+            self.switch_to_main_frame()
+            self.login(username, password)
 
-            count += 1
+            # 加入短暫等待，確認登入是否成功
+            try:
+                WebDriverWait(self.driver, timeout).until(lambda d: self.is_login_successful())
+                return  # 登入成功，結束
+            except Exception:
+                count += 1  # 登入失敗，重試一次
+
+            raise Exception("❌ Login failed after retry.")
