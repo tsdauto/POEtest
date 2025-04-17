@@ -1,9 +1,12 @@
 [tool.poetry]
-name = "webui"
+name = "WebUI"
 version = "0.1.0"
 description = ""
 authors = ["esio <esiokao@gmail.com>"]
 readme = "README.md"
+packages = [
+    { include = "command", from = "src" }
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -28,6 +31,7 @@ prompt-toolkit = "^3.0.51"
 black = "^25.1.0"
 
 
+
 [tool.poetry.group.dev.dependencies]
 pytest-asyncio = "^0.26.0"
 pytest-xdist = "^3.6.1"
@@ -37,7 +41,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-dev = "pytest"
+serial = "src.command.main:main"
 
 # linter
 

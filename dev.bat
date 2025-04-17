@@ -30,7 +30,7 @@ if not exist "!REPORT_DIR!" (
 poetry run pytest .
 
 :: Step 6: Generate single-file Allure report
-allure generate --single-file allure-results -o tmp-report
+allure generate --single-file allure-results -o tmp-report --clean
 
 :: Step 7: Move HTML + launch report + serve live UI
 if exist tmp-report\index.html (

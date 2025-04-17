@@ -16,7 +16,7 @@ def config():
     """Global test configuration"""
     return {
         "base_url": os.getenv("TEST_BASE_URL", "http://10.90.90.90"),
-        "implicit_wait": 40,
+        "implicit_wait": int(os.getenv("TEST_IMPLICIT_WAIT", "10")),
         "screenshot_dir": "screenshots",
         "model_name": "DGS-1210-10XS",
         "screen_width": "1920",
@@ -151,14 +151,15 @@ def config():
 
 # serial port env
 @pytest.fixture(scope="session")
-def serial_port_env():
+def serial_env():
+    """ Serial Port Environment """
     from .command.serial_env import SerialEnv
     com_port = os.getenv("COM_PORT", "COM3")
     baud_rate = int(os.getenv("BAUD_RATE", "115200"))
     
     print("\n\n initializing serial env")
     
-    serial_env = serial_env = SerialEnv.SerialEnv(baudrate=baud_rate, port=com_port, use_mock=False)
+    serial_env = SerialEnv.SerialEnv(baudrate=baud_rate, port=com_port, use_mock=False)
     
     yield serial_env
     
@@ -167,9 +168,10 @@ def serial_port_env():
     
     print("\n\n tearing down serial env")
 
+
 @pytest.fixture(scope="session")
 def driver(config):
-    """WebDriver fixture for browser automation"""
+    """ WebDriver fixture for test """
 
     # printing information to console
 
@@ -219,6 +221,7 @@ def logged_driver(driver, config):
     """
     print("\n\n initializing logged driver")
     from .pages.LoginPage import LoginPage
+    # init a new login page
     login_driver = LoginPage(driver, config["base_url"])
     login_driver.do_login(config["username"], config["password"])
     yield driver
@@ -315,3 +318,5 @@ def ipv6_system_settings_page(logged_driver, config):
     __page = IPv6SystemSettingsPage(logged_driver, config["base_url"])
     yield __page
     print("\n\n tearing down ipv6_system_settings_page")
+
+

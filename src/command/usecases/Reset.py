@@ -4,13 +4,15 @@ from ..commands.ResetCommand import ResetCommand
 
 def run(crtEnv):
     try:
-        resetCommand = ResetCommand(crtEnv)
+        reset_command = ResetCommand(crtEnv)
 
-        testInvoker = TestInvoker()
+        test_invoker = TestInvoker()
 
-        testInvoker.addCommand(resetCommand)
+        test_invoker.addCommand(reset_command)
 
-        testInvoker.run()
+        test_invoker.run()
+
+        return True
 
     except Exception as e:
 

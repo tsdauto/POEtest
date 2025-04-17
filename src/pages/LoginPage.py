@@ -1,4 +1,5 @@
 # pages/LoginPage.py
+
 from selenium.webdriver.common.by import By
 from .BasePage import BasePage
 
@@ -31,6 +32,7 @@ class LoginPage(BasePage):
         super().__init__(driver, base_url)
         self.url = base_url.rstrip("/")  # 確保 base_url 沒有多餘的斜杠
         self.next = False
+        self.open()
 
     def open(self):
         """
@@ -91,12 +93,25 @@ class LoginPage(BasePage):
             return False
 
     def do_login(self, username, password):
-        print("\n\nLOGIN STAT:", LoginPage.get_login_status())
-        if not LoginPage.get_login_status():
-            self.open()
-            self.switch_to_main_frame()
-            self.login(username, password)
-            self.is_login_successful()
-        else:
-            self.open()
-            self.switch_to_main_frame()
+        """
+        執行登錄，若未登錄則嘗試登錄，最多重試一次
+        :param username: 用戶名
+        :param password: 密碼
+        """
+        count = 0
+        max = 1
+
+        while count <= max:
+            print("\n\nLOGIN STAT:", self.get_login_status())
+            if not self.get_login_status():
+                self.driver.refresh()
+                self.open()
+                self.switch_to_main_frame()
+                self.login(username, password)
+                self.is_login_successful()
+
+            else:
+                self.open()
+                self.switch_to_main_frame()
+
+            count += 1

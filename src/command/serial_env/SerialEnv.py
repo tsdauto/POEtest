@@ -143,5 +143,5 @@ class SerialEnv:
             
 
     def sleep(self, timeout_time: int):
-        """Delay execution for a given duration in milliseconds."""
-        time.sleep(timeout_time / 1000)
+        """Delay execution for a given duration in seconds."""
+        time.sleep(timeout_time)

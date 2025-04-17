@@ -19,6 +19,8 @@ def run(crt_env):
 
         test_invoker.run()
 
+        return True
+
     except Exception as e:
 
         return False

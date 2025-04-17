@@ -20,8 +20,10 @@ class SnmpCommand(Command):
         self.__taskList.append(lambda command=command: self.__crtEnv.send(command))
 
     def createMultipleUsers(self, users):
+        # receive multiple users
         for userObj in users:
-            if userObj['auth']:
+            # run as much time as users.length
+            if not userObj['auth']:
 
                 command = 'create snmp user {name} {group} {version}'.format(name=userObj['name'],
                                                                              group=userObj['group'],

@@ -1,9 +1,12 @@
 # pages/BasePage.py
+import os
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
-import os
+
+from dotenv import load_dotenv
+load_dotenv("Settings.env")
 
 
 class BasePage:
@@ -15,7 +18,7 @@ class BasePage:
         """
         self.driver = driver
         self.base_url = base_url
-        self.wait = WebDriverWait(self.driver, 30)
+        self.wait = WebDriverWait(self.driver, os.getenv("WEBDRIVER_TIMEOUT"))
 
     def take_screenshot(self, name):
         """
@@ -205,7 +208,7 @@ class BasePage:
         return select.first_selected_option.get_attribute("value")
 
     # table
-    def find_cells_value_within(self, locator, cells_cls_name, timeout=10):
+    def find_cells_value_within(self, locator, cells_cls_name, timeout=5):
         """
         Find all child elements matching `cells_cls_name` within the specified parent element and return their text content
         :param locator: Parent element locator (By, value)
