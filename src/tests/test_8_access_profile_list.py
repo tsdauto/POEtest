@@ -1,4 +1,4 @@
-# test_8_Access_Profile_List.py
+# test_8_access_profile_list.py
 import time
 import allure
 import pytest
@@ -50,7 +50,7 @@ class TestAccessProfileList:
         expected_val = "Current/Max. Profile: 0/6, Current/Max. Rule: 0/768"
 
         assert expected_val == result
-        
+
     @pytest.mark.ui
     def test_check_table_default_is_empty(self, access_profile_list_page):
         result = access_profile_list_page.get_table_default_is_empty()

@@ -25,7 +25,8 @@ def config():
             "device_type": {
                 "type": "string",
                 "title": "Device Type",
-                "expected_value": "DGS-1210-10XS/ME Management Switch"
+                #"expected_value": "DGS-1210-52X/ME Management Switch"
+                "expected_value": os.getenv("DEVICE_TYPE")
             },
             "system_time": {
                 "type": "regexp",
@@ -35,7 +36,8 @@ def config():
             "system_name": {
                 "type": "string",
                 "title": "System Name",
-                "expected_value": "DGS-1210-10XS/ME"
+                #"expected_value": "DGS-1210-52X/ME"
+                "expected_value": os.getenv("SYSTEM_NAME")
             },
             "system_up_time": {
                 "type": "regexp",
