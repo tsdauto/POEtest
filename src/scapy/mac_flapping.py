@@ -26,12 +26,13 @@ def randMac():
         0, 255), random.randint(0, 255), random.randint(
             0, 255), random.randint(0, 255), random.randint(0, 255))
 
+
 for i in range(packet_count):
-    
-    
+
+
     # 隨機選擇源端口以模擬 MAC Flapping
     src_port = random.randint(1000, 65535)
-    
+
     src_mac = randMac()
 
     # 建立 Ethernet, IP, UDP 封包
@@ -43,8 +44,8 @@ for i in range(packet_count):
 
     # 等待指定的間隔時間
     time.sleep(interval)
-    
+
     # 發送封包
     sendp(packet, iface=interface2, verbose=False)
     print(f"Sent packet {i + 1} with src_port={src_port} via {interface2}")
-    
+

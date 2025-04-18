@@ -244,6 +244,7 @@ class BasePage:
             print(f"Error waiting for element {locator} to disappear: {e}")
             return False
 
+    # browser manipulation
     def navigate_to(self, path=""):
         """
         Navigate to the specified URL
@@ -255,3 +256,14 @@ class BasePage:
             print(f"Navigated to {full_url}")
         except Exception as e:
             print(f"Error navigating to {path}: {e}")
+
+    def refresh(self):
+        """
+        Refresh the page
+        :return: None
+        """
+
+        try:
+            self.driver.refresh()
+        except Exception as e:
+            print(f"Error refreshing page: {e}")

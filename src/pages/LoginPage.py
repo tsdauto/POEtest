@@ -105,28 +105,24 @@ class LoginPage(BasePage):
 
         count = 0
         max_retry = 1
-        print('doing login')
-        time.sleep(5)
-        self.open()
-        self.switch_to_main_frame()
-        WebDriverWait(self.driver, timeout).until(lambda d: d.execute_script("return document.readyState") == "complete")
-        # force to wait iframe loading
-        time.sleep(5)
-        
 
         while count <= max_retry:
+            print('Trying to Login')
+
             if self.get_login_status():
                 self.open()
                 self.switch_to_main_frame()
                 return  # 已登入，結束
+            WebDriverWait(self.driver, timeout).until(lambda d: d.execute_script("return document.readyState") == "complete")
 
             self.open()
             self.switch_to_main_frame()
             self.login(username, password)
-
+            time.sleep(2.5) # force to wait iframe loading
             # 加入短暫等待，確認登入是否成功
             try:
                 WebDriverWait(self.driver, timeout).until(lambda d: self.is_login_successful())
+                self.set_login_status(True)
                 return  # 登入成功，結束
             except Exception:
                 count += 1  # 登入失敗，重試一次

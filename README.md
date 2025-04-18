@@ -1,30 +1,15 @@
 # WebUI
 
-# Model
+## Model
 Page Object Model
 
-> poetry run pytest .\src
+## bat file
+> .\dev.bat : run test
 > 
-> allure serve .\allure-result
-> 
+>  .\dev.bat no-open : without open reports
 
-# bat file
-> .\dev.bat
-
-make file
->
-> 
-# Name Style
-## tests
-### function
-- check : check if value is valid or not
-### variable
-
-
-
-## pages
-### function
-- init : basic init
-- get :
-- collapse :
-### variable
+## Roadmap
+ - [ ] Docker Image
+ - [X] Serial Port
+ - [ ] WebUI
+ - [ ] DB

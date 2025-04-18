@@ -2,12 +2,10 @@ from scapy.all import *
 import math
 import sys
 
-sys.path.insert(1, "C:\\Users\\PC3\\Desktop\\command\\src\\python")
-
 from generate_mac import generate_mac
 import random
 import math
-from utils import random_hex
+from .utils.random_hex import random_hex
 
 
 def fdb_table():

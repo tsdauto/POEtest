@@ -120,6 +120,9 @@ allure-results/
 allure-report/
 .reports/
 reports/
+.tmp-report/
+tmp-report/
+
 
 
 

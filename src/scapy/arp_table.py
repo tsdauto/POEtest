@@ -1,21 +1,21 @@
 from scapy.all import *
-
-from generate_mac import generate_mac
 import random
 import math
 
 import sys
+from generate_mac import generate_mac
 
-sys.path.insert(1, "C:\\Users\\PC3\\Desktop\\command\\src\\python")
 
-from utils.random_hex import random_hex
+from .utils.random_hex import random_hex
 
 
 def arp_table():
 
     ipAddr_A = "10.90.90.13"
 
-    macAddr_A = '00:aa:bb:cc:dd:e1'
+    # macAddr_A = '00:aa:bb:cc:dd:e1'
+
+    macAddr_A = generate_mac.total_random()
 
     ipAddr_B = "10.90.90.1"
 
@@ -62,5 +62,5 @@ def arp_table():
 
 
 if __name__ == '__main__':
-
-    arp_table()
+    for _ in range(500):
+        arp_table()
