@@ -317,4 +317,19 @@ def ipv6_system_settings_page(logged_driver, config):
     yield __page
     print("\n\n tearing down ipv6_system_settings_page")
 
+# 8
+@pytest.fixture(scope="class")
+def access_profile_list_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing access_profile_list_page")
+    from .pages.AccessProfileListPage import AccessProfileListPage
+    __page = AccessProfileListPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down access_profile_list_page")
+
 

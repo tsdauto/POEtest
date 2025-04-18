@@ -4,10 +4,12 @@ import math
 
 import sys
 from generate_mac import generate_mac
-
+from dotenv import load_dotenv
 
 from .utils.random_hex import random_hex
 
+load_dotenv('Settings.env')
+iface = os.getenv("IFACE", "eth1")
 
 def arp_table():
 
@@ -36,7 +38,7 @@ def arp_table():
 
     pktReq.show()
 
-    sendp(pktReq, iface="eth1")
+    sendp(pktReq, iface=iface)
 
     # res
 
@@ -51,14 +53,14 @@ def arp_table():
 
     pktRes.show()
     ls(ARP)
-    sendp(pktRes, iface="eth1")
+    sendp(pktRes, iface=iface)
 
     # 偷
     packet = ARP(op=2,
                  pdst="10.90.90.16",
                  hwdst="08:00:27:04:18:04",
                  psrc="10.90.90.2")
-    send(packet, iface="eth1")
+    send(packet, iface=iface)
 
 
 if __name__ == '__main__':
