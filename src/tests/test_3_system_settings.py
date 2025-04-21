@@ -4,7 +4,7 @@ import time
 import allure
 import sys
 import os
-
+import pytest
 from ..utils.all_exist_in_order import all_exist_in_order
 from ..mixins.TestUtils import ValueCheckMixins
 
@@ -77,11 +77,12 @@ class TestIPInformation():
 
 @allure.title("System Settings.DeviceInformation")
 class TestSystemInformation():
+
     def test_check_system_name(self, system_settings_page):
         title, value = system_settings_page.get_system_name_title_and_value()
 
         assert title == "System Name"
-        assert value == "DGS-1210-10XS/ME"
+        assert value == os.getenv("SYSTEM_NAME")
 
     def test_check_system_location(self, system_settings_page):
         title, value = system_settings_page.get_system_location_title_and_value()

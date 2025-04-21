@@ -8,13 +8,6 @@ from ..utils.all_exist_in_order import all_exist_in_order
 @allure.title("access_profile_list")
 class TestAccessProfileList:
 
-    """@pytest.mark.asyncio
-    def test_reboot_test(self, serial_env):
-        from ..command.usecases.ResetThenLogin import run as run_reset_then_login
-        from ..command.usecases.ACL import run
-        run(serial_env)
-        assert True"""
-
     def test_check_header(self, access_profile_list_page):
         result = access_profile_list_page.get_page_header_text()
         expected_val = "Access Profile List"
