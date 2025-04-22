@@ -267,3 +267,47 @@ class BasePage:
             self.driver.refresh()
         except Exception as e:
             print(f"Error refreshing page: {e}")
+
+    def find_checkbox_checked(self, locator):
+        """
+        檢查指定定位器所定位的複選框是否被選中
+        :param locator: 複選框的定位器
+        :return: 如果複選框被選中則返回 True，否則返回 False
+        """
+        try:
+            # 使用顯式等待確保元素可見
+            checkbox = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(locator)
+            )
+            # 檢查 checkbox 是否被選中
+            return checkbox.is_selected()
+        except Exception as e:
+            print(f"Error finding checkbox {locator}: {e}")
+            return False
+
+    def find_checked_checkboxes_text(self, locator):
+        """
+        檢索指定父元素中所有被選中且可見的複選框的文字
+        :param locator: 包含複選框的元素的定位器
+        :return: 被選中且可見的複選框的文字列表
+        """
+        try:
+            # 使用顯式等待確保父元素可見
+            parent_element = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located(locator)
+            )
+            
+            # 找到父元素中的所有 checkbox
+            checkboxes = parent_element.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
+            selected_texts = []
+            
+            for checkbox in checkboxes:
+                parent_span = checkbox.find_element(By.XPATH, "./ancestor::span")
+                if parent_span.is_displayed() and checkbox.is_selected():
+                    text = parent_span.text.strip()
+                    selected_texts.append(text)
+            
+            return selected_texts
+        except Exception as e:
+            print(f"Error finding checkboxes in parent {locator}: {e}")
+            return []

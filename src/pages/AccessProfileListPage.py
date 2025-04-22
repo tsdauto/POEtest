@@ -36,7 +36,7 @@ class AccessProfileListPage(BasePage):
     
     def get_ACL_Profile_List_tier2_header_text(self):
         ACL_Profile_List_tier2_header_locator = (
-            By.CSS_SELECTOR, "#app > div > div > section > div > div > div:nth-child(2) > fieldset > legend")
+            By.CSS_SELECTOR, "div:nth-child(2) > fieldset > legend")
 
         return self.find_element_then_get_text(ACL_Profile_List_tier2_header_locator)
     
@@ -61,7 +61,7 @@ class AccessProfileListPage(BasePage):
 
     def get_ACL_Profile_table_total_text(self):
         ACL_Profile_table_total_locator = (
-            By.CSS_SELECTOR, "#app > div > div > section > div > div > div.sx-section > fieldset > table:nth-child(4) > tr > td > span")
+            By.CSS_SELECTOR, ".sx-section > fieldset > table:nth-child(4) > tr > td > span")
 
         return self.find_element_then_get_text(ACL_Profile_table_total_locator)
 
