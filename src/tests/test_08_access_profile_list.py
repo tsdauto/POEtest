@@ -5,6 +5,7 @@ import pytest
 
 from ..utils.all_exist_in_order import all_exist_in_order
 
+
 @allure.title("access_profile_list")
 class TestAccessProfileList:
 
