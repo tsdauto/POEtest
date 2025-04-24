@@ -285,29 +285,81 @@ class BasePage:
             print(f"Error finding checkbox {locator}: {e}")
             return False
 
-    def find_checked_checkboxes_text(self, locator):
+    def find_unchecked_checkboxes_text(self, locator, get_text_func):
         """
-        檢索指定父元素中所有被選中且可見的複選框的文字
-        :param locator: 包含複選框的元素的定位器
-        :return: 被選中且可見的複選框的文字列表
+        通用方法：取得父元素下所有未勾選且可見的 checkbox 對應的文字。
+        可依據不同 HTML 結構，傳入自訂的 get_text_func 來取得對應文字。
+
+        :param locator: 父元素的定位器 (tuple, 例如 (By.CSS_SELECTOR, "tbody"))
+        :param get_text_func: 傳入一個函式，接收 checkbox 元素，回傳對應的文字
+        :return: 未勾選且可見的 checkbox 對應文字列表
+        """
+        parent_element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(locator)
+        )
+        checkboxes = parent_element.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
+        unchecked_texts = []
+        for checkbox in checkboxes:
+            self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", checkbox)
+            # 檢查 checkbox 是否可見且「未勾選」
+            if checkbox.is_displayed() and not checkbox.is_selected():
+                text = get_text_func(checkbox)
+                if text is not None:
+                    unchecked_texts.append(text.strip())
+        return unchecked_texts
+
+    def find_checked_checkboxes_text(self, locator, get_text_func):
+        """
+        通用方法：取得父元素下所有被勾選且可見的 checkbox 對應的文字。
+        可依據不同 HTML 結構，傳入自訂的 get_text_func 來取得對應文字。
+        
+        :param locator: 父元素的定位器 (tuple, 例如 (By.CSS_SELECTOR, "tbody"))
+        :param get_text_func: 傳入一個函式，接收 checkbox 元素，回傳對應的文字
+        :return: 被勾選且可見的 checkbox 對應文字列表
+        """
+        parent_element = WebDriverWait(self.driver, 10).until(
+            EC.presence_of_element_located(locator)
+        )
+        checkboxes = parent_element.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
+        selected_texts = []
+        for checkbox in checkboxes:
+            self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", checkbox)
+            # 檢查 checkbox 是否可見且被勾選
+            if checkbox.is_displayed() and checkbox.is_selected():
+                # 透過自訂函式取得對應文字
+                text = get_text_func(checkbox)
+                if text is not None:
+                    selected_texts.append(text.strip())
+        return selected_texts
+
+    # 針對「數字在 .head > span」的結構
+    def get_head_span_text(self, checkbox):
+        """
+        取得同一個 <td> 下 .head > span 的文字
         """
         try:
-            # 使用顯式等待確保父元素可見
-            parent_element = WebDriverWait(self.driver, 10).until(
-                EC.presence_of_element_located(locator)
-            )
-            
-            # 找到父元素中的所有 checkbox
-            checkboxes = parent_element.find_elements(By.CSS_SELECTOR, "input[type='checkbox']")
-            selected_texts = []
-            
-            for checkbox in checkboxes:
-                parent_span = checkbox.find_element(By.XPATH, "./ancestor::span")
-                if parent_span.is_displayed() and checkbox.is_selected():
-                    text = parent_span.text.strip()
-                    selected_texts.append(text)
-            
-            return selected_texts
-        except Exception as e:
-            print(f"Error finding checkboxes in parent {locator}: {e}")
-            return []
+            td = checkbox.find_element(By.XPATH, "./ancestor::td[1]")
+            head_span = td.find_element(By.CSS_SELECTOR, ".head > span")
+            return head_span.text
+        except Exception:
+            return None
+
+    # 針對「checkbox 旁邊有文字」的結構
+    def get_sibling_text(self, checkbox):
+        """
+        取得 checkbox 父 <span> 內 &nbsp; 後面的文字
+        """
+        try:
+            parent_span = checkbox.find_element(By.XPATH, "./ancestor::span[1]")
+            text = parent_span.text
+            if '\xa0' in text:
+                return text.split('\xa0', 1)[1]
+            return text
+        except Exception:
+            return None
+
+    # 使用方式說明：
+    # locator = (By.CSS_SELECTOR, "tbody")
+    # checked_texts = self.find_checked_checkboxes_text(locator, self.get_head_span_text)
+    # locator2 = (By.CSS_SELECTOR, "td[colspan='6']")
+    # checked_texts2 = self.find_checked_checkboxes_text(locator2, self.get_sibling_text)
