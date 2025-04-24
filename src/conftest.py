@@ -333,6 +333,7 @@ def access_profile_list_page(logged_driver, config):
     __page = AccessProfileListPage(logged_driver, config["base_url"])
     yield __page
     print("\n\n tearing down access_profile_list_page")
+    
 # 9
 @pytest.fixture(scope="class")
 def ipv6_neighbor_settings_page(logged_driver, config):
