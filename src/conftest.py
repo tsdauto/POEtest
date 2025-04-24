@@ -333,5 +333,257 @@ def access_profile_list_page(logged_driver, config):
     __page = AccessProfileListPage(logged_driver, config["base_url"])
     yield __page
     print("\n\n tearing down access_profile_list_page")
+# 9
+@pytest.fixture(scope="class")
+def ipv6_neighbor_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing ipv6_neighbor_settings_page")
+    from .pages.IPv6NeighborSettingsPage import IPv6NeighborSettingsPage
+    __page = IPv6NeighborSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down ipv6_neighbor_settings_page")
 
+# 10
+@pytest.fixture(scope="class")
+def dhcp_auto_configuration_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing dhcp_auto_configuration_page")
+    from .pages.DHCPAutoConfigurationPage import DHCPAutoConfigurationPage
+    __page = DHCPAutoConfigurationPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down dhcp_auto_configuration_page")
 
+# 11
+@pytest.fixture(scope="class")
+def dhcp_auto_image_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing dhcp_auto_image_page")
+    from .pages.DHCPAutoImagePage import DHCPAutoImagePage
+    __page = DHCPAutoImagePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down dhcp_auto_image_page")
+
+# 12
+@pytest.fixture(scope="class")
+def peripheral_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing peripheral_settings_page")
+    from .pages.PeripheralSettingsPage import PeripheralSettingsPage
+    __page = PeripheralSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down peripheral_settings_page")
+
+# 13
+@pytest.fixture(scope="class")
+def port_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing port_settings_page")
+    from .pages.PortSettingsPage import PortSettingsPage
+    __page = PortSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down port_settings_page")
+
+# 14
+@pytest.fixture(scope="class")
+def port_description_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing port_description_page")
+    from .pages.PortDescriptionPage import PortDescriptionPage
+    __page = PortDescriptionPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down port_description_page")
+
+# 15
+@pytest.fixture(scope="class")
+def port_error_disabled_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing port_error_disabled_page")
+    from .pages.PortErrorDisabledPage import PortErrorDisabledPage
+    __page = PortErrorDisabledPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down port_error_disabled_page")
+
+# 16
+@pytest.fixture(scope="class")
+def port_media_type_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing port_media_type_page")
+    from .pages.PortMediaTypePage import PortMediaTypePage
+    __page = PortMediaTypePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down port_media_type_page")
+
+# 17
+@pytest.fixture(scope="class")
+def snmp_global_state_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing snmp_global_state_settings_page")
+    from .pages.SNMPGlobalStateSettingsPage import SNMPGlobalStateSettingsPage
+    __page = SNMPGlobalStateSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down snmp_global_state_settings_page")
+
+# 18
+@pytest.fixture(scope="class")
+def snmp_user_table_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing snmp_user_table_page")
+    from .pages.SNMPUserTablePage import SNMPUserTablePage
+    __page = SNMPUserTablePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down snmp_user_table_page")
+
+# 19
+@pytest.fixture(scope="class")
+def snmp_group_table_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing snmp_group_table_page")
+    from .pages.SNMPGroupTablePage import SNMPGroupTablePage
+    __page = SNMPGroupTablePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down snmp_group_table_page")
+
+# 20
+@pytest.fixture(scope="class")
+def snmp_view_table_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing snmp_view_table_page")
+    from .pages.SNMPViewTablePage import SNMPViewTablePage
+    __page = SNMPViewTablePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down snmp_view_table_page")
+
+# 21
+@pytest.fixture(scope="class")
+def snmp_community_table_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing snmp_community_table_page")
+    from .pages.SNMPCommunityTablePage import SNMPCommunityTablePage
+    __page = SNMPCommunityTablePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down snmp_community_table_page")
+
+# 22
+@pytest.fixture(scope="class")
+def snmp_host_table_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing snmp_host_table_page")
+    from .pages.SNMPHostTablePage import SNMPHostTablePage
+    __page = SNMPHostTablePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down snmp_host_table_page")
+
+# 23
+@pytest.fixture(scope="class")
+def snmp_engine_id_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing snmp_engine_id_page")
+    from .pages.SNMPEngineIDPage import SNMPEngineIDPage
+    __page = SNMPEngineIDPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down snmp_engine_id_page")
+
+# 24
+@pytest.fixture(scope="class")
+def snmp_trap_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing snmp_trap_settings_page")
+    from .pages.SNMPTrapSettingsPage import SNMPTrapSettingsPage
+    __page = SNMPTrapSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down snmp_trap_settings_page")
+
+# 25
+@pytest.fixture(scope="class")
+def user_accounts_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing user_accounts_page")
+    from .pages.UserAccountsPage import UserAccountsPage
+    __page = UserAccountsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down user_accounts_page")
