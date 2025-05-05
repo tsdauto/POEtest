@@ -220,6 +220,10 @@ class SNMPTrapSettingsPage(BasePage):
 
     def get_snmp_sending_trap_port_select_all_button_text(self):
         SNMP_SENDING_TRAP_PORT_SELECT_ALL_BUTTON_LOCATOR = (By.CSS_SELECTOR, "#TrapselectAll")
+        
+        element = self.driver.find_element(*SNMP_SENDING_TRAP_PORT_SELECT_ALL_BUTTON_LOCATOR)
+        self.driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", element)
+
         return self.find_input_value(SNMP_SENDING_TRAP_PORT_SELECT_ALL_BUTTON_LOCATOR)
 
     def get_snmp_sending_trap_port_clear_button_text(self):
