@@ -6,7 +6,7 @@ import asyncio
 import os
 from ..utils.all_exist_in_order import all_exist_in_order
 
-@pytest.mark.cur
+
 @allure.title("user_accounts")
 class TestUserAccounts:
 

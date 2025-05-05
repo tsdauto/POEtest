@@ -38,8 +38,8 @@ class TestSNMPHostTable:
         expected_val_one = ".\n.\n.\nIPv4"
         expected_val_two = "IPv6"
 
-        assert option_one == expected_val_one
-        assert option_two == expected_val_two
+        assert expected_val_one == option_one
+        assert expected_val_two == option_two
 
     def test_check_v4_mode_default_options(self, snmp_host_table_page):
         assert snmp_host_table_page.get_checked_v4_mode_option() == True

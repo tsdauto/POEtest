@@ -222,12 +222,6 @@ class TestSnmpLinkChangeTrapPort:
 @allure.title("snmp_trap_settings.snmp_sending_trap_port")
 class TestSnmpSendingTrapPort:
 
-    def test_check_sending_trap_port_default_status(self, snmp_trap_settings_page):
-        result = snmp_trap_settings_page.get_snmp_sending_trap_port_default_status()
-        expected_val = [str(i) for i in range(1, 53)]
-
-        assert expected_val == result
-
     def test_check_snmp_sending_trap_port_table_header(self, snmp_trap_settings_page):
         result = snmp_trap_settings_page.get_snmp_sending_trap_port_table_header()
         expected_val = "Snmp Sending Trap Port"
@@ -258,6 +252,11 @@ class TestSnmpSendingTrapPort:
 
         assert expected_val == result
 
+    def test_check_sending_trap_port_default_status(self, snmp_trap_settings_page):
+        result = snmp_trap_settings_page.get_snmp_sending_trap_port_default_status()
+        expected_val = [str(i) for i in range(1, 53)]
+
+        assert expected_val == result
 
 
 
