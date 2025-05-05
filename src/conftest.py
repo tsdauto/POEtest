@@ -588,3 +588,229 @@ def user_accounts_page(logged_driver, config):
     __page = UserAccountsPage(logged_driver, config["base_url"])
     yield __page
     print("\n\n tearing down user_accounts_page")
+
+# 26
+@pytest.fixture(scope="class")
+def mac_address_aging_time_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing mac_address_aging_time_page")
+    from .pages.MACAddressAgingTimePage import MACAddressAgingTimePage
+    __page = MACAddressAgingTimePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down mac_address_aging_time_page")
+    
+# 27
+@pytest.fixture(scope="class")
+def arp_aging_time_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing arp_aging_time_settings_page")
+    from .pages.ARPAgingTimeSettingsPage import ARPAgingTimeSettingsPage
+    __page = ARPAgingTimeSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down arp_aging_time_settings_page")
+
+# 28
+@pytest.fixture(scope="class")
+def pppoe_circuit_id_insertion_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing pppoe_circuit_id_insertion_settings_page")
+    from .pages.PPPoECircuitIDInsertionSettingsPage import PPPoECircuitIDInsertionSettingsPage
+    __page = PPPoECircuitIDInsertionSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down pppoe_circuit_id_insertion_settings_page")
+
+# 29
+@pytest.fixture(scope="class")
+def web_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing web_settings_page")
+    from .pages.WebSettingsPage import WebSettingsPage
+    __page = WebSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down web_settings_page")
+
+# 30
+@pytest.fixture(scope="class")
+def telnet_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing telnet_settings_page")
+    from .pages.TelnetSettingsPage import TelnetSettingsPage
+    __page = TelnetSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down telnet_settings_page")
+
+# 31
+@pytest.fixture(scope="class")
+def password_encryption_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing password_encryption_page")
+    from .pages.PasswordEncryptionPage import PasswordEncryptionPage
+    __page = PasswordEncryptionPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down password_encryption_page")
+
+# 32
+@pytest.fixture(scope="class")
+def ping_test_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing ping_test_page")
+    from .pages.PingTestPage import PingTestPage
+    __page = PingTestPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down ping_test_page")
+
+# 33
+@pytest.fixture(scope="class")
+def mac_notification_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing mac_notification_settings_page")
+    from .pages.MACNotificationSettingsPage import MACNotificationSettingsPage
+    __page = MACNotificationSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down mac_notification_settings_page")
+
+# 34
+@pytest.fixture(scope="class")
+def mac_flapping_detection_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing mac_flapping_detection_page")
+    from .pages.MACFlappingDetectionPage import MACFlappingDetectionPage
+    __page = MACFlappingDetectionPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down mac_flapping_detection_page")
+
+# 35
+@pytest.fixture(scope="class")
+def twamp_server_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing twamp_server_page")
+    from .pages.TwampServerPage import TwampServerPage
+    __page = TwampServerPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down twamp_server_page")
+
+# 36
+@pytest.fixture(scope="class")
+def system_log_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing system_log_settings_page")
+    from .pages.SystemLogSettingsPage import SystemLogSettingsPage
+    __page = SystemLogSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down system_log_settings_page")
+
+# 37
+@pytest.fixture(scope="class")
+def system_log_server_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing system_log_server_page")
+    from .pages.SystemLogServerPage import SystemLogServerPage
+    __page = SystemLogServerPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down system_log_server_page")
+
+# 38
+@pytest.fixture(scope="class")
+def time_profile_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing time_profile_page")
+    from .pages.TimeProfilePage import TimeProfilePage
+    __page = TimeProfilePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down time_profile_page")
+
+# 39
+@pytest.fixture(scope="class")
+def power_saving_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing power_saving_page")
+    from .pages.PowerSavingSettingsPage import PowerSavingSettingsPage
+    __page = PowerSavingSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down power_saving_page")
+
+# 40
+@pytest.fixture(scope="class")
+def ieee802_3az_eee_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing ieee802_3az_eee_settings_page")
+    from .pages.IEEE8023azEEEsettingsPage import IEEE8023azEEEsettingsPage
+    __page = IEEE8023azEEEsettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down ieee802_3az_eee_settings_page")
+
