@@ -69,7 +69,7 @@ class TestIPInformation():
 
         expected_titls = ['Index', 'User Class Info', 'Action']
 
-        assert title_cells == expected_titls
+        assert expected_titls == title_cells
 
     def test_check_if_dhcp_option_77_table_is_empty(self, system_settings_page):
 

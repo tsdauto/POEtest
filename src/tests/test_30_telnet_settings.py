@@ -44,7 +44,7 @@ class TestTelnetSettings:
         opt = telnet_settings_page.get_checked_telnet_state_option()
         expected_val = "Disabled"
 
-        assert opt == expected_val, "default telnet state is not Disabled"
+        assert expected_val == opt, "default telnet state is not Disabled"
 
     def test_check_port_title_and_value(self, telnet_settings_page):
         title, value = telnet_settings_page.get_port_title_and_value()

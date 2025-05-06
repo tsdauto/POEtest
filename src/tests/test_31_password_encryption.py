@@ -44,7 +44,7 @@ class TestPasswordEncryption:
         opt = password_encryption_page.get_checked_password_encryption_option()
         expected_val = "Disabled"
 
-        assert opt == expected_val, "default password encryption is not Disabled"
+        assert expected_val == opt, "default password encryption is not Disabled"
 
     def test_check_password_encryption_apply_button_text(self, password_encryption_page):
         result = password_encryption_page.get_password_encryption_apply_button_text()

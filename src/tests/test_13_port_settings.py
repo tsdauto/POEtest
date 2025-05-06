@@ -144,4 +144,4 @@ class TestPortSettings:
         opt = port_settings_page.get_port_speed_checkbox_value()
         expected_val = ["10_half", "10_full", "100_half", "100_full", "1000full"]
 
-        assert opt == expected_val
+        assert expected_val == opt

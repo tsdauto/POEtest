@@ -63,7 +63,3 @@ class TestIEEE8023azEEEsettings:
         expected_val = ["1", "Disabled"]
 
         assert expected_val == result
-
-
-
-

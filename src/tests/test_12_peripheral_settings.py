@@ -91,7 +91,7 @@ class TestEnvironmentTemperatureSettings:
         opt = peripheral_settings_page.get_checked_temperature_trap_option()
         expected_val = "Disabled"
 
-        assert opt == expected_val, "default temperature trap is not Disabled"
+        assert expected_val == opt, "default temperature trap is not Disabled"
     
     def test_check_high_threshold_title_and_value(self, peripheral_settings_page):
         title, value = peripheral_settings_page.get_high_threshold_title_and_value()

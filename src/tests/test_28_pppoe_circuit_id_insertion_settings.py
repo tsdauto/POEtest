@@ -44,7 +44,7 @@ class TestPPPoECircuitIdInsertionSettings:
         opt = pppoe_circuit_id_insertion_settings_page.get_checked_pppoe_circuit_id_insertion_state_option()
         expected_val = "Disabled"
 
-        assert opt == expected_val, "default pppoe circuit id insertion state is not Disabled"
+        assert expected_val == opt, "default pppoe circuit id insertion state is not Disabled"
 
     def test_check_pppoe_circuit_id_insertion_state_button(self, pppoe_circuit_id_insertion_settings_page):
         result = pppoe_circuit_id_insertion_settings_page.get_pppoe_circuit_id_insertion_state_button_text()

@@ -34,14 +34,14 @@ class TestDHCPAutoConfiguration:
         expected_val_one = "Enabled"
         expected_val_two = "Disabled"
 
-        assert option_one == expected_val_one, "auto_configuration option one is not correct"
-        assert option_two == expected_val_two, "auto_configuration option two is not correct"
+        assert expected_val_one == option_one, "auto_configuration option one is not correct"
+        assert expected_val_two == option_two, "auto_configuration option two is not correct"
 
     def test_default_configuration_state_mode_is_disabled(self, dhcp_auto_configuration_page):
         opt = dhcp_auto_configuration_page.get_checked_config_state_mode_option()
         expected_val = "Disabled"
 
-        assert opt == expected_val, "default configuration state mode is not Disabled"
+        assert expected_val == opt, "default configuration state mode is not Disabled"
 
     def test_check_Timeout_title_and_value(self, dhcp_auto_configuration_page):
         title, value = dhcp_auto_configuration_page.get_Timeout_title_and_value()

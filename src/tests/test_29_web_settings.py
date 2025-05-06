@@ -44,7 +44,7 @@ class TestWebSettings:
         opt = web_settings_page.get_checked_web_state_option()
         expected_val = "Enabled"
 
-        assert opt == expected_val, "default web state is not Enabled"
+        assert expected_val == opt, "default web state is not Enabled"
 
     def test_check_port_title_and_value(self, web_settings_page):
         title, value = web_settings_page.get_port_title_and_value()
