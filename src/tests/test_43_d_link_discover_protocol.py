@@ -84,6 +84,7 @@ class TestDDPGlobalSettings:
 
         assert expected_val == result
 
+
 @allure.title("dlink_discover_protocol.DDP Port Settings")
 class TestDDPPortSettings:
 

@@ -108,6 +108,7 @@ class TestMacNotificationPortSettings:
 
         assert expected_val == result
 
+
 @allure.title("mac_notification_settings.MAC_Notification_Port_State_Table")
 class TestMacNotificationPortStateTable:
 

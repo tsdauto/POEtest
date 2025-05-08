@@ -59,6 +59,7 @@ class TestFanSettings:
 
         assert expected_result == result
 
+
 @allure.title("peripheral_settings.environment_temperature_settings")
 class TestEnvironmentTemperatureSettings:
 

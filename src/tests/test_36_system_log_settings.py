@@ -46,6 +46,7 @@ class TestSystemLogGlobalSettings:
 
         assert expected_val == result
 
+
 @allure.title("system_log_settings.system_log_save_mode_settings")
 class TestSystemLogSaveModeSettings:
 

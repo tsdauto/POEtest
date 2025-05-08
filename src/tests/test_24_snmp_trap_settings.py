@@ -180,6 +180,7 @@ class TestSNMPTrapSettings:
 
         assert expected_val == result
 
+
 @allure.title("snmp_trap_settings.snmp_link_change_trap_port")
 class TestSnmpLinkChangeTrapPort:
 
@@ -218,6 +219,7 @@ class TestSnmpLinkChangeTrapPort:
         expected_val = [str(i) for i in range(1, 53)]
 
         assert expected_val == result
+
 
 @allure.title("snmp_trap_settings.snmp_sending_trap_port")
 class TestSnmpSendingTrapPort:

@@ -66,6 +66,7 @@ class TestTimeRange:
 
         assert expected_val == result
 
+
 @allure.title("time_profile.time_range_information")
 class TestTimeRangeInformation:
 

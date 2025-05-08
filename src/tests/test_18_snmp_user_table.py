@@ -84,7 +84,7 @@ class TestSNMPUserTable:
         assert expected_val == result
 
     def test_check_total_entries_title(self, snmp_user_table_page):
-        title= snmp_user_table_page.get_total_entries_title()
+        title = snmp_user_table_page.get_total_entries_title()
         expected_title = "Total Entries : 4"
 
         assert expected_title == title

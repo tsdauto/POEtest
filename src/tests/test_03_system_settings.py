@@ -8,8 +8,9 @@ import pytest
 from ..utils.all_exist_in_order import all_exist_in_order
 from ..mixins.TestUtils import ValueCheckMixins
 
+
 @allure.title("System Settings.IPInformation")
-class TestIPInformation():
+class TestIPInformation:
     def test_check_ip_config_mode_options(self, system_settings_page):
         option_one = system_settings_page.get_ip_config_option_one_text()
         option_two = system_settings_page.get_ip_config_option_two_text()
@@ -67,7 +68,7 @@ class TestIPInformation():
     def test_check_dhcp_option_77_table_title(self, system_settings_page):
         title_cells = system_settings_page.get_dhcp_option_77_table_title_columns()
 
-        expected_titls = ['Index', 'User Class Info', 'Action']
+        expected_titls = ["Index", "User Class Info", "Action"]
 
         assert expected_titls == title_cells
 
@@ -75,8 +76,9 @@ class TestIPInformation():
 
         assert system_settings_page.check_if_dhcp_option_77_table_is_empty() is True
 
+
 @allure.title("System Settings.DeviceInformation")
-class TestSystemInformation():
+class TestSystemInformation:
 
     def test_check_system_name(self, system_settings_page):
         title, value = system_settings_page.get_system_name_title_and_value()

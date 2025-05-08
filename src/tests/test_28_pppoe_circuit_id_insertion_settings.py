@@ -51,6 +51,7 @@ class TestPPPoECircuitIdInsertionSettings:
 
         assert expected_val == result
 
+
 @allure.title("PPPoE_Circuit_ID_Insertion_Settings.PPPoE_Circuit_ID_Insertion_Port_Settings")
 class TestPPPoECircuitIDInsertionPortSettings:
 

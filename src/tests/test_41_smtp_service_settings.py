@@ -114,6 +114,7 @@ class TestSMTPserviceSettings:
 
         assert expected_val == result
 
+
 @allure.title("smtp_service_settings.mail_receiver_address")
 class TestMailReceiverAddress:
 
@@ -136,6 +137,7 @@ class TestMailReceiverAddress:
         expected_val = "Add"
 
         assert expected_val == result
+
 
 @allure.title("smtp_service_settings.mail_receiver_address_table")
 class TestMailReceiverAddressTable:

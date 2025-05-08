@@ -55,7 +55,7 @@ class TestMacFlappingDetection:
         assert expected_value == value
 
     def test_check_total_entries_title(self, mac_flapping_detection_page):
-        title= mac_flapping_detection_page.get_total_entries_title()
+        title = mac_flapping_detection_page.get_total_entries_title()
         expected_title = "Total Entries : 0"
 
         assert expected_title == title

@@ -66,6 +66,7 @@ class TestGlobalSettings:
 
         assert expected_val == result
 
+
 @allure.title("power_saving.advanced_power_saving_settings")
 class TestAdvancedPowerSavingSettings:
 
@@ -130,6 +131,7 @@ class TestAdvancedPowerSavingSettings:
         expected_val = [str(i) for i in range(1, 53)]
 
         assert expected_val == result
+
 
 @allure.title("power_saving.summary")
 class TestSummary:

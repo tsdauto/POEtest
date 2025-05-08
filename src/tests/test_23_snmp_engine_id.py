@@ -6,6 +6,7 @@ import pytest
 
 from ..utils.all_exist_in_order import all_exist_in_order
 
+
 @allure.title("snmp_engine_id")
 class TestSNMPEngineID:
 
@@ -42,7 +43,7 @@ class TestSNMPEngineID:
         assert expected_val == result
 
     def test_check_note_text(self, snmp_engine_id_page):
-        value1,value2 = snmp_engine_id_page.get_note_text()
+        value1, value2 = snmp_engine_id_page.get_note_text()
         expected_val1 = "Note:"
         expected_val2 = "Engine ID length is 10-64, the accepted character is from 0 to F."
 

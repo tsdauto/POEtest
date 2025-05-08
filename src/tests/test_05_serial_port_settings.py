@@ -17,7 +17,6 @@ class TestSerialPortSettings:
 
         assert expected_val == res, "header is not correct"
 
-
     def test_check_tier2_header_is_correct(self, serial_port_settings_page):
         res = serial_port_settings_page.get_tier2_header_text()
         expected_val = "Serial Port Settings"
@@ -63,6 +62,3 @@ class TestSerialPortSettings:
 
         assert expected_title == title, "stop bits is not correct"
         assert expected_value == value, "stop bits value is not correct"
-
-
-
