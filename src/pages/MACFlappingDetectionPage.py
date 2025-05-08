@@ -75,16 +75,16 @@ class MACFlappingDetectionPage(BasePage):
 
         return self.find_element_then_get_text(total_entries_title_locator)
         
-    def get_MAC_Flapping_Detection_table_title(self):
-        MAC_Flapping_Detection_table_title_locator = (By.CSS_SELECTOR, ".has-gutter")
+    def get_mac_flapping_detection_table_title(self):
+        mac_flapping_detection_table_title_locator = (By.CSS_SELECTOR, ".has-gutter")
         cells_class_name = "cell"
 
-        return self.find_cells_value_within(MAC_Flapping_Detection_table_title_locator, cells_class_name)
+        return self.find_cells_value_within(mac_flapping_detection_table_title_locator, cells_class_name)
 
-    def get_MAC_Flapping_Detection_button_text(self):
-        MAC_Flapping_Detection_button_locator = (By.CSS_SELECTOR, "#Apply")
+    def get_mac_flapping_detection_button_text(self):
+        mac_flapping_detection_button_locator = (By.CSS_SELECTOR, "#Apply")
 
-        return self.find_input_value(MAC_Flapping_Detection_button_locator)
+        return self.find_input_value(mac_flapping_detection_button_locator)
     
     def get_table_default_is_empty(self):
         # span

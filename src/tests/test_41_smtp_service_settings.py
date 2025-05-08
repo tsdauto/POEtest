@@ -51,16 +51,16 @@ class TestSMTPserviceSettings:
 
         assert expected_title == title
 
-    def test_check_IPv4_title_and_value(self, smtp_service_settings_page):
-        title, value = smtp_service_settings_page.get_IPv4_title_and_value()
+    def test_check_ipv4_title_and_value(self, smtp_service_settings_page):
+        title, value = smtp_service_settings_page.get_ipv4_title_and_value()
         expected_title = "IPv4"
         expected_val = "..."
 
         assert expected_title == title
         assert expected_val == value
 
-    def test_check_IPv6_title_and_value(self, smtp_service_settings_page):
-        title, value = smtp_service_settings_page.get_IPv6_title_and_value()
+    def test_check_ipv6_title_and_value(self, smtp_service_settings_page):
+        title, value = smtp_service_settings_page.get_ipv6_title_and_value()
         expected_title = "IPv6"
         expected_val = "::"
 

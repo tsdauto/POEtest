@@ -61,7 +61,7 @@ class SMTPServiceSettingsPage(BasePage):
         SMTP_SERVER_ADDRESS_TITLE_LOCATOR = (By.CSS_SELECTOR, "div:nth-child(2) > fieldset > table:nth-child(4) > tr:nth-child(2) > td:nth-child(1) > span")
         return self.find_element_then_get_text(SMTP_SERVER_ADDRESS_TITLE_LOCATOR)
 
-    def get_IPv4_title_and_value(self):
+    def get_ipv4_title_and_value(self):
         SMTP_SERVER_ADDRESS_TITLE_LOCATOR = (By.XPATH, "/html/body/div/div/div/section/div/section/div/div[2]/fieldset/table[2]/tr[2]/td[2]")
         td_element = self.find_element_if_visible(SMTP_SERVER_ADDRESS_TITLE_LOCATOR)
         if td_element:
@@ -90,7 +90,7 @@ class SMTPServiceSettingsPage(BasePage):
         ipv4_addr = ".".join(ipv4_octets)
         return title, ipv4_addr
 
-    def get_IPv6_title_and_value(self):
+    def get_ipv6_title_and_value(self):
         SMTP_SERVER_ADDRESS_TITLE_LOCATOR = (By.XPATH, "/html/body/div/div/div/section/div/section/div/div[2]/fieldset/table[2]/tr[3]/td[2]")
         SMTP_SERVER_ADDRESS_VALUE_LOCATOR = (By.CSS_SELECTOR, "#IPv6 > input")
         td_element = self.find_element_if_visible(SMTP_SERVER_ADDRESS_TITLE_LOCATOR)

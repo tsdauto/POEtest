@@ -16,20 +16,20 @@ class TestAccessProfileList:
 
         assert expected_val == result
 
-    def test_check_ACL_Profile_List_tier2_header(self, access_profile_list_page):
-        result = access_profile_list_page.get_ACL_Profile_List_tier2_header_text()
+    def test_check_acl_profile_list_tier2_header(self, access_profile_list_page):
+        result = access_profile_list_page.get_acl_profile_list_tier2_header_text()
         expected_val = "Access Profile List"
 
         assert expected_val == result
 
-    def test_check_ACL_Profile_button1_text(self, access_profile_list_page):
-        result = access_profile_list_page.get_ACL_Profile_button1_text()
+    def test_check_acl_profile_button1_text(self, access_profile_list_page):
+        result = access_profile_list_page.get_acl_profile_button1_text()
         expected_val = "Add ACL Profile"
 
         assert expected_val == result
 
-    def test_check_ACL_Profile_button2_text(self, access_profile_list_page):
-        result = access_profile_list_page.get_ACL_Profile_button2_text()
+    def test_check_acl_profile_button2_text(self, access_profile_list_page):
+        result = access_profile_list_page.get_acl_profile_button2_text()
         expected_val = "Delete All"
 
         assert expected_val == result
@@ -40,8 +40,8 @@ class TestAccessProfileList:
 
         assert expected_val == result
 
-    def test_check_ACL_Profile_table_total_text(self, access_profile_list_page):
-        result = access_profile_list_page.get_ACL_Profile_table_total_text()
+    def test_check_acl_profile_table_total_text(self, access_profile_list_page):
+        result = access_profile_list_page.get_acl_profile_table_total_text()
         expected_val = "Current/Max. Profile: 0/6, Current/Max. Rule: 0/768"
 
         assert expected_val == result

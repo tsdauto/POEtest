@@ -34,19 +34,19 @@ class AccessProfileListPage(BasePage):
 
         return self.find_element_then_get_text(header_locator)
     
-    def get_ACL_Profile_List_tier2_header_text(self):
+    def get_acl_profile_list_tier2_header_text(self):
         ACL_Profile_List_tier2_header_locator = (
             By.CSS_SELECTOR, "div:nth-child(2) > fieldset > legend")
 
         return self.find_element_then_get_text(ACL_Profile_List_tier2_header_locator)
     
-    def get_ACL_Profile_button1_text(self):
+    def get_acl_profile_button1_text(self):
         ACL_Profile_button_locator = (
             By.CSS_SELECTOR, "#AddACLProfile")
 
         return self.find_input_value(ACL_Profile_button_locator)
     
-    def get_ACL_Profile_button2_text(self):
+    def get_acl_profile_button2_text(self):
         ACL_Profile_List_table_title_locator = (
             By.CSS_SELECTOR, "#DeleteAll")
 
@@ -59,7 +59,7 @@ class AccessProfileListPage(BasePage):
 
         return self.find_cells_value_within(table_locator, cell_class_name)
 
-    def get_ACL_Profile_table_total_text(self):
+    def get_acl_profile_table_total_text(self):
         ACL_Profile_table_total_locator = (
             By.CSS_SELECTOR, ".sx-section > fieldset > table:nth-child(4) > tr > td > span")
 

@@ -49,7 +49,7 @@ class IPv6NeighborSettingsPage(BasePage):
 
         return title, value
 
-    def get_Neighbor_IPv6_Address_title_and_value(self):
+    def get_neighbor_ipv6_address_title_and_value(self):
         #  span
         title_locator = (By.CSS_SELECTOR,"div:nth-child(2) > fieldset > table > tr:nth-child(2) > td > span")
         value_locator = (By.CSS_SELECTOR,"#NeighborIPv6Address > input")
@@ -58,7 +58,7 @@ class IPv6NeighborSettingsPage(BasePage):
 
         return title, value
 
-    def get_Link_Layer_MAC_Address_title_and_value(self):
+    def get_link_layer_mac_address_title_and_value(self):
         #  span
         title_locator = (By.CSS_SELECTOR,"div:nth-child(2) > fieldset > table > tr:nth-child(3) > td > span")
         value_locator = (By.CSS_SELECTOR,"#LinkLayerMACAddress > input")
@@ -73,12 +73,12 @@ class IPv6NeighborSettingsPage(BasePage):
 
         return self.find_input_value(ipv6_neighbor_settings_button_locator)
     
-    def get_ipv6_neighbor_Table_header_text(self):
-        ipv6_neighbor_Table_header_locator = (By.CSS_SELECTOR,"div:nth-child(3) > fieldset > legend")
+    def get_ipv6_neighbor_table_header_text(self):
+        ipv6_neighbor_table_header_locator = (By.CSS_SELECTOR,"div:nth-child(3) > fieldset > legend")
 
-        return self.find_element_then_get_text(ipv6_neighbor_Table_header_locator)
+        return self.find_element_then_get_text(ipv6_neighbor_table_header_locator)
     
-    def get_Neighbor_Table_interface_name_title_and_value(self):
+    def get_neighbor_table_interface_name_title_and_value(self):
         #  span
         title_locator = (By.CSS_SELECTOR, "div:nth-child(3) > fieldset > table > tr > td > span")
         value_locator = (By.CSS_SELECTOR,"#InterfaceName2")

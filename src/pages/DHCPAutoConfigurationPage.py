@@ -61,7 +61,7 @@ class DHCPAutoConfigurationPage(BasePage):
         text = self.find_selected_input_label_text(selected_input)
         return text
 
-    def get_Timeout_title_and_value(self):
+    def get_timeout_title_and_value(self):
         # input
         title_locator = (By.CSS_SELECTOR,
                          "div:nth-child(2) > fieldset > table > tr:nth-child(2) > td > span")
@@ -71,7 +71,7 @@ class DHCPAutoConfigurationPage(BasePage):
 
         return title, value
 
-    def get_DHCP_Auto_Configuration_button_value(self):
+    def get_dhcp_auto_configuration_button_value(self):
         get_auto_configuration_title_text_locator = (By.CSS_SELECTOR, "#Apply")
 
         return self.find_input_value(get_auto_configuration_title_text_locator)

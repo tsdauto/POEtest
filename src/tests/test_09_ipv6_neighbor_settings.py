@@ -29,16 +29,16 @@ class TestIPv6NeighborSettings:
         assert expected_title == title
         assert expected_val == value
 
-    def test_check_Neighbor_IPv6_Address_title_and_value(self, ipv6_neighbor_settings_page):
-        title, value = ipv6_neighbor_settings_page.get_Neighbor_IPv6_Address_title_and_value()
+    def test_check_neighbor_ipv6_address_title_and_value(self, ipv6_neighbor_settings_page):
+        title, value = ipv6_neighbor_settings_page.get_neighbor_ipv6_address_title_and_value()
         expected_title = "Neighbor IPv6 Address"
         expected_val = ""
 
         assert expected_title == title
         assert expected_val == value
 
-    def test_check_Link_Layer_MAC_Address_title_and_value(self, ipv6_neighbor_settings_page):
-        title, value = ipv6_neighbor_settings_page.get_Link_Layer_MAC_Address_title_and_value()
+    def test_check_link_layer_mac_address_title_and_value(self, ipv6_neighbor_settings_page):
+        title, value = ipv6_neighbor_settings_page.get_link_layer_mac_address_title_and_value()
         expected_title = "Link Layer MAC Address"
         expected_val = ""
 
@@ -54,21 +54,21 @@ class TestIPv6NeighborSettings:
 @allure.title("ipv6_neighbor_settings.IPv6_Neighbor_Table")
 class TestIPv6NeighborTable:
 
-    def test_check_ipv6_neighbor_Table_header(self, ipv6_neighbor_settings_page):
-        result = ipv6_neighbor_settings_page.get_ipv6_neighbor_Table_header_text()
+    def test_check_ipv6_neighbor_table_header(self, ipv6_neighbor_settings_page):
+        result = ipv6_neighbor_settings_page.get_ipv6_neighbor_table_header_text()
         expected_val = "IPv6 Neighbor Table"
 
         assert expected_val == result
 
-    def test_check_Neighbor_Table_interface_name_title_and_value(self, ipv6_neighbor_settings_page):
-        title, value = ipv6_neighbor_settings_page.get_Neighbor_Table_interface_name_title_and_value()
+    def test_check_neighbor_table_interface_name_title_and_value(self, ipv6_neighbor_settings_page):
+        title, value = ipv6_neighbor_settings_page.get_neighbor_table_interface_name_title_and_value()
         expected_title = "Interface Name"
         expected_val = ""
 
         assert expected_title == title
         assert expected_val == value
 
-    def test_check__state_title_and_value(self, ipv6_neighbor_settings_page):
+    def test_check_state_title_and_value(self, ipv6_neighbor_settings_page):
         title, value1, value2 = ipv6_neighbor_settings_page.get_state_title_and_value()
         expected_title = "State"
         expected_val1 = "All"

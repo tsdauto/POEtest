@@ -60,8 +60,8 @@ class TestMacFlappingDetection:
 
         assert expected_title == title
 
-    def test_check_MAC_Flapping_Detection_table_title(self, mac_flapping_detection_page):
-        result = mac_flapping_detection_page.get_MAC_Flapping_Detection_table_title()
+    def test_check_mac_flapping_detection_table_title(self, mac_flapping_detection_page):
+        result = mac_flapping_detection_page.get_mac_flapping_detection_table_title()
         expected_val = ["Mac Address", "VID", "Total Time", "Flapped Times", "Port List"]
 
         assert expected_val == result
@@ -71,8 +71,8 @@ class TestMacFlappingDetection:
 
         assert result
 
-    def test_check_MAC_Flapping_Detection_button_text(self, mac_flapping_detection_page):
-        result = mac_flapping_detection_page.get_MAC_Flapping_Detection_button_text()
+    def test_check_mac_flapping_detection_button_text(self, mac_flapping_detection_page):
+        result = mac_flapping_detection_page.get_mac_flapping_detection_button_text()
         expected_val = "Apply"
 
         assert expected_val == result
