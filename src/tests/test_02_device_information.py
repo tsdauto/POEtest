@@ -5,7 +5,7 @@ import os
 import allure
 import pytest
 
-from ..pages.DeviceInformationPage import DeviceInformationPage
+
 from ..mixins.TestUtils import ValueCheckMixins
 
 
