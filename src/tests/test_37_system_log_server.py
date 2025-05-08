@@ -126,5 +126,3 @@ class TestSystemLogServerList:
         result = system_log_server_page.get_table_default_is_empty()
 
         assert result
-
-

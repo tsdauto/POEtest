@@ -50,5 +50,3 @@ class TestSNMPGlobalStateSettings:
         expected_val = "Apply"
 
         assert expected_val == result
-
-

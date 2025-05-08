@@ -121,4 +121,3 @@ class TestPPPoECircuitIDInsertionPortSettings:
         expected_val = ["1", "Disabled", "Switch IP", "Default"]
 
         assert expected_val == result
-

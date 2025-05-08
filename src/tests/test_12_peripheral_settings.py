@@ -125,4 +125,3 @@ class TestEnvironmentTemperatureSettings:
         expected_result = "Apply"
 
         assert expected_result == result
-

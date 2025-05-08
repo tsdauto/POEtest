@@ -86,5 +86,3 @@ class TestSNMPCommunityTable:
         expected_val = "Delete"
 
         assert expected_val == result
-        
-

@@ -84,6 +84,3 @@ class TestTwampServer:
         expected_val = "Refresh"
 
         assert expected_val == result
-        
-        
-        

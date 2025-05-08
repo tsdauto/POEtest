@@ -70,4 +70,3 @@ class TestSystemLogSaveModeSettings:
         expected_val = "Apply"
 
         assert expected_val == result
-

@@ -34,6 +34,3 @@ class TestMacAddressAgingTime:
         expected_val = "Apply"
 
         assert expected_val == result
-        
-        
-        

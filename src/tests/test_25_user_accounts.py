@@ -85,6 +85,3 @@ class TestUserAccounts:
         result = user_accounts_page.get_table_default_is_empty()
 
         assert result
-        
-        
-

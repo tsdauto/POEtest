@@ -70,5 +70,3 @@ class TestPortDescription:
         expected_val = "Apply"
 
         assert expected_val == result
-    
-    

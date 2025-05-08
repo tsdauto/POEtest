@@ -257,7 +257,3 @@ class TestSnmpSendingTrapPort:
         expected_val = [str(i) for i in range(1, 53)]
 
         assert expected_val == result
-
-
-
-

@@ -82,5 +82,3 @@ class TestSNMPHostTable:
 
     def test_check_table_default_is_empty(self, snmp_host_table_page):
         assert snmp_host_table_page.get_table_default_is_empty() == True
-
-

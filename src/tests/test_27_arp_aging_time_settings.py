@@ -34,6 +34,3 @@ class TestArpAgingTimeSettings:
         expected_val = "Apply"
 
         assert expected_val == result
-        
-        
-        

@@ -190,5 +190,3 @@ class TestSNMPUserTable:
         expected_val = "Go"
 
         assert expected_val == result
-
-
