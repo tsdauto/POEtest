@@ -4,7 +4,7 @@ import allure
 import pytest
 
 
-from ..utils.all_exist_in_order import all_exist_in_order
+
 
 
 @allure.title("system_log_server.add_system_log_server")

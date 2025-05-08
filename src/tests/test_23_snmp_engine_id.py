@@ -4,7 +4,7 @@ import os
 import allure
 import pytest
 
-from ..utils.all_exist_in_order import all_exist_in_order
+
 
 
 @allure.title("snmp_engine_id")

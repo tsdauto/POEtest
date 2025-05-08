@@ -3,8 +3,6 @@
 import allure
 import pytest
 
-from ..utils.all_exist_in_order import all_exist_in_order
-
 
 @allure.title("smtp_service_settings.smtp_service_settings")
 class TestSMTPserviceSettings:

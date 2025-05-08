@@ -4,7 +4,7 @@ import allure
 import pytest
 
 
-from ..utils.all_exist_in_order import all_exist_in_order
+
 
 
 @allure.title("mac_notification_settings.mac_notification_global_settings")
