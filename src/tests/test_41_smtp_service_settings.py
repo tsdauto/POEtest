@@ -38,7 +38,7 @@ class TestSMTPserviceSettings:
         expected_val = "Disabled"
 
         assert expected_val == result
-    
+
     def test_default_smtp_state_is_disabled(self, smtp_service_settings_page):
         opt = smtp_service_settings_page.get_checked_smtp_state_option()
         expected_val = "Disabled"
@@ -113,7 +113,7 @@ class TestSMTPserviceSettings:
         expected_val = "Apply"
 
         assert expected_val == result
-        
+
 @allure.title("smtp_service_settings.mail_receiver_address")
 class TestMailReceiverAddress:
 

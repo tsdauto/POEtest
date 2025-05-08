@@ -51,25 +51,25 @@ class TestDDPGlobalSettings:
         expected_val = "D-Link Discover Report State"
 
         assert expected_val == result
-        
+
     def test_check_d_link_discover_report_state_option_one(self, dlink_discover_protocol_page):
         result = dlink_discover_protocol_page.get_d_link_discover_report_state_option_one()
         expected_val = "Enabled"
 
         assert expected_val == result
-        
+
     def test_check_d_link_discover_report_state_option_two(self, dlink_discover_protocol_page):
         result = dlink_discover_protocol_page.get_d_link_discover_report_state_option_two()
         expected_val = "Disabled"
 
         assert expected_val == result
-        
+
     def test_default_d_link_discover_report_state_is_disabled(self, dlink_discover_protocol_page):
         opt = dlink_discover_protocol_page.get_checked_d_link_discover_report_state_option()
         expected_val = "Disabled"
 
         assert expected_val == opt, "default d-link discover report state is not Disabled"
-        
+
     def test_check_d_link_discover_protocol_report_timer_title_and_value(self, dlink_discover_protocol_page):
         title, value = dlink_discover_protocol_page.get_d_link_discover_protocol_report_timer_title_and_value()
         expected_title = "D-Link Discover Protocol Report Timer (0-120 Seconds)"
@@ -83,7 +83,7 @@ class TestDDPGlobalSettings:
         expected_val = "Apply"
 
         assert expected_val == result
-        
+
 @allure.title("dlink_discover_protocol.DDP Port Settings")
 class TestDDPPortSettings:
 
@@ -92,7 +92,7 @@ class TestDDPPortSettings:
         expected_val = "DDP Port Settings"
 
         assert expected_val == result
-    
+
     def test_check_from_port_title_and_value(self, dlink_discover_protocol_page):
         title, value = dlink_discover_protocol_page.get_from_port_title_and_value()
         expected_title = "From Port"
@@ -100,7 +100,7 @@ class TestDDPPortSettings:
 
         assert expected_title == title
         assert expected_val == value
-        
+
     def test_check_to_port_title_and_value(self, dlink_discover_protocol_page):
         title, value = dlink_discover_protocol_page.get_to_port_title_and_value()
         expected_title = "To Port"
@@ -108,7 +108,7 @@ class TestDDPPortSettings:
 
         assert expected_title == title
         assert expected_val == value
-    
+
     def test_check_state_title_and_value(self, dlink_discover_protocol_page):
         title, value = dlink_discover_protocol_page.get_state_title_and_value()
         expected_title = "State"
@@ -116,7 +116,7 @@ class TestDDPPortSettings:
 
         assert expected_title == title
         assert expected_val == value
-        
+
     def test_check_ddp_port_settings_button_text(self, dlink_discover_protocol_page):
         result = dlink_discover_protocol_page.get_ddp_port_settings_button_text()
         expected_val = "Apply"

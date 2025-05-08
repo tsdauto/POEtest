@@ -20,7 +20,7 @@ class TestTelnetSettings:
         expected_val = "Telnet Settings"
 
         assert expected_val == result
-    
+
     def test_check_telnet_state_title(self, telnet_settings_page):
         result = telnet_settings_page.get_telnet_state_title_text()
         expected_val = "Telnet State"
