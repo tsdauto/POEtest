@@ -41,10 +41,10 @@ class TestSNMPHostTable:
         assert expected_val_two == option_two
 
     def test_check_v4_mode_default_options(self, snmp_host_table_page):
-        assert snmp_host_table_page.get_checked_v4_mode_option() == True
+        assert snmp_host_table_page.get_checked_v4_mode_option() is True
 
     def test_check_v6_mode_default_options(self, snmp_host_table_page):
-        assert snmp_host_table_page.get_checked_v6_mode_option() == False
+        assert snmp_host_table_page.get_checked_v6_mode_option() is False
 
     def test_check_snmp_version_title_and_value(self, snmp_host_table_page):
         title, value = snmp_host_table_page.get_snmp_version_title_and_value()
@@ -81,4 +81,4 @@ class TestSNMPHostTable:
         assert expected_val == result
 
     def test_check_table_default_is_empty(self, snmp_host_table_page):
-        assert snmp_host_table_page.get_table_default_is_empty() == True
+        assert snmp_host_table_page.get_table_default_is_empty() is True

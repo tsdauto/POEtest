@@ -68,10 +68,10 @@ class TestSMTPserviceSettings:
         assert expected_val == value
 
     def test_check_v4_mode_default_options(self, smtp_service_settings_page):
-        assert smtp_service_settings_page.get_checked_v4_mode_option() == False
+        assert smtp_service_settings_page.get_checked_v4_mode_option() is False
 
     def test_check_v6_mode_default_options(self, smtp_service_settings_page):
-        assert smtp_service_settings_page.get_checked_v6_mode_option() == True
+        assert smtp_service_settings_page.get_checked_v6_mode_option() is True
 
     def test_check_domain_title_and_value(self, smtp_service_settings_page):
         title, value = smtp_service_settings_page.get_domain_title_and_value()
@@ -82,7 +82,7 @@ class TestSMTPserviceSettings:
         assert expected_val == value
 
     def test_check_domain_mode_default_options(self, smtp_service_settings_page):
-        assert smtp_service_settings_page.get_checked_domain_mode_option() == False
+        assert smtp_service_settings_page.get_checked_domain_mode_option() is False
 
     def test_check_self_mail_address_title_and_value(self, smtp_service_settings_page):
         title, value = smtp_service_settings_page.get_self_mail_address_title_and_value()

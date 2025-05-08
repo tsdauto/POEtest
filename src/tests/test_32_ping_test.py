@@ -42,10 +42,10 @@ class TestPingTest:
         assert expected_val_two == option_two
 
     def test_check_v4_mode_default_options(self, ping_test_page):
-        assert ping_test_page.get_checked_v4_mode_option() == True
+        assert ping_test_page.get_checked_v4_mode_option() is True
 
     def test_check_v6_mode_default_options(self, ping_test_page):
-        assert ping_test_page.get_checked_v6_mode_option() == False
+        assert ping_test_page.get_checked_v6_mode_option() is False
 
     def test_check_repeat_pinging_for_title(self, ping_test_page):
         result = ping_test_page.get_repeat_pinging_for_title()

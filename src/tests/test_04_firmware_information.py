@@ -22,7 +22,7 @@ class TestFirmwareInformation:
 
     def test_check_firmware_version_exists(self, firmware_information_page):
         result = firmware_information_page.get_firmware_version_exists()
-        assert result == True, "global setting firmware version not exists"
+        assert result is True, "global setting firmware version not exists"
 
     def test_check_select_prompt_text(self, firmware_information_page):
         select_prompt_text = firmware_information_page.find_selected_input_text()

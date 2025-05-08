@@ -73,7 +73,7 @@ class TestIPInformation():
 
     def test_check_if_dhcp_option_77_table_is_empty(self, system_settings_page):
 
-        assert system_settings_page.check_if_dhcp_option_77_table_is_empty() == True
+        assert system_settings_page.check_if_dhcp_option_77_table_is_empty() is True
 
 @allure.title("System Settings.DeviceInformation")
 class TestSystemInformation():
