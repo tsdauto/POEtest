@@ -1,6 +1,8 @@
+import os
+
 import socket
 import pytest
-import os
+
 from dotenv import load_dotenv
 
 load_dotenv("Settings.env")

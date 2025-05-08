@@ -35,7 +35,7 @@ jobs:
           pylint src/tests || true
       - name: Format code with black
         run: |
-          black src/tests
+          black src/pages
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
