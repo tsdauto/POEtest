@@ -30,7 +30,7 @@ async def api_call_task(serial_env):
     print("📡 API sent: api_call_end")
 
 async def async_main():
-    serial_env = SerialEnv.SerialEnv(baudrate=115200, port="COM9", use_mock=False)
+    serial_env = SerialEnv.SerialEnv(baudrate=115200, port="COM3", use_mock=False)
 
     # 在背景運行 user_input_loop
     input_task = asyncio.create_task(serial_env.user_input_loop())

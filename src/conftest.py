@@ -6,7 +6,7 @@ import os
 load_dotenv('Settings.env')
 
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.edge.options import Options
 
 import pytest
 
@@ -814,3 +814,47 @@ def ieee802_3az_eee_settings_page(logged_driver, config):
     yield __page
     print("\n\n tearing down ieee802_3az_eee_settings_page")
 
+# 41
+@pytest.fixture(scope="class")
+def smtp_service_settings_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing smtp_service_settings_page")
+    from .pages.SMTPServiceSettingsPage import SMTPServiceSettingsPage
+    __page = SMTPServiceSettingsPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down smtp_service_settings_page")
+
+# 42
+@pytest.fixture(scope="class")
+def smtp_service_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing smtp_service_page")
+    from .pages.SMTPServicePage import SMTPServicePage
+    __page = SMTPServicePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down smtp_service_page")
+
+# 43
+@pytest.fixture(scope="class")
+def dlink_discover_protocol_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing dlink_discover_protocol_page")
+    from .pages.DLinkDiscoverProtocolPage import DLinkDiscoverProtocolPage
+    __page = DLinkDiscoverProtocolPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down dlink_discover_protocol_page")
