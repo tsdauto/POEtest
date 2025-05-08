@@ -42,13 +42,13 @@ class TestIPInformation():
 
     def test_check_subnet_mask(self, system_settings_page):
         title, value = system_settings_page.get_subnet_mask_title_and_value()
-        
+
         assert title == "Subnet Mask"
         assert value == "255.0.0.0"
-        
+
     def test_check_gateway_title_and_value(self, system_settings_page):
         title, value = system_settings_page.get_gateway_title_and_value()
-        
+
         assert title == "Gateway"
         assert value == "0.0.0.0"
 

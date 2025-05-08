@@ -74,7 +74,7 @@ class TestUserAccounts:
         expected_val = "Total Entries : 0"
 
         assert expected_val == result
-        
+
     def test_check_table_title(self, user_accounts_page):
         result = user_accounts_page.get_table_title()
         expected_val = ["User Name", "Access Right", "Password"]

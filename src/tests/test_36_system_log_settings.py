@@ -33,7 +33,7 @@ class TestSystemLogGlobalSettings:
         expected_val = "Disabled"
 
         assert expected_val == result
-    
+
     def test_default_system_log_global_settings_is_enabled(self, system_log_settings_page):
         opt = system_log_settings_page.get_checked_system_log_global_settings_option()
         expected_val = "Enabled"

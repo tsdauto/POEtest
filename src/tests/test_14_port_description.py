@@ -52,7 +52,7 @@ class TestPortDescription:
 
         assert expected_title == title
         assert expected_val == value
-        
+
     def test_check_table_title(self, port_description_page):
         result = port_description_page.get_table_title()
         expected_val = ["Port", "Description"]

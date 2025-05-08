@@ -64,7 +64,7 @@ class TestIPv6NeighborTable:
         title, value = ipv6_neighbor_settings_page.get_Neighbor_Table_interface_name_title_and_value()
         expected_title = "Interface Name"
         expected_val = ""
-        
+
         assert expected_title == title
         assert expected_val == value
 

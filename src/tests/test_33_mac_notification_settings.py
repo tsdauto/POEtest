@@ -39,7 +39,7 @@ class TestMacNotificationGlobalSettings:
         expected_val = "Disabled"
 
         assert expected_val == result
-    
+
     def test_default_state_is_disabled(self, mac_notification_settings_page):
         opt = mac_notification_settings_page.get_checked_state_option()
         expected_val = "Disabled"

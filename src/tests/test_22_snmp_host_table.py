@@ -20,7 +20,7 @@ class TestSNMPHostTable:
         expected_val = "SNMP Host Table"
 
         assert expected_val == result
-    
+
     def test_check_host_ip_address_title_and_v4_value_v6_value(self, snmp_host_table_page):
         title, value_v4, value_v6 = snmp_host_table_page.get_host_ip_address_title_and_v4_value_v6_value()
         expected_title = "Host IP Address"
@@ -67,13 +67,13 @@ class TestSNMPHostTable:
         expected_val = "Apply"
 
         assert expected_val == result
-        
+
     def test_check_total_entries_title(self, snmp_host_table_page):
         result = snmp_host_table_page.get_total_entries_title()
         expected_val = "Total Entries : 0"
 
         assert expected_val == result
-        
+
     def test_check_table_title(self, snmp_host_table_page):
         result = snmp_host_table_page.get_table_title()
         expected_val = ["Host IP Address", "SNMP Version", "Community Name/SNMPv3 User Name", "Delete"]
