@@ -20,7 +20,7 @@ class TestSNMPEngineID:
         expected_val = "SNMP Engine ID"
 
         assert expected_val == result
-    
+
     def test_check_engine_id_title_and_value(self, snmp_engine_id_page):
         title, value = snmp_engine_id_page.get_engine_id_title_and_value()
         expected_title = "Engine ID"
@@ -40,7 +40,7 @@ class TestSNMPEngineID:
         expected_val = "Default"
 
         assert expected_val == result
-        
+
     def test_check_note_text(self, snmp_engine_id_page):
         value1,value2 = snmp_engine_id_page.get_note_text()
         expected_val1 = "Note:"

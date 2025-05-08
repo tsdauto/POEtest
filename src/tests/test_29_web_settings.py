@@ -20,7 +20,7 @@ class TestWebSettings:
         expected_val = "Web Settings"
 
         assert expected_val == result
-    
+
     def test_check_web_state_title(self, web_settings_page):
         result = web_settings_page.get_web_state_title_text()
         expected_val = "WEB State"
@@ -38,7 +38,7 @@ class TestWebSettings:
         expected_val = "Disabled"
 
         assert expected_val == result
-    
+
     def test_default_web_state_is_enabled(self, web_settings_page):
         opt = web_settings_page.get_checked_web_state_option()
         expected_val = "Enabled"
