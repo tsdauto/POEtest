@@ -4,7 +4,6 @@ import allure
 import pytest
 
 
-
 @allure.title("ipv6_system_settings.interface_settings")
 class TestIPv6SystemSettings:
 

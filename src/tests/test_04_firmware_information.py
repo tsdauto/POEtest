@@ -5,6 +5,7 @@ import os
 import allure
 import pytest
 
+
 @allure.title("Firmware Information")
 class TestFirmwareInformation:
     def test_collapse_system_menu_then_click_system_settings(self, firmware_information_page):
