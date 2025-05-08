@@ -43,16 +43,16 @@ class TestDHCPAutoImage:
 
         assert expected_val == opt, "default auto image mode is not Disabled"
 
-    def test_check_Timeout_title_and_value(self, dhcp_auto_image_page):
-        title, value = dhcp_auto_image_page.get_Timeout_title_and_value()
+    def test_check_timeout_title_and_value(self, dhcp_auto_image_page):
+        title, value = dhcp_auto_image_page.get_timeout_title_and_value()
         expected_title = "Timeout (1-65535)"
         expected_val = "50"
 
         assert expected_title == title
         assert expected_val == value
 
-    def test_check_dhcp_auto_image_button(self, dhcp_auto_image_page):
-        result = dhcp_auto_image_page.get_dhcp_auto_image_button_value()
+    def test_check_dhcp_auto_image_button_text(self, dhcp_auto_image_page):
+        result = dhcp_auto_image_page.get_dhcp_auto_image_button_text()
         expected_result = "Apply"
 
         assert expected_result == result

@@ -1,5 +1,4 @@
 # test_8_access_profile_list.py
-import time
 
 import allure
 import pytest

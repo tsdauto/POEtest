@@ -51,8 +51,8 @@ class TestGlobalSettings:
 
         assert expected_val == opt, "default link status detection version is not Disabled"
 
-    def test_check_Global_Settings_button_text(self, power_saving_page):
-        result = power_saving_page.get_Global_Settings_button_text()
+    def test_check_global_settings_button_text(self, power_saving_page):
+        result = power_saving_page.get_global_settings_button_text()
         expected_val = "Apply"
 
         assert expected_val == result

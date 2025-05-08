@@ -69,8 +69,8 @@ class TestMacNotificationGlobalSettings:
 @allure.title("mac_notification_settings.mac_notification_port_settings")
 class TestMacNotificationPortSettings:
 
-    def test_check_MAC_Notification_Port_Settings_Table_header(self, mac_notification_settings_page):
-        result = mac_notification_settings_page.get_MAC_Notification_Port_Settings_Table_header_text()
+    def test_check_mac_notification_port_settings_table_header(self, mac_notification_settings_page):
+        result = mac_notification_settings_page.get_mac_notification_port_settings_table_header_text()
         expected_val = "MAC Notification Port Settings"
 
         assert expected_val == result
@@ -99,8 +99,8 @@ class TestMacNotificationPortSettings:
         assert expected_title == title
         assert expected_val == value
 
-    def test_check_MAC_Notification_Port_Settings_Table_button_text(self, mac_notification_settings_page):
-        result = mac_notification_settings_page.get_MAC_Notification_Port_Settings_Table_button_text()
+    def test_check_mac_notification_port_settings_table_button_text(self, mac_notification_settings_page):
+        result = mac_notification_settings_page.get_mac_notification_port_settings_table_button_text()
         expected_val = "Apply"
 
         assert expected_val == result
@@ -109,20 +109,20 @@ class TestMacNotificationPortSettings:
 @allure.title("mac_notification_settings.MAC_Notification_Port_State_Table")
 class TestMacNotificationPortStateTable:
 
-    def test_check_MAC_Notification_Port_State_Table_header(self, mac_notification_settings_page):
-        result = mac_notification_settings_page.get_MAC_Notification_Port_State_Table_header_text()
+    def test_check_mac_notification_port_state_table_header(self, mac_notification_settings_page):
+        result = mac_notification_settings_page.get_mac_notification_port_state_table_header_text()
         expected_val = "MAC Notification Port State Table"
 
         assert expected_val == result
 
-    def test_check_MAC_Notification_Port_State_table_title(self, mac_notification_settings_page):
-        result = mac_notification_settings_page.get_MAC_Notification_Port_State_table_title()
+    def test_check_mac_notification_port_state_table_title(self, mac_notification_settings_page):
+        result = mac_notification_settings_page.get_mac_notification_port_state_table_title()
         expected_val = ["Port", "State"]
 
         assert expected_val == result
 
-    def test_check_MAC_Notification_Port_State_table_value(self, mac_notification_settings_page):
-        result = mac_notification_settings_page.get_MAC_Notification_Port_State_table_value()
+    def test_check_mac_notification_port_state_table_value(self, mac_notification_settings_page):
+        result = mac_notification_settings_page.get_mac_notification_port_state_table_value()
         expected_val = ["1", "Disabled"]
 
         assert expected_val == result

@@ -61,7 +61,7 @@ class DHCPAutoImagePage(BasePage):
         text = self.find_selected_input_label_text(selected_input)
         return text
         
-    def get_Timeout_title_and_value(self):
+    def get_timeout_title_and_value(self):
         title_locator = (By.CSS_SELECTOR,
                          "div:nth-child(2) > fieldset > table > tr:nth-child(2) > td > span")
         value_locator = (By.CSS_SELECTOR, "#sysDhcpAutoConfigTime")
@@ -70,7 +70,7 @@ class DHCPAutoImagePage(BasePage):
 
         return title, value
     
-    def get_dhcp_auto_image_button_value(self):
-        get_dhcp_auto_image_button_locator = (By.CSS_SELECTOR, "#Apply")
+    def get_dhcp_auto_image_button_text(self):
+        dhcp_auto_image_button_locator = (By.CSS_SELECTOR, "#Apply")
 
-        return self.find_input_value(get_dhcp_auto_image_button_locator)
+        return self.find_input_value(dhcp_auto_image_button_locator)

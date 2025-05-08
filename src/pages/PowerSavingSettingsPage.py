@@ -71,7 +71,7 @@ class PowerSavingSettingsPage(BasePage):
         text = self.find_selected_input_label_text(selected_input)
         return text
 
-    def get_Global_Settings_button_text(self):
+    def get_global_settings_button_text(self):
         Global_Settings_button_locator = (By.CSS_SELECTOR, "#onApply1")
         
         return self.find_input_value(Global_Settings_button_locator)

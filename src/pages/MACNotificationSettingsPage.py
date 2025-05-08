@@ -84,10 +84,10 @@ class MACNotificationSettingsPage(BasePage):
 
         return self.find_input_value(mac_notification_global_settings_button_locator)
         
-    def get_MAC_Notification_Port_Settings_Table_header_text(self):
-        MAC_Notification_Port_Settings_Table_header_locator = (By.CSS_SELECTOR, "div:nth-child(3) > fieldset > legend")
+    def get_mac_notification_port_settings_table_header_text(self):
+        mac_notification_port_settings_table_header_locator = (By.CSS_SELECTOR, "div:nth-child(3) > fieldset > legend")
 
-        return self.find_element_then_get_text(MAC_Notification_Port_Settings_Table_header_locator)
+        return self.find_element_then_get_text(mac_notification_port_settings_table_header_locator)
         
     def get_from_port_title_and_value(self):
         from_port_title_locator = (By.CSS_SELECTOR, "div:nth-child(3) > fieldset > table > tr > td")
@@ -115,27 +115,28 @@ class MACNotificationSettingsPage(BasePage):
         value = self.find_selected_value_within(state_value_locator)
 
         return title, value
-    def get_MAC_Notification_Port_Settings_Table_button_text(self):
-        MAC_Notification_Port_Settings_Table_button_locator = (By.CSS_SELECTOR, "#Apply2")
-
-        return self.find_input_value(MAC_Notification_Port_Settings_Table_button_locator)
     
-    def get_MAC_Notification_Port_State_Table_header_text(self):
-        MAC_Notification_Port_State_Table_header_locator = (By.CSS_SELECTOR, "div:nth-child(4) > fieldset > legend")
+    def get_mac_notification_port_settings_table_button_text(self):
+        mac_notification_port_settings_table_button_locator = (By.CSS_SELECTOR, "#Apply2")
 
-        return self.find_element_then_get_text(MAC_Notification_Port_State_Table_header_locator)
+        return self.find_input_value(mac_notification_port_settings_table_button_locator)
+    
+    def get_mac_notification_port_state_table_header_text(self):
+        mac_notification_port_state_table_header_locator = (By.CSS_SELECTOR, "div:nth-child(4) > fieldset > legend")
+
+        return self.find_element_then_get_text(mac_notification_port_state_table_header_locator)
         
-    def get_MAC_Notification_Port_State_table_title(self):
-        MAC_Notification_Port_State_table_title_locator = (By.CSS_SELECTOR, ".has-gutter")
+    def get_mac_notification_port_state_table_title(self):
+        mac_notification_port_state_table_title_locator = (By.CSS_SELECTOR, ".has-gutter")
         cells_class_name = "cell"
 
-        return self.find_cells_value_within(MAC_Notification_Port_State_table_title_locator, cells_class_name)
+        return self.find_cells_value_within(mac_notification_port_state_table_title_locator, cells_class_name)
     
-    def get_MAC_Notification_Port_State_table_value(self):
-        MAC_Notification_Port_State_table_value_locator = (By.CSS_SELECTOR, ".el-table__row")
+    def get_mac_notification_port_state_table_value(self):
+        mac_notification_port_state_table_value_locator = (By.CSS_SELECTOR, ".el-table__row")
         cells_class_name = "cell"
 
-        return self.find_cells_value_within(MAC_Notification_Port_State_table_value_locator, cells_class_name)
+        return self.find_cells_value_within(mac_notification_port_state_table_value_locator, cells_class_name)
     
     
     

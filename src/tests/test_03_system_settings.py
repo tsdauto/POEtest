@@ -1,12 +1,9 @@
 # tests/test_3_system_settings.py
 
-import time
-import allure
-import sys
 import os
+
+import allure
 import pytest
-from ..utils.all_exist_in_order import all_exist_in_order
-from ..mixins.TestUtils import ValueCheckMixins
 
 
 @allure.title("System Settings.IPInformation")
