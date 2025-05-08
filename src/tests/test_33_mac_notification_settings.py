@@ -2,7 +2,7 @@
 
 import allure
 import pytest
-import asyncio
+
 
 from ..utils.all_exist_in_order import all_exist_in_order
 

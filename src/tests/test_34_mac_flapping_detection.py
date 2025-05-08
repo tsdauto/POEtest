@@ -2,7 +2,7 @@
 
 import allure
 import pytest
-import asyncio
+
 
 from ..utils.all_exist_in_order import all_exist_in_order
 
@@ -39,7 +39,7 @@ class TestMacFlappingDetection:
         expected_val = "Disabled"
 
         assert expected_val == result
-    
+
     def test_default_state_is_disabled(self, mac_flapping_detection_page):
         opt = mac_flapping_detection_page.get_checked_state_option()
         expected_val = "Disabled"
@@ -76,4 +76,3 @@ class TestMacFlappingDetection:
         expected_val = "Apply"
 
         assert expected_val == result
-        

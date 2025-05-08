@@ -2,8 +2,7 @@
 
 import allure
 import pytest
-import asyncio
-import os
+
 from ..utils.all_exist_in_order import all_exist_in_order
 
 
@@ -21,7 +20,7 @@ class TestPPPoECircuitIdInsertionSettings:
         expected_val = "PPPoE Circuit ID Insertion State Settings"
 
         assert expected_val == result
-    
+
     def test_check_pppoe_circuit_id_insertion_state_title(self, pppoe_circuit_id_insertion_settings_page):
         result = pppoe_circuit_id_insertion_settings_page.get_pppoe_circuit_id_insertion_state_title_text()
         expected_val = "PPPoE Circuit ID Insertion State"
@@ -39,7 +38,7 @@ class TestPPPoECircuitIdInsertionSettings:
         expected_val = "Disabled"
 
         assert expected_val == result
-    
+
     def test_default_pppoe_circuit_id_insertion_state_is_disabled(self, pppoe_circuit_id_insertion_settings_page):
         opt = pppoe_circuit_id_insertion_settings_page.get_checked_pppoe_circuit_id_insertion_state_option()
         expected_val = "Disabled"

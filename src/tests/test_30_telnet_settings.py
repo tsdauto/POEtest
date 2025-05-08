@@ -2,8 +2,7 @@
 
 import allure
 import pytest
-import asyncio
-import os
+
 from ..utils.all_exist_in_order import all_exist_in_order
 
 
@@ -39,7 +38,7 @@ class TestTelnetSettings:
         expected_val = "Disabled"
 
         assert expected_val == result
-    
+
     def test_default_telnet_state_is_disabled(self, telnet_settings_page):
         opt = telnet_settings_page.get_checked_telnet_state_option()
         expected_val = "Disabled"

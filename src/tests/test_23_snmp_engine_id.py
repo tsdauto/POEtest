@@ -1,9 +1,9 @@
 # test_23_snmp_engine_id.py
+import os
 
 import allure
 import pytest
-import asyncio
-import os
+
 from ..utils.all_exist_in_order import all_exist_in_order
 
 @allure.title("snmp_engine_id")
