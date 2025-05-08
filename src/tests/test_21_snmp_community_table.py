@@ -80,7 +80,7 @@ class TestSNMPCommunityTable:
         expected_val = ["public", "ReadOnly", "ReadOnly", ""]
 
         assert expected_val == result
- 
+
     def test_check_public_table_button_text(self, snmp_community_table_page):
         result = snmp_community_table_page.get_public_table_button_text()
         expected_val = "Delete"

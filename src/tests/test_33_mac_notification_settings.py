@@ -101,7 +101,7 @@ class TestMacNotificationPortSettings:
 
         assert expected_title == title
         assert expected_val == value
-    
+
     def test_check_MAC_Notification_Port_Settings_Table_button_text(self, mac_notification_settings_page):
         result = mac_notification_settings_page.get_MAC_Notification_Port_Settings_Table_button_text()
         expected_val = "Apply"
