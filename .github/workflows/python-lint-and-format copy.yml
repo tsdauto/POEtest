@@ -32,10 +32,10 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Analysing the code with pylint
         run: |
-          pylint src/pages || true
+          pylint src/tests || true
       - name: Format code with black
         run: |
-          black src/pages
+          black src/tests
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
