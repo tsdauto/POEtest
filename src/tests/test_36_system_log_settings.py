@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("system_log_settings.system_log_global_settings")
 class TestSystemLogGlobalSettings:
 

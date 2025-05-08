@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("twamp_server")
 class TestTwampServer:
 

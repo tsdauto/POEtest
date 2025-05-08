@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("ieee802.3az_eee_settings")
 class TestIEEE8023azEEEsettings:
 

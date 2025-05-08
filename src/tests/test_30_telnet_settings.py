@@ -3,6 +3,7 @@
 import allure
 import pytest
 
+
 @allure.title("Telnet_Settings")
 class TestTelnetSettings:
 

@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("dhcp_auto_configuration")
 class TestDHCPAutoConfiguration:
 

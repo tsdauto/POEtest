@@ -4,7 +4,6 @@ import allure
 import pytest
 
 
-
 @allure.title("dhcp_auto_Image")
 class TestDHCPAutoImage:
 

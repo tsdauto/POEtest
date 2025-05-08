@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("Web_Settings")
 class TestWebSettings:
 

@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("arp_aging_time_settings")
 class TestArpAgingTimeSettings:
 

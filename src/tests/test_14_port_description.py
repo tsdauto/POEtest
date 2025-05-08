@@ -4,7 +4,6 @@ import allure
 import pytest
 
 
-
 @allure.title("port_description")
 class TestPortDescription:
 

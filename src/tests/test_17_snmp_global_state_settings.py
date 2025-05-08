@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("snmp_global_state_settings")
 class TestSNMPGlobalStateSettings:
 

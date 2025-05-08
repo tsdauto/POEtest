@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("time_profile.time_range")
 class TestTimeRange:
 

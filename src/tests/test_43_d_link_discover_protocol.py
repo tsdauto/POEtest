@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("dlink_discover_protocol.ddp_global_settings")
 class TestDDPGlobalSettings:
 

@@ -5,8 +5,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("snmp_engine_id")
 class TestSNMPEngineID:
 

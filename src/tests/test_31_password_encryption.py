@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("Password_Encryption")
 class TestPasswordEncryption:
 

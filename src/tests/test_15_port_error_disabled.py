@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("port_error_disabled")
 class TestPortErrorDisabled:
 

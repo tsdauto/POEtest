@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("mac_address_aging_time")
 class TestMacAddressAgingTime:
 

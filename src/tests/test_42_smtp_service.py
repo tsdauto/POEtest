@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("smtp_service")
 class TestSMTPservice:
 

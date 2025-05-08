@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("snmp_view_table")
 class TestSNMPViewTable:
 

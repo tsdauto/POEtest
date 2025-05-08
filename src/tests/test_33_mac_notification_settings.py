@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("mac_notification_settings.mac_notification_global_settings")
 class TestMacNotificationGlobalSettings:
 

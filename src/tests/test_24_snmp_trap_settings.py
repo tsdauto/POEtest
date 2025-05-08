@@ -4,7 +4,6 @@ import allure
 import pytest
 
 
-
 @allure.title("snmp_trap_settings.trap_settings")
 class TestSNMPTrapSettings:
 

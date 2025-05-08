@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("peripheral_settings.fan_settings")
 class TestFanSettings:
 

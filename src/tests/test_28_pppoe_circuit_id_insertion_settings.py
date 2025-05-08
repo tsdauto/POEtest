@@ -3,6 +3,7 @@
 import allure
 import pytest
 
+
 @pytest.mark.cur
 @allure.title("PPPoE_Circuit_ID_Insertion_Settings.PPPoE_Circuit_ID_Insertion_State_Settings")
 class TestPPPoECircuitIdInsertionSettings:

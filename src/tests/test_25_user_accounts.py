@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("user_accounts")
 class TestUserAccounts:
 

@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("ping_test")
 class TestPingTest:
 

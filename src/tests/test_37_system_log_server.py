@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("system_log_server.add_system_log_server")
 class TestAddSystemLogServer:
 

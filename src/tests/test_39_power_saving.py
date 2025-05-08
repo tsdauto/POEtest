@@ -4,9 +4,6 @@ import allure
 import pytest
 
 
-
-
-
 @allure.title("power_saving.global_settings")
 class TestGlobalSettings:
 

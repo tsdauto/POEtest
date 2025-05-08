@@ -4,8 +4,6 @@ import allure
 import pytest
 
 
-
-
 @allure.title("snmp_user_table")
 class TestSNMPUserTable:
 
