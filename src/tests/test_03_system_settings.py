@@ -27,7 +27,7 @@ class TestIPInformation:
         title, value = system_settings_page.get_interface_name_title_and_value()
 
         assert title == "Interface Name"
-        assert value == "System" 
+        assert value == "System"
 
     def test_check_vlan_name(self, system_settings_page):
         title, value = system_settings_page.get_vlan_name_title_and_value()
