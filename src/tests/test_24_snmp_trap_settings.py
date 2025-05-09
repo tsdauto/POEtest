@@ -7,6 +7,7 @@ import pytest
 
 max_port = int(os.getenv("MAX_PORT"))
 
+
 @allure.title("snmp_trap_settings.trap_settings")
 class TestSNMPTrapSettings:
 

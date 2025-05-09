@@ -7,6 +7,7 @@ import pytest
 
 max_port = int(os.getenv("MAX_PORT"))
 
+
 @allure.title("power_saving.global_settings")
 class TestGlobalSettings:
 
@@ -65,6 +66,7 @@ class TestGlobalSettings:
         expected_val = [str(i) for i in range(1, max_port + 1)]
 
         assert expected_val == result
+
 
 @allure.title("power_saving.advanced_power_saving_settings")
 class TestAdvancedPowerSavingSettings:
