@@ -858,3 +858,34 @@ def dlink_discover_protocol_page(logged_driver, config):
     __page = DLinkDiscoverProtocolPage(logged_driver, config["base_url"])
     yield __page
     print("\n\n tearing down dlink_discover_protocol_page")
+
+# 44
+@pytest.fixture(scope="class")
+def jumbo_frame_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing jumbo_frame_page")
+    from .pages.JumboFramePage import JumboFramePage
+    __page = JumboFramePage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down jumbo_frame_page")
+
+# 45
+@pytest.fixture(scope="class")
+def vlan_802_1q_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing vlan_802_1q_page")
+    from .pages.Vlan802_1qPage import Vlan802_1qPage
+    __page = Vlan802_1qPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down vlan_802_1q_page")
+

@@ -38,9 +38,9 @@ class SystemLogSettingsPage(BasePage):
         SYSTEM_LOG_GLOBAL_SETTINGS_TIER2_HEADER_LOCATOR = (By.CSS_SELECTOR, "div:nth-child(2) > fieldset > legend")
         return self.find_element_then_get_text(SYSTEM_LOG_GLOBAL_SETTINGS_TIER2_HEADER_LOCATOR)
 
-    def get_system_log_global_settings_title_text(self):
-        SYSTEM_LOG_GLOBAL_SETTINGS_TITLE_LOCATOR = (By.CSS_SELECTOR, "div:nth-child(2) > fieldset > table > tr > td > span")
-        return self.find_element_then_get_text(SYSTEM_LOG_GLOBAL_SETTINGS_TITLE_LOCATOR)
+    def get_system_log_title_text(self):
+        SYSTEM_LOG_TITLE_LOCATOR = (By.CSS_SELECTOR, "div:nth-child(2) > fieldset > table > tr > td > span")
+        return self.find_element_then_get_text(SYSTEM_LOG_TITLE_LOCATOR)
 
     def get_system_log_global_settings_option_one_text(self):
         SYSTEM_LOG_GLOBAL_SETTINGS_OPTION_ONE_LOCATOR = (By.CSS_SELECTOR, "div:nth-child(2) > fieldset > table > tr > td:nth-child(2) > div > span > label")

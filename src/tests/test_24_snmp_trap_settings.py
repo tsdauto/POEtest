@@ -1,8 +1,11 @@
 # test_24_snmp_trap_settings.py
+import os
 
 import allure
 import pytest
 
+
+max_port = int(os.getenv("MAX_PORT"))
 
 @allure.title("snmp_trap_settings.trap_settings")
 class TestSNMPTrapSettings:
@@ -207,13 +210,13 @@ class TestSnmpLinkChangeTrapPort:
 
     def test_check_linkchange_port_num_title(self, snmp_trap_settings_page):
         result = snmp_trap_settings_page.get_linkchange_port_num_title()
-        expected_val = [str(i) for i in range(1, 53)]
+        expected_val = [str(i) for i in range(1, max_port + 1)]
 
         assert expected_val == result
 
     def test_check_linkchange_port_default_status(self, snmp_trap_settings_page):
         result = snmp_trap_settings_page.get_linkchange_port_default_status()
-        expected_val = [str(i) for i in range(1, 53)]
+        expected_val = [str(i) for i in range(1, max_port + 1)]
 
         assert expected_val == result
 
@@ -247,12 +250,12 @@ class TestSnmpSendingTrapPort:
 
     def test_check_sending_trap_port_num_title(self, snmp_trap_settings_page):
         result = snmp_trap_settings_page.get_snmp_sending_trap_port_num_title()
-        expected_val = [str(i) for i in range(1, 53)]
+        expected_val = [str(i) for i in range(1, max_port + 1)]
 
         assert expected_val == result
 
     def test_check_sending_trap_port_default_status(self, snmp_trap_settings_page):
         result = snmp_trap_settings_page.get_snmp_sending_trap_port_default_status()
-        expected_val = [str(i) for i in range(1, 53)]
+        expected_val = [str(i) for i in range(1, max_port + 1)]
 
         assert expected_val == result

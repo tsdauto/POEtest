@@ -19,6 +19,12 @@ class TestSystemLogGlobalSettings:
 
         assert expected_val == result
 
+    def test_check_system_log_title_text(self, system_log_settings_page):
+        result = system_log_settings_page.get_system_log_title_text()
+        expected_val = "System Log"
+
+        assert expected_val == result
+
     def test_check_system_log_global_settings_option_one_text(self, system_log_settings_page):
         result = system_log_settings_page.get_system_log_global_settings_option_one_text()
         expected_val = "Enabled"

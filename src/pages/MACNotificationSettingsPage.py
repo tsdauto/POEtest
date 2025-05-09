@@ -24,7 +24,7 @@ class MACNotificationSettingsPage(BasePage):
         system_menu_locator = (
             By.CSS_SELECTOR,
             ".menu-wrapper:nth-child(2) > .el-submenuTitle > .el-submenu__title > .el-submenu__icon-arrow")
-        MAC_NOTIFICATION_SETTINGS_menu_locator = (By.CSS_SELECTOR, ".is-opened > .el-menu > .menu-wrapper:nth-child(20) span")
+        MAC_NOTIFICATION_SETTINGS_menu_locator = (By.CSS_SELECTOR, "div:nth-child(2) > li > ul > div:nth-child(20) > a > li > span")
 
         self.find_element_if_present(system_menu_locator).click()
         self.find_element_if_present(MAC_NOTIFICATION_SETTINGS_menu_locator).click()

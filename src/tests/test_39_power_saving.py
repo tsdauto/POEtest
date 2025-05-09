@@ -1,8 +1,11 @@
 # test_39_power_saving.py
+import os
 
 import allure
 import pytest
 
+
+max_port = int(os.getenv("MAX_PORT"))
 
 @allure.title("power_saving.global_settings")
 class TestGlobalSettings:
@@ -59,10 +62,9 @@ class TestGlobalSettings:
 
     def test_check_advanced_power_saving_settings_port_num_title(self, power_saving_page):
         result = power_saving_page.get_advanced_power_saving_settings_port_num_title()
-        expected_val = [str(i) for i in range(1, 53)]
+        expected_val = [str(i) for i in range(1, max_port + 1)]
 
         assert expected_val == result
-
 
 @allure.title("power_saving.advanced_power_saving_settings")
 class TestAdvancedPowerSavingSettings:
@@ -125,7 +127,7 @@ class TestAdvancedPowerSavingSettings:
 
     def test_check_advanced_power_saving_settings_port_num_title(self, power_saving_page):
         result = power_saving_page.get_advanced_power_saving_settings_port_num_title()
-        expected_val = [str(i) for i in range(1, 53)]
+        expected_val = [str(i) for i in range(1, max_port + 1)]
 
         assert expected_val == result
 
