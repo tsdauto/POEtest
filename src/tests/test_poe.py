@@ -2,7 +2,9 @@
 
 import allure
 import pytest
-#@pytest.mark.repeat(50)
+
+
+# @pytest.mark.repeat(50)
 @allure.title("poe")
 class TestPoe:
 
@@ -11,7 +13,8 @@ class TestPoe:
         from ..command.usecases.Poe import run as run2
         from ..command.usecases.PE6108A import run as run3
         from ..command.usecases.RT_PoE5 import run2 as run4
-        #run3(telnet_env)
+
+        # run3(telnet_env)
         result1 = run(serial_env)
         result2 = run2(serial_env)
         allure.attach(result1, name="測試結果1", attachment_type=allure.attachment_type.TEXT)
@@ -19,7 +22,7 @@ class TestPoe:
         used_w = float(result2.split()[-1])
         assert "2W" in result1
         assert 2.0 <= used_w <= 2.1
-        #result3 = run4(serial_env)
+        # result3 = run4(serial_env)
 
     def test_web_poe_status_Used(self, poe_status_page):
         result = poe_status_page.get_poe_status_Used_text()
