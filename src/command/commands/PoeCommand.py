@@ -26,6 +26,7 @@ class PoeCommand(Command):
             self.__crtEnv.sleep(1)
             self.__crtEnv.waitForString('#', 200)
             self.__crtEnv.send('exit\n')
+            
             output = ''.join(list(self.__crtEnv.buffer))
             for line in output.splitlines():
                 if "eth1/0/1" in line:
