@@ -10,6 +10,8 @@ from selenium.webdriver.edge.options import Options
 
 import pytest
 
+from config1 import COM_PORT
+
 
 @pytest.fixture(scope="session")
 def config():
@@ -162,19 +164,26 @@ def pytest_runtest_setup(item):
 def serial_env():
     """ Serial Port Environment """
     from .command.serial_env import SerialEnv
-    com_port = os.getenv("COM_PORT", "COM3")
-    baud_rate = int(os.getenv("BAUD_RATE", "115200"))
-    
-    print("\n\n initializing serial env")
-    
-    serial_env = SerialEnv.SerialEnv(baudrate=baud_rate, port=com_port, use_mock=False)
-    
+    baud_rate = 115200
+    print(f"\n\n initializing serial env on {COM_PORT}")
+    serial_env = SerialEnv.SerialEnv(baudrate=baud_rate, port=COM_PORT, use_mock=False)
     yield serial_env
-    
     if serial_env.running:
         serial_env.close()
-    
     print("\n\n tearing down serial env")
+
+
+@pytest.fixture(scope="session")
+def telnet_env():
+    """ Telnet Environment """
+    from .command.serial_env.TelnetEnv import TelnetEnv
+    host = "192.168.11.164"
+    port = 23
+    print(f"\n\n initializing telnet env on {host}:{port}")
+    telnet_env = TelnetEnv(host, port=port)
+    yield telnet_env
+    telnet_env.close()
+    print("\n\n tearing down telnet env")
 
 
 @pytest.fixture(scope="session")
@@ -889,3 +898,17 @@ def vlan_802_1q_page(logged_driver, config):
     yield __page
     print("\n\n tearing down vlan_802_1q_page")
 
+# 46
+@pytest.fixture(scope="class")
+def poe_status_page(logged_driver, config):
+    """
+    receive logged_in driver
+    :param logged_driver:
+    :param config:
+    :return:
+    """
+    print("\n\n initializing poe_status_page")
+    from .pages.PoEStatusPage import PoEStatusPage
+    __page = PoEStatusPage(logged_driver, config["base_url"])
+    yield __page
+    print("\n\n tearing down poe_status_page")

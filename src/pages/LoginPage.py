@@ -11,8 +11,10 @@ class LoginPage(BasePage):
     PASSWORD_INPUT = (By.ID, "Password")
     LOGIN_BUTTON = (By.ID, "Login")
     USERINFO_SPAN = (By.CLASS_NAME, "userInfo")
+    LANGUAGE_SELECT = (By.XPATH, "/html/body/div/div/div/div[3]/table/tr[3]/td[2]/div/select/option[1]")
     MAIN_FRAME_ID = "iframemain"
     LOGIN_STATUS = False
+    EXIT_IP = (By.XPATH, "/html/body/div[1]/div/div/div/div[2]/div[3]/div[3]/div[2]/div[2]/input[1]")
 
     @classmethod
     def set_login_status(cls, status):
@@ -58,6 +60,25 @@ class LoginPage(BasePage):
         except Exception as e:
             raise RuntimeError(f"Failed to switch to main frame: {e}")
 
+    def uniframe(self):
+        """
+        離開所有 iframe，回到主頁面
+        """
+        try:
+            self.driver.switch_to.default_content()
+            print("已離開所有 iframe，回到主頁面")
+            return True
+        except Exception as e:
+            raise RuntimeError(f"Failed to switch to main uniframe: {e}")
+
+    def language_select(self):
+        try:
+            self.click_element(self.LANGUAGE_SELECT)
+            print("Language button clicked")
+            return True
+        except Exception as e:
+            raise RuntimeError(f"Failed to switch to language frame: {e}")
+
     def login(self, username, password):
         """
         執行登錄操作
@@ -73,6 +94,18 @@ class LoginPage(BasePage):
             return True
         except Exception as e:
             raise RuntimeError(f"Failed to login: {e}")
+
+    def exitIP(self):
+        """
+        執行離開ip設定操作
+        :return: 離開ip設定成功返回 True
+        """
+        try:
+            self.click_element(self.EXIT_IP)
+            print("Exit IP button clicked")
+            return True
+        except Exception as e:
+            raise RuntimeError(f"Failed to exit IP: {e}")
 
     def is_login_successful(self):
         """
@@ -117,8 +150,16 @@ class LoginPage(BasePage):
 
             self.open()
             self.switch_to_main_frame()
+            self.language_select()
+            self.uniframe()
+            self.switch_to_main_frame()
+            time.sleep(2.5)
             self.login(username, password)
             time.sleep(2.5) # force to wait iframe loading
+            self.uniframe()
+            self.switch_to_main_frame()
+            self.exitIP()
+            time.sleep(2.5)
             # 加入短暫等待，確認登入是否成功
             try:
                 WebDriverWait(self.driver, timeout).until(lambda d: self.is_login_successful())
