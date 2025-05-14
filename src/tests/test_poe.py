@@ -14,7 +14,7 @@ class TestPoe:
         from ..command.usecases.PE6108A import run as run3
         from ..command.usecases.RT_PoE5 import run2 as run4
 
-        # run3(telnet_env)
+        run3(telnet_env)
         result1 = run(serial_env)
         result2 = run2(serial_env)
         allure.attach(result1, name="測試結果1", attachment_type=allure.attachment_type.TEXT)
