@@ -6,14 +6,14 @@ import os
 load_dotenv('Settings.env')
 
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.edge.options import Options
 
 import pytest
 
 from config1 import COM_PORT
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def config():
     """Global test configuration"""
     return {
@@ -173,7 +173,7 @@ def serial_env():
     print("\n\n tearing down serial env")
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def telnet_env():
     """ Telnet Environment """
     from .command.serial_env.TelnetEnv import TelnetEnv
