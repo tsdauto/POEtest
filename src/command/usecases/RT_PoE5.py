@@ -5,7 +5,7 @@ def run(crt_env):
     try:
         poe_command = RT_PoE5Command(
             crt_env,
-            'pwr 5\r', 'getp\r'
+            'pwr 5\r'
         )
 
         test_invoker = TestInvoker()
@@ -17,16 +17,16 @@ def run(crt_env):
         for line in output.splitlines():
             if ":p1 2W" in line:
                 return line
-        return None
+        return True
 
     except Exception as e:
-        return None
+        return False
 
 def run2(crt_env):
     try:
         poe_command = RT_PoE5Command(
             crt_env,
-            'pwr 0\r', 'getp\r'
+            'getp\r'
         )
 
         test_invoker = TestInvoker()
@@ -38,7 +38,23 @@ def run2(crt_env):
         for line in output.splitlines():
             if ":p1 2W" in line:
                 return line
-        return None
+        return True
+
+    except Exception as e:
+        return False
+
+def run3(crt_env):
+    try:
+        poe_command = RT_PoE5Command(
+            crt_env,
+            'pwr 0\r'
+        )
+
+        test_invoker = TestInvoker()
+        test_invoker.addCommand(poe_command)
+        test_invoker.run()
+
+        return True
 
     except Exception as e:
         return False

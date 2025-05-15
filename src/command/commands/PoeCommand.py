@@ -22,7 +22,7 @@ class PoeCommand(Command):
             self.__crtEnv.waitForString(['assword:', '#'], 200)
             self.__crtEnv.sleep(1)
             self.__crtEnv.send(self.__password)
-            self.__crtEnv.sleep(10)
+            self.__crtEnv.sleep(7)
             self.__crtEnv.send(self.__command)
             self.__crtEnv.sleep(1)
             self.__crtEnv.waitForString('#', 200)
