@@ -142,10 +142,10 @@ class LoginPage(BasePage):
         while count <= max_retry:
             print('Trying to Login')
 
-            if self.get_login_status():
+            """if self.get_login_status():
                 self.open()
                 self.switch_to_main_frame()
-                return  # 已登入，結束
+                return  # 已登入，結束"""
             WebDriverWait(self.driver, timeout).until(lambda d: d.execute_script("return document.readyState") == "complete")
 
             self.open()

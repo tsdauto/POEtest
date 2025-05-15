@@ -3,7 +3,7 @@ from .Command import Command
 from typing import Optional
 
 class PoeCommand(Command):
-    def __init__(self, crtEnv, username: str = "admin", password: str = "admin", command: str = "", port: str = "COM4"):
+    def __init__(self, crtEnv, username: str = "admin", password: str = "admin", command: str = "", port: str = "COM9"):
         self.__crtEnv = crtEnv
         self.__username = username
         self.__password = password
@@ -13,6 +13,7 @@ class PoeCommand(Command):
     def execute(self) -> Optional[str]:
         try:
             self.__crtEnv.switch_port(self.__port)
+            self.__crtEnv.sleep(1)
             self.__crtEnv.send('\n')
             self.__crtEnv.waitForString(['login...', 'ame:', '#'], 200)
             self.__crtEnv.send('\n')
@@ -22,6 +23,7 @@ class PoeCommand(Command):
             self.__crtEnv.waitForString(['assword:', '#'], 200)
             self.__crtEnv.sleep(1)
             self.__crtEnv.send(self.__password)
+            self.__crtEnv.sleep(1)
             self.__crtEnv.send(self.__command)
             self.__crtEnv.sleep(1)
             self.__crtEnv.waitForString('#', 200)

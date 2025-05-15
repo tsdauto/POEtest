@@ -6,14 +6,14 @@ import os
 load_dotenv('Settings.env')
 
 from selenium import webdriver
-from selenium.webdriver.edge.options import Options
+from selenium.webdriver.chrome.options import Options
 
 import pytest
 
 from config1 import COM_PORT
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def config():
     """Global test configuration"""
     return {
@@ -177,7 +177,7 @@ def serial_env():
 def telnet_env():
     """ Telnet Environment """
     from .command.serial_env.TelnetEnv import TelnetEnv
-    host = "192.168.11.164"
+    host = "192.168.0.60"
     port = 23
     print(f"\n\n initializing telnet env on {host}:{port}")
     telnet_env = TelnetEnv(host, port=port)
@@ -186,7 +186,7 @@ def telnet_env():
     print("\n\n tearing down telnet env")
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture(scope="function")
 def driver(config):
     """ WebDriver fixture for test """
 
@@ -215,7 +215,7 @@ def driver(config):
     driver.quit()
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="session")
 def login_page(driver, config):
     """Login page fixture"""
     print("\n\n initializing login page")
@@ -227,7 +227,7 @@ def login_page(driver, config):
     print("\n\n tearing down login page")
 
 
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="function")
 def logged_driver(driver, config, request):
     from .pages.LoginPage import LoginPage
     print("\n\n initializing logged_driver")
@@ -899,7 +899,7 @@ def vlan_802_1q_page(logged_driver, config):
     print("\n\n tearing down vlan_802_1q_page")
 
 # 46
-@pytest.fixture(scope="class")
+@pytest.fixture(scope="function")
 def poe_status_page(logged_driver, config):
     """
     receive logged_in driver

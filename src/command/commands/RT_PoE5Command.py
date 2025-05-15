@@ -2,7 +2,7 @@ from .Command import Command
 from typing import Optional
 
 class RT_PoE5Command(Command):
-    def __init__(self, crtEnv, command: str, command2: str, port: str = "COM3"):
+    def __init__(self, crtEnv, command: str, command2: str, port: str = "COM10"):
         self.__crtEnv = crtEnv
         self.__command = command
         self.__command2 = command2
