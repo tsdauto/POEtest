@@ -12,7 +12,7 @@ def test_poe_all(request, serial_env, telnet_env):
     from ..command.usecases.Poe import run as run2
     from ..command.usecases.PE6108A import run as run3
 
-    #run3(telnet_env)
+    # run3(telnet_env)
     result2 = run2(serial_env)
     result1 = run(serial_env)
     allure.attach(result1, name=f"測試結果1", attachment_type=allure.attachment_type.TEXT)
