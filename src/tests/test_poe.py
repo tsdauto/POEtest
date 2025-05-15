@@ -11,11 +11,12 @@ def test_poe_all(request, serial_env, telnet_env):
     from ..command.usecases.RT_PoE5 import run
     from ..command.usecases.Poe import run as run2
     from ..command.usecases.PE6108A import run as run3
-    #重開DUT
-    #run3(telnet_env)
-    #讀取DUT CLI poe Used(W)
+
+    # 重開DUT
+    # run3(telnet_env)
+    # 讀取DUT CLI poe Used(W)
     result2 = run2(serial_env)
-    #開啟RT_PoE5
+    # 開啟RT_PoE5
     result1 = run(serial_env)
     allure.attach(result1, name=f"吃電測試結果1", attachment_type=allure.attachment_type.TEXT)
     allure.attach(result2, name=f"供電測試結果2", attachment_type=allure.attachment_type.TEXT)
