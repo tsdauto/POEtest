@@ -6,5 +6,4 @@ def run(telnet_env):
         result = PE6108A_cmd.execute()
         return result
     except Exception as e:
-        print("發生錯誤：", e)
         return False

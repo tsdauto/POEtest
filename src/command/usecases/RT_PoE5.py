@@ -16,7 +16,6 @@ def run(crt_env):
         output = ''.join(list(crt_env.buffer))
         for line in output.splitlines():
             if ":p1 2W" in line:
-                print("抓到的整行：", line)
                 return line
         return None
 
@@ -38,9 +37,8 @@ def run2(crt_env):
         output = ''.join(list(crt_env.buffer))
         for line in output.splitlines():
             if ":p1 2W" in line:
-                print("抓到的整行：", line)
                 return line
         return None
 
     except Exception as e:
-        return None
+        return False

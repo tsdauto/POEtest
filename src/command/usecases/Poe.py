@@ -16,11 +16,15 @@ def run(crt_env):
 
         # 取得最近的 console 輸出
         output = ''.join(list(crt_env.buffer))
+        lines = []
         for line in output.splitlines():
             if "eth1/0/1" in line:
-                print("抓到的整行：", line)
-                return line
+                lines.append(line)
+        if lines:
+            header = "Interface   State          Class     Max(W)    Used(W)   Description\n" \
+                     "------------------------------------------------------------------------------------------\n"
+            return header + "\n".join(lines)
         return None
 
     except Exception as e:
-        return None
+        return False

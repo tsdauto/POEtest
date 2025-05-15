@@ -9,7 +9,6 @@ class RT_PoE5Command(Command):
         self.__port = port
 
     def execute(self) -> Optional[str]:
-        try:
             self.__crtEnv.switch_port(self.__port)
             self.__crtEnv.send('\r')
             self.__crtEnv.waitForString('RT-PoE5>', 200)
@@ -20,12 +19,3 @@ class RT_PoE5Command(Command):
             self.__crtEnv.send(self.__command2)
             self.__crtEnv.sleep(2)
             self.__crtEnv.waitForString('RT-PoE5>', 200)
-
-            output = ''.join(list(self.__crtEnv.buffer))
-            for line in output.splitlines():
-                if ":p1 2W" in line:
-                    return line
-            return None
-        except Exception as e:
-            print(f"[RT_PoE5Command] 執行失敗: {e}")
-            return None

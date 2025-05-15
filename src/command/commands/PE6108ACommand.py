@@ -9,7 +9,6 @@ class PE6108ACommand:
         self.command = command
 
     def execute(self) -> Optional[str]:
-        try:
             tn = self.telnet_env
             tn.read_until(b'Login:')
             tn.send(self.username)
@@ -19,7 +18,3 @@ class PE6108ACommand:
             tn.send(self.command)
             result = tn.read_until(b'>')
             tn.close()
-            return result.decode() if isinstance(result, bytes) else str(result)
-        except Exception as e:
-            print(f"[PE6108ACommand] 執行失敗: {e}")
-            return None

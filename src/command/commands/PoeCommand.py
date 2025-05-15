@@ -11,7 +11,6 @@ class PoeCommand(Command):
         self.__port = port
 
     def execute(self) -> Optional[str]:
-        try:
             self.__crtEnv.switch_port(self.__port)
             self.__crtEnv.sleep(2)
             self.__crtEnv.send('\n')
@@ -29,11 +28,3 @@ class PoeCommand(Command):
             self.__crtEnv.waitForString('#', 200)
             self.__crtEnv.send('exit\n')
             
-            output = ''.join(list(self.__crtEnv.buffer))
-            for line in output.splitlines():
-                if "eth1/0/1" in line:
-                    return line
-            return None
-        except Exception as e:
-            print(f"[PoeCommand] 執行失敗: {e}")
-            return None
