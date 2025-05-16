@@ -36,7 +36,7 @@ if not exist "!REPORT_DIR!" mkdir "!REPORT_DIR!"
 
 :: Step 5: Run tests
 echo 🧪 Running tests...
-poetry run pytest --alluredir=allure-results .
+poetry run pytest -x --alluredir=allure-results .
 
 :: Step 6: Generate single-file HTML report
 echo 📄 Generating single-file Allure report...
